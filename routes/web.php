@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home.index');
-});
+Route::get('/',[FrontController::class,'home'])->name('home.index');
+Route::get('/categoria/{category}',[FrontController::class,'categoryShow'])->name('category.show');
 
+
+Route::get('/nuovo/annuncio',[AnnouncementController::class ,'create'])->middleware('auth')->name('announcements.create');
 

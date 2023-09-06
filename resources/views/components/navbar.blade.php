@@ -9,9 +9,16 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Categorie
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
+          @foreach ($categories as $category)
+            <li><a class="dropdown-item" href="{{route('categoryShow', compact('category')}}">{{$category->name}}</a></li>
+          @endforeach
+          </ul>
+
         @if (!auth()->check())  
         <li class="nav-item">
           <a class="nav-link" href="/login">Accedi</a>
@@ -22,7 +29,7 @@
         @else
             <form action="/logout" method="post">
             @csrf
-            <input type="submit" value="Logout">
+            <input type="submit btn btn-primary" value="Logout">
           </form>
         @endif
       </ul>

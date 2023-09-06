@@ -21,5 +21,28 @@
    @endif
 
 
+   <div class="container">
+    <div class="row">
+        <div class="col-12 mb-5">
+            <h3 class="text-center fw-bold">Annunci Recenti</h3>
+        </div>
+        @foreach ($announcements as announcement)
+        <div class="col-12 col-lg-4">
+            <div class="card shadow-lg">
+            <img src="http://picsum.photos/200" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{$announcement->title}}</h5>
+                <p class="card-text">{{$announcement->description}}</p>
+                <p class="card-text">{{$announcement->price}}</p>
+                <a href="#" class="btn btn-primary">Visualizza</a>
+                <a href="{{route('categoryShow', compact('category')}}" class="card-link btn btn-success shadow">Categoria: {{$announcement->category-name}}</a>
+                <p class="card-footer">Pubblicato il: {{$announcement->created_at-format('d/m/Y')}}</p>
+            </div>
+        </div>
+        </div>
+        @endforeach
+    </div>
+   </div>
+
 
 </x-layout>
