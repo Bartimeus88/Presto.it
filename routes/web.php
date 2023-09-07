@@ -22,3 +22,7 @@ Route::get('/categoria/{category}',[FrontController::class,'categoryShow'])->nam
 Route::get('/nuovo/annuncio',[AnnouncementController::class,'createAnnouncement'])
 ->middleware('auth')
 ->name('announcements.create');
+
+Route::get('/dettaglio/annuncio/{announcement}',[AnnouncementController::class,'showAnnouncement'])->name('announcements.show');
+
+Route::get('/tutti/annunci',[AnnouncementController::class,'indexAnnouncement'])->name('announcements.index');

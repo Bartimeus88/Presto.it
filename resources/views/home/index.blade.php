@@ -27,14 +27,14 @@
         </div>
         @foreach ($announcements as $announcement)
         <div class="col-12 col-lg-4">
-            <div class="card shadow-lg">
+            <div class="card shadow-lg my-4">
             <img src="http://picsum.photos/200" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">{{$announcement->title}}</h5>
-                <p class="card-text">{{$announcement->description}}</p>
-                <p class="card-text">{{$announcement->price}}</p>
-                <a href="#" class="btn btn-primary">Visualizza</a>
-                <a href="#" class="card-link btn btn-success shadow">Categoria:</a>
+                <h5 class="card-title">Titolo : {{$announcement->title}}</h5>
+                <p class="card-text">Descrizione : {{$announcement->description}}</p>
+                <p class="card-text mb-2">Prezzo : {{$announcement->price}} €</p>
+                <a href="{{route('announcements.show',$announcement->id)}}" class="btn btn-primary">Visualizza</a>
+                <a href="{{route('categoryShow',['category'=>$announcement->category])}}" class="mb-2 card-link btn btn-success shadow">Categoria: {{$announcement->category->name}}</a>
                 <p class="card-footer">Pubblicato il: {{$announcement->created_at->format('d/m/Y')}}</p>
             </div>
         </div>
