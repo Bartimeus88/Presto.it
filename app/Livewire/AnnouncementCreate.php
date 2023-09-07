@@ -17,7 +17,7 @@ class AnnouncementCreate extends Component
         $validated = $this->validate([
 
             'title' => 'required|min:4',
-            'description'=> 'required|min:4',
+            'description'=> 'required|min:8',
             'price'=>'required|numeric',
             'category'=>'required'
 

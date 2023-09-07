@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        $categories = ['Motori','Informatica','Elettrodomestici','libri','Giochi','Sport','Accessori per animali','Telefoni','Arredamento'];
+        $categories = ['Motori','Informatica','Elettrodomestici','libri','Giochi','Sport','Accessori per animali','Telefoni','Arredamento','Immobili'];
 
         foreach ($categories as $category) {
             Category::create(['name'=>$category]);
