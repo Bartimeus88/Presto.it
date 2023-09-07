@@ -1,6 +1,6 @@
 <x-layout>
 <x-navbar/>
 
-    <livewire:create-announcements/>
+@livewire('announcement-create')
 
 </x-layout>

@@ -15,10 +15,9 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
           @foreach ($categories as $category)
-            <li><a class="dropdown-item" href="{{route('categoryShow', compact('category')}}">{{$category->name}}</a></li>
+            <li><a class="dropdown-item" href="{{route('categoryShow',compact('category'))}}">{{$category->name}}</a></li>
           @endforeach
           </ul>
-
         @if (!auth()->check())  
         <li class="nav-item">
           <a class="nav-link" href="/login">Accedi</a>
@@ -27,10 +26,12 @@
           <a class="nav-link" href="/register">Registrati</a>
         </li>
         @else
+        <li class="nav-item">
             <form action="/logout" method="post">
             @csrf
-            <input type="submit btn btn-primary" value="Logout">
+            <input type="submit" value="Logout">
           </form>
+          </li>
         @endif
       </ul>
     </div>

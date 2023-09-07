@@ -2,23 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Announcement extends Model
 {
     use HasFactory;
 
-    public function categories () {
+    protected $fillable = ['title','description','price','category_id'];
 
-        return $this->belongsToMany(Category::class);
-
+    public function category () {
+        return $this->belongsTo(Category::class);
     }
 
     public function user () {
-
-        return $this->belongsToMany(User::class);
-
+        return $this->belongsTo(User::class);
     }
-    
+
 }
