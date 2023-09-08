@@ -5,9 +5,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-12">
-                    <h2 class="text-white text-center">Register</h2>
+                    <h2 class="text-white text-center">Registrati</h2>
                 </div>
-
             </div>
         </div>
     </header>
@@ -17,7 +16,7 @@
         <div class="container content-center">
             <div class="row">
                 <div class="col-lg-12 col-12">
-                    <h3 class="mb-4 pb-2">Don't be shy!</h3>
+                    <h3 class="mb-4 pb-2">Non essere timido!</h3>
                 </div>
 
                 <div class="col-lg-6 col-12">
@@ -29,7 +28,7 @@
                                     <input type="text" name="name" id="name" class="form-control"
                                         placeholder="Name">
 
-                                    <label class="form-label" for="name">Name</label>
+                                    <label class="form-label" for="name">Nome e cognome</label>
                                 </div>
                             </div>
 
@@ -70,7 +69,7 @@
                                     <input type="password" name="password_confirmation" id="password_confirmation"
                                         class="form-control" placeholder="Name">
 
-                                    <label class="form-label" for="password_confirmation">confirm password</label>
+                                    <label class="form-label" for="password_confirmation">conferma password</label>
                                 </div>
                             </div>
 

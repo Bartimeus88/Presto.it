@@ -28,14 +28,8 @@ class AnnouncementCreate extends Component
     
     public function store() {
 
-        // $validated = $this->validate([
+       $this->validate();
 
-        //     'title' => 'required|min:4',
-        //     'description'=> 'required|min:8',
-        //     'price'=>'required|numeric',
-        //     'category'=>'required'
-
-        // ]);
 
         $category = Category::find($this->category);
         $announcement = $category->announcements()->create([

@@ -13,7 +13,7 @@
                 <div class="col-lg-8 col-12 mx-auto">
                     <h1 class="text-white text-center">Presto.it</h1>
 
-                    <h6 class="text-center">platform for creatives around the world</h6>
+                    <h6 class="text-center"></h6>
 
                     <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5 d-none" role="search">
                         <div class="input-group input-group-lg">
@@ -59,7 +59,7 @@
                 <div class="row">
 
                     <div class="col-12 text-center">
-                        <h2 class="mb-4">Last announcements</h1>
+                        <h2 class="mb-4">Ultimi annunci</h1>
                     </div>
 
                 </div>
@@ -87,12 +87,12 @@
 
 
     {{-- categories --}}
-    <section class="explore-section section-padding" id="section_2">
+    {{-- <section class="explore-section section-padding" id="section_2">
         <div class="container">
             <div class="row">
 
                 <div class="col-12 text-center">
-                    <h2 class="mb-4">Categories</h1>
+                    <h2 class="mb-4">Categorie</h1>
                 </div>
 
             </div>
@@ -110,7 +110,7 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="marketing-tab" data-bs-toggle="tab"
                             data-bs-target="#marketing-tab-pane" type="button" role="tab"
-                            aria-controls="marketing-tab-pane" aria-selected="false">Informtica</button>
+                            aria-controls="marketing-tab-pane" aria-selected="false">Informatica</button>
                     </li>
 
                     <li class="nav-item" role="presentation">
@@ -122,13 +122,13 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="music-tab" data-bs-toggle="tab" data-bs-target="#music-tab-pane"
                             type="button" role="tab" aria-controls="music-tab-pane"
-                            aria-selected="false">Music</button>
+                            aria-selected="false">Libri</button>
                     </li>
 
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="education-tab" data-bs-toggle="tab"
                             data-bs-target="#education-tab-pane" type="button" role="tab"
-                            aria-controls="education-tab-pane" aria-selected="false">Education</button>
+                            aria-controls="education-tab-pane" aria-selected="false">Giochi</button>
                     </li>
                 </ul>
             </div>
@@ -147,9 +147,9 @@
                                         <a href="topics-detail.html">
                                             <div class="d-flex">
                                                 <div>
-                                                    <h5 class="mb-2">Web Design</h5>
+                                                    <h5 class="mb-2">Ruote</h5>
 
-                                                    <p class="mb-0">Topic Listing Template based on Bootstrap 5</p>
+                                                    <p class="mb-0"></p>
                                                 </div>
 
                                                 <span class="badge bg-design rounded-pill ms-auto">14</span>
@@ -168,7 +168,7 @@
                                                 <div>
                                                     <h5 class="mb-2">Graphic</h5>
 
-                                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                    <p class="mb-0"></p>
                                                 </div>
 
                                                 <span class="badge bg-design rounded-pill ms-auto">75</span>
@@ -187,7 +187,7 @@
                                                 <div>
                                                     <h5 class="mb-2">Logo Design</h5>
 
-                                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                    <p class="mb-0"></p>
                                                 </div>
 
                                                 <span class="badge bg-design rounded-pill ms-auto">100</span>
@@ -211,7 +211,7 @@
                                                 <div>
                                                     <h5 class="mb-2">Advertising</h5>
 
-                                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                    <p class="mb-0"></p>
                                                 </div>
 
                                                 <span class="badge bg-advertising rounded-pill ms-auto">30</span>
@@ -230,7 +230,7 @@
                                                 <div>
                                                     <h5 class="mb-2">Video Content</h5>
 
-                                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                    <p class="mb-0"></p>
                                                 </div>
 
                                                 <span class="badge bg-advertising rounded-pill ms-auto">65</span>
@@ -249,7 +249,7 @@
                                                 <div>
                                                     <h5 class="mb-2">Viral Tweet</h5>
 
-                                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                    <p class="mb-0"></p>
                                                 </div>
 
                                                 <span class="badge bg-advertising rounded-pill ms-auto">50</span>
@@ -273,7 +273,7 @@
                                                 <div>
                                                     <h5 class="mb-2">Investment</h5>
 
-                                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                    <p class="mb-0"></p>
                                                 </div>
 
                                                 <span class="badge bg-finance rounded-pill ms-auto">30</span>
@@ -295,9 +295,7 @@
                                                 <div>
                                                     <h5 class="text-white mb-2">Finance</h5>
 
-                                                    <p class="text-white">Lorem ipsum dolor, sit amet consectetur
-                                                        adipisicing elit. Sint animi necessitatibus aperiam repudiandae
-                                                        nam omnis</p>
+                                                    <p class="text-white"></p>
 
                                                     <a href="topics-detail.html"
                                                         class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
@@ -441,8 +439,8 @@
 
                 </div>
             </div>
-    </section>
+    </section> --}}
 
     <x-footer/>
-    
+
 </x-layout>

@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card col-12">
-                    <div class="card-body"> 
+                    <div class="card-body">
                         <div id="carouselExample" class="carousel slide mb-3">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
@@ -47,4 +47,24 @@
             </div>
         </div>
     </div>
+
+    {{-- <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+        <div class="custom-block bg-white shadow-lg">
+            <a href="topics-detail.html">
+                <div class="d-flex">
+                    <div>
+                        <h5 class="mb-2">Annuncio {{$announcement->title}}</h5>
+
+                        <p class="mb-0"></p>
+                    </div>
+
+                    <span class="badge bg-design rounded-pill ms-auto">14</span>
+                </div>
+
+                <img src="images/topics/undraw_Remote_design_team_re_urdx.png"
+                    class="custom-block-image img-fluid" alt="">
+            </a>
+        </div>
+    </div> --}}
+
 </x-layout>
