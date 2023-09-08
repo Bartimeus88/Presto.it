@@ -26,3 +26,9 @@ Route::get('/nuovo/annuncio',[AnnouncementController::class,'createAnnouncement'
 Route::get('/dettaglio/annuncio/{announcement}',[AnnouncementController::class,'showAnnouncement'])->name('announcements.show');
 
 Route::get('/tutti/annunci',[AnnouncementController::class,'indexAnnouncement'])->name('announcements.index');
+
+Route::get('/revisor/home',[RevisorController::class,'index'])->name('revisor.index');
+
+Route::patch('/accetta/annuncio/{announcement}',[RevisorController::class,'acceptAnnouncement'])->name('revisor.accept_announcement');
+
+Route::get('/rifiuta/annuncio/{announcement}',[RevisorController::class,'rejectAnnouncement'])->name('revisor.reject_announcement');
