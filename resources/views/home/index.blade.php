@@ -15,7 +15,7 @@
 
                     <h6 class="text-center">platform for creatives around the world</h6>
 
-                    <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                    <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5 d-none" role="search">
                         <div class="input-group input-group-lg">
                             <span class="input-group-text bi-search" id="basic-addon1">
 
@@ -34,7 +34,7 @@
     </section>
 
     @if (auth()->check())
-        <div class="container">
+        <div class="container my-5">
             <div class="row">
                 <div class="card">
                     <div class="card-body my-5">

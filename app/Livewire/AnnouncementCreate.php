@@ -11,17 +11,31 @@ class AnnouncementCreate extends Component
 {
 
     public $title , $description , $price , $color,$text, $category;
+
+    protected $rules = [
+        'title' => 'required|min:4',
+        'description'=> 'required|min:8',
+        'price'=>'required|numeric|digits_between:0,8',
+        'category'=>'required'
+    ];
+
+    protected $messages = [
+        'required'=>'Il campo :attribu2te è richiesto',
+        'min'=>'Il campo :attribute è troppo corto',
+        'numeric'=>'Il campo :attribute dev\'essere un numero'
+    ];
+
     
     public function store() {
 
-        $validated = $this->validate([
+        // $validated = $this->validate([
 
-            'title' => 'required|min:4',
-            'description'=> 'required|min:8',
-            'price'=>'required|numeric',
-            'category'=>'required'
+        //     'title' => 'required|min:4',
+        //     'description'=> 'required|min:8',
+        //     'price'=>'required|numeric',
+        //     'category'=>'required'
 
-        ]);
+        // ]);
 
         $category = Category::find($this->category);
         $announcement = $category->announcements()->create([
@@ -36,6 +50,10 @@ class AnnouncementCreate extends Component
 
         $this->cleanForm();
 
+    }
+
+    public function updated($propertyName){
+        $this->validateOnly($propertyName);
     }
 
     public function cleanForm() {

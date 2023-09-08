@@ -36,12 +36,15 @@
                             </div>
                             <div class="mb-3">
                                 <label for="category">Categoria</label>
-                                <select wire:model.defer="category" id="category" class="form-select" aria-label="Default select example">
+                                <select wire:model.defer="category" id="category" class="form-select @error('price') is-invalid @enderror" aria-label="Default select example">
                                 <option selected>Scegli la categoria</option>
                                 @foreach ($categories as $category)
                                 <option value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
                                 </select>
+                                @error('category')
+                                    {{$message}}
+                                @enderror  
                             </div>
                             <div class="col-auto">
                                 <button wire:click='store' type="button" class="btn btn-primary mb-3">Aggiungi</button>
