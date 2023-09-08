@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    @if($announcemnet_to_check)
+    @if($announcement_to_check)
 
     <div class="container">
         <div class="row">
@@ -38,24 +38,24 @@
                 </button>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">{{$announcement->title}}</h5>
-                    <p class="card-text text-truncate">{{$announcement->description}}</p>
-                    <p class="card-text">{{$announcement->price}}</p>
+                    <h5 class="card-title">{{$announcement_to_check->title}}</h5>
+                    <p class="card-text text-truncate">{{$announcement_to_check->description}}</p>
+                    <p class="card-text">{{$announcement_to_check->price}}</p>
                     <a href="#" class="btn btn-primary">Visualizza</a>
-                    <p class="card-footer">Pubblicato il: {{$announcement->created_at->format('d/m/Y')}} - Autore: {{$announcement->user->name ?? ''}}</p>
+                    <p class="card-footer">Pubblicato il: {{$announcement_to_check->created_at->format('d/m/Y')}} - Autore: {{$announcement->user->name ?? ''}}</p>
                 </div>
                 <div class="row">
                     <div class="col-12 col-md-6">
                         <form action="{{route('revisor.accept_announcement',['announcement'=>$announcement_to_check])}}" method="post">
                             @csrf
-                            @method ('PATCH') 
+                            @method('PATCH') 
                                 <button type="submit" class="btn btn-success shadow">Accetta</button>
                         </form>
                     </div>
                     <div class="col-12 col-md-6">
                         <form action="{{route('revisor.reject_announcement',['announcement'=>$announcement_to_check])}}" method="post">
                             @csrf
-                            @method ('PATCH') 
+                            @method('PATCH')
                                 <button type="submit" class="btn btn-danger shadow">Rifiuta</button>
                         </form>
                     </div>
@@ -65,7 +65,7 @@
             </div>
         </div>
     </div>
-
+    @endif
 
 
 
