@@ -20,7 +20,7 @@
                             <img src="http://picsum.photos/200" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">{{$announcement->title}}</h5>
-                                    <p class="card-text">{{$announcement->description}}</p>
+                                    <p class="card-text text-truncate">{{$announcement->description}}</p>
                                     <p class="card-text">{{$announcement->price}}</p>
                                     <a href="#" class="btn btn-primary">Visualizza</a>
                                     <p class="card-footer">Pubblicato il: {{$announcement->created_at->format('d/m/Y')}} - Autore: {{$announcement->user->name ?? ''}}</p>

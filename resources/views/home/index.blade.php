@@ -70,7 +70,7 @@
                         <img src="http://picsum.photos/200" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Titolo : {{ $announcement->title }}</h5>
-                            <p class="card-text">Descrizione : {{ $announcement->description }}</p>
+                            <p class="card-text text-truncate">Descrizione : {{ $announcement->description }}</p>
                             <p class="card-text mb-2">Prezzo : {{ $announcement->price }} €</p>
                             <a href="{{ route('announcements.show', $announcement->id) }}"
                                 class="btn btn-primary">Visualizza</a>
