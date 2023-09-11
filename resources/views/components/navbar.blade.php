@@ -51,7 +51,7 @@
   </div>
 </nav> --}}
 
-<nav class="navbar navbar-expand-lg">
+{{-- <nav class="navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand" href="/">
             <i class="bi-back"></i>
@@ -77,17 +77,17 @@
                     <a class="nav-link click-scroll text-dark" href="{{ route('announcements.index') }}">Annunci</a>
                 </li>
 
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link click-scroll text-dark" href="#section_3">How it works</a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link click-scroll text-dark" href="#section_4">FAQs</a>
-                </li> --}}
+                </li>
 
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link click-scroll text-dark" href="#section_5">Contact</a>
-                </li> --}}
+                </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarLightDropdownMenuLink"
@@ -123,4 +123,67 @@
             </div>
         </div>
     </div>
-</nav>
+</nav> --}}
+
+{{-- nuova navbar --}}
+<section id="header">
+    <a href="/"><img src="" class="logo" alt=""></a>
+
+    <div class="container-fluid">
+        <ul id="navbar">
+            <li><a class="active" href="/">Home</a></li>
+            <li><a href="{{ route('announcements.index') }}">Annunci</a></li>
+            {{-- <li>
+                <a  href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Categorie
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </li> --}}
+            <li class="nav-item dropdown">
+                <a href="#" id="navbarLightDropdownMenuLink" data-bs-toggle="dropdown"
+                    aria-expanded="false">Categorie</a>
+
+                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                    @foreach ($categories as $category)
+                        <li><a class="dropdown-item"
+                                href="{{ route('categoryShow', compact('category')) }}">{{ $category->name }}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            </li>
+            @if (Auth::user()->is_revisor)
+                <li>
+                    <a aria-current="page" href="{{ route('revisor.index') }}">Zona revisore
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{ App\Models\Announcement::toBeRevisionedCount() }}
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </a>
+                </li>
+            @endif
+
+            @if (!auth()->check())
+                <li class="nav-item">
+                    <a href="/login">Accedi</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/register">Registrati</a>
+                </li>
+            @else
+                <li>
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button type="submit" class="btn btn-link btn-logout" value="Logout">Logout</button>
+                    </form>
+                </li>
+            @endif
+            <li><a href="#"><i class="far fa-shopping-bag"></i></a></li>
+        </ul>
+    </div>
+</section>
