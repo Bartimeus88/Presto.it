@@ -1,5 +1,5 @@
 <x-layout>
-    <x-navbar />
+    <x-navbar2 />
 
     {{-- <h1 class="display-1 text-center my-5">Presto.it</h1> --}}
 

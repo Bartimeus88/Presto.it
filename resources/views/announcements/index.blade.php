@@ -1,5 +1,5 @@
 <x-layout>
-    <x-navbar/>
+    <x-navbar2/>
 
     <div class="container my-5">
         <div class="row">
@@ -13,7 +13,7 @@
 
     <div class="container my-5">
     <div class="row">
-        @foreach ($announcements as $announcement)
+        @forelse ($announcements as $announcement)
         <div class="col-12 col-lg-4">
             <div class="card shadow-lg my-4">
             <img src="http://picsum.photos/200" class="card-img-top" alt="...">
@@ -27,7 +27,12 @@
             </div>
         </div>
         </div>
-        @endforeach
+        @empty
+        <div class="col-12">
+                        <p class="h1 text-center">Non sono presenti annunci per questa categoria</p>
+                        <p class="h2 text-center">pubblicane uno : <a class="btn btn-primary shadow" href="{{route('announcements.create')}}">Nuovo Annuncio</a></p>
+                    </div>
+        @endforelse
         <div class="container my-5">
             <div class="row">
                 <div class="col-12">
