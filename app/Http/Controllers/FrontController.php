@@ -10,7 +10,7 @@ class FrontController extends Controller
 {
     public function home () {
 
-        $announcements = Announcement::orderBy('created_at','desc')->take(6)->get();
+        $announcements = Announcement::where('is_accepted',true)->orderBy('created_at','desc')->take(6)->get();
 
         return view('home.index', compact('announcements'));
     }

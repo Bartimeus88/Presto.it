@@ -9,7 +9,6 @@
     <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
         <div class="container">
             <div class="row">
-
                 <div class="col-lg-8 col-12 mx-auto">
                     <h1 class="text-white text-center">Presto.it</h1>
 
@@ -32,6 +31,22 @@
             </div>
         </div>
     </section>
+
+
+    @if(session()->has('access.denied'))
+                <div class="container">
+                    <div class="my-5 flex flex-row justify-center my2 alert alert-danger">
+                    {{session('access.denied')}}
+                    </div>
+                </div>    
+                  @endif  
+                  @if(session()->has('message'))
+                  <div class="container">
+                    <div class="my-5 flex flex-row justify-center my2 alert alert-success">
+                    {{session('message')}}
+                    </div>
+            </div>    
+                  @endif                
 
     @if (auth()->check())
         <div class="container my-5">
@@ -57,7 +72,6 @@
         <div class="row">
             <div class="container mt-5">
                 <div class="row">
-
                     <div class="col-12 text-center">
                         <h2 class="mb-4">Last announcements</h1>
                     </div>
@@ -86,8 +100,8 @@
     </div>
 
 
-    {{-- categories --}}
-    <section class="explore-section section-padding" id="section_2">
+    <!-- {{-- categories --}}
+    <section class="explore-section section-padding d-none" id="section_2">
         <div class="container">
             <div class="row">
 
@@ -441,7 +455,16 @@
 
                 </div>
             </div>
-    </section>
+    </section> -->
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="display-2 col-12">LAVORA CON NOI</h2>
+                <a href="{{route('become.revisor')}}" class="btn btn-lg btn-primary">CLICCA QUI</a>
+            </div>
+        </div>
+    </div>
 
     <x-footer/>
     

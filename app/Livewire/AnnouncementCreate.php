@@ -20,7 +20,7 @@ class AnnouncementCreate extends Component
     ];
 
     protected $messages = [
-        'required'=>'Il campo :attribu2te è richiesto',
+        'required'=>'Il campo :attribute è richiesto',
         'min'=>'Il campo :attribute è troppo corto',
         'numeric'=>'Il campo :attribute dev\'essere un numero'
     ];
