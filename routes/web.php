@@ -42,8 +42,11 @@ Route::patch('/rifiuta/annuncio/{announcement}',[RevisorController::class,'rejec
 Route::get('/richiesta/revisore',[RevisorController::class,'becomeRevisor'])->middleware('auth')->name('become.revisor');
 
 
-//rendi un utente revisore
+//rendi un utente revisore DA VALUTARE
 Route::get('/rendi/revisore/{user}',[RevisorController::class,'makeRevisor'])->name('make.revisor');
+
+// Form richiesta per diventare un revisore
+Route::get('/domanda/revisore/',[RevisorController::class,'requestRevisor'])->middleware('auth')->name('request.revisor');
 
 
 //rotta ricerca annuncio

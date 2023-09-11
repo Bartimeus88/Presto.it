@@ -11,6 +11,7 @@
         <h2>Questi sono i suoi dati</h2>
         <p>Nome : {{$user->name}}</p>
         <p>Email: {{$user->email}}</p>
+        <p>Messaggio: {{$formMessage}}</p>
         <p>Se vuoi accettare la richiesta clicca qui:</p>
         <a href="{{route('make.revisor',compact('user'))}}">Rendi revisore</a>
     </div>

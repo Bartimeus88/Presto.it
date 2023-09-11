@@ -461,7 +461,7 @@
         <div class="row">
             <div class="col-12 text-center">
                 <h2 class="display-2 col-12">LAVORA CON NOI</h2>
-                <a href="{{route('become.revisor')}}" class="btn btn-lg btn-primary">CLICCA QUI</a>
+                <a href="{{route('request.revisor')}}" class="btn btn-lg btn-primary">CLICCA QUI</a>
             </div>
         </div>
     </div>
