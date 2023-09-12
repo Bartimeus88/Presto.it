@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+/* STILE PER LE VISTE NELLA CARTELLA AUTH */
+
+.my-auth-container{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Acme', sans-serif; 
+    position: relative; 
+   
+}
+
+/* effetto overlay */
+.overlay{
+    background-color: rgba(0, 0, 0, 0.15);
+    
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Background del forgot */
+.my-forgot{
+    background: url(../../public/images/brain-7027664_640.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;    
+}
+/* background del register */
+.my-register{
+    background: url(../../public/images/register-background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;    
+}
+/* Z-index per i form di registrazione e login */
+.my-auth-box, .forgotten{
+   z-index: 5;
+  
+}
+
+#email-confirmation:hover{
+   color: aqua;
+    transition: 1s;
+}
+
+.verify-email{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,0,0,1) 100%);
+    color: aliceblue;
+}
