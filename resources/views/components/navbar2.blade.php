@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav  mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link click-scroll text-dark" href="{{ route('announcements.index') }}">Annunci</a>
@@ -55,6 +55,7 @@
           <input name="searched" type="search" class="form-control me-2" placeholder="Ricerca" aria-label="Ricerca">
           <button class="btn btn-outline-success" type="submit">Ricerca</button>
         </form>
+        <li class="d-flex justify-items-center"><a  href=""><i class="fa-solid fa-circle-user fs-3 " style="color: #303640;"></i></a></li>
       </ul>
     </div>
   </div>
