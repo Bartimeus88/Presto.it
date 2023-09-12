@@ -1,5 +1,5 @@
 <x-layout>
-    <x-navbar />
+    <x-navbar2/>
 
     <header class="site-header d-flex flex-column justify-content-center align-items-center">
         <div class="container">
@@ -63,7 +63,7 @@
                                     <label class="form-label" for="password">password</label>
                                 </div>
                             </div>
-
+                            
                             <div class="col-lg-12 col-12">
                                 <div class="form-floating">
                                     <input type="password" name="password_confirmation" id="password_confirmation"

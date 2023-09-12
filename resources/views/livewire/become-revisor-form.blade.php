@@ -1,4 +1,4 @@
-<div>
+
 
 <div class="container py-5">
     <form wire:submit.prevent="becomeRevisor">
@@ -12,4 +12,4 @@
         </div>
     </form>
 </div>
-</div>
+

@@ -20,9 +20,7 @@ Route::get('/',[FrontController::class,'home'])->name('home.index');
 Route::get('/categoria/{category}',[FrontController::class,'categoryShow'])->name('categoryShow');
 
 //crea annuncio
-Route::get('/nuovo/annuncio',[AnnouncementController::class,'createAnnouncement'])
-->middleware('auth')
-->name('announcements.create');
+Route::get('/nuovo/annuncio',[AnnouncementController::class,'createAnnouncement'])->middleware(['auth','verified'])->name('announcements.create');
 
 Route::get('/dettaglio/annuncio/{announcement}',[AnnouncementController::class,'showAnnouncement'])->name('announcements.show');
 
@@ -46,7 +44,7 @@ Route::get('/richiesta/revisore',[RevisorController::class,'becomeRevisor'])->mi
 Route::get('/rendi/revisore/{user}',[RevisorController::class,'makeRevisor'])->name('make.revisor');
 
 // Form richiesta per diventare un revisore
-Route::get('/domanda/revisore/',[RevisorController::class,'requestRevisor'])->middleware('auth')->name('request.revisor');
+Route::get('/domanda/revisore/',[RevisorController::class,'requestRevisor'])->middleware(['auth', 'verified'])->name('request.revisor');
 
 
 //rotta ricerca annuncio

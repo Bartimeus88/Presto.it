@@ -1,5 +1,5 @@
 <x-layout>
-<x-navbar/>
+<x-navbar2/>
 
 <div class="container my-5">
     <div class="row">

@@ -157,6 +157,7 @@
                     @endforeach
                 </ul>
             </li>
+            @dd()
             @if (Auth::user()->is_revisor)
                 <li>
                     <a aria-current="page" href="{{ route('revisor.index') }}">Zona revisore
