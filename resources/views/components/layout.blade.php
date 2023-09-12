@@ -13,10 +13,12 @@
 </head>
 
 <body>
-
+<x-navbar2/>
     {{ $slot }}
 
 
+
+    <x-footer/>
     @livewireScripts
 </body>
 

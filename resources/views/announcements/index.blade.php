@@ -1,5 +1,4 @@
 <x-layout>
-    <x-navbar2 />
 
     <div class="container my-5">
         <div class="row">
@@ -62,8 +61,7 @@
         <div class="pro-container">
             @foreach ($announcements as $announcement)
                 <div class="pro" onclick="window.location.href='sproduct.html'>
-       <img src="img/products/f1.jpg"
-                    alt="">
+       <img src="img/products/f1.jpg" alt="">
                     <div class="des">
                         <span>adidas</span>
                         <h5>{{ $announcement->title }}</h5>
@@ -87,6 +85,6 @@
         </div>
     </section>
 
-    <x-footer />--}}
+--}}
 
 </x-layout>
