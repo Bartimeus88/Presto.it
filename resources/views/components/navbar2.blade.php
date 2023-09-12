@@ -41,6 +41,9 @@
             <a class="nav-link text-dark" href="/register">Registrati</a>
           </li>
         @else
+        <li class="nav-item">
+            <a class="nav-link text-dark" href="{{route('user.profile')}}">Profilo Utente</a>
+          </li>
           <li class="nav-item mx-4">
             <form action="/logout" method="post">
               @csrf

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\RevisorController;
 use App\Http\Controllers\AnnouncementController;
@@ -50,3 +51,7 @@ Route::get('/domanda/revisore/',[RevisorController::class,'requestRevisor'])->mi
 //rotta ricerca annuncio
 
 Route::get('/ricerca/annuncio',[FrontController::class,'searchAnnouncements'])->name('announcements.search');
+
+//rotta profilo auth
+
+Route::get('/utenti/profilo',[UserController::class,'profile'])->middleware(['auth','verified'])->name('user.profile');
