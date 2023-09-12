@@ -15,4 +15,12 @@ class UserController extends Controller
 
         return view ('user.profile',['announcements' => $user_announcements->announcements]);
     }
+
+    // Rotta per il recupero password
+    public function forgotPassword()
+    {
+        
+        return view('auth.forgot-password');
+        
+    }
 }

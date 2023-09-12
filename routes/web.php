@@ -55,3 +55,6 @@ Route::get('/ricerca/annuncio',[FrontController::class,'searchAnnouncements'])->
 //rotta profilo auth
 
 Route::get('/utenti/profilo',[UserController::class,'profile'])->middleware(['auth','verified'])->name('user.profile');
+
+// Rotta get che porta al form di recupero password 
+Route::get('/forgot-password', [UserController::class, 'forgotPassword'])->name('auth.forgot-password');
