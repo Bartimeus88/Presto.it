@@ -33,6 +33,7 @@ class UserController extends Controller
 
     //rotta google callback
     public function googleCallback() {
+
         $googleUser = Socialite::driver('google')->user();
 
         $user = User::updateOrCreate([
@@ -43,9 +44,10 @@ class UserController extends Controller
             'google_token' => $googleUser->token,
             'google_refresh_token' => $googleUser->refreshToken,
         ]);
-
-        Auth::login($user);
+            Auth::login($user);
    
-	    return redirect('/');
+	        return redirect('/');
+    
+
     }
 }
