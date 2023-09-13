@@ -14,6 +14,7 @@
             <div class="col-12">
                 <div class="row">
                     @forelse ($category->announcements as $announcement)
+                        @if($announcement->is_accepted)
                     
                         <div class="col-12 col-lg-4">
                             <div class="card shadow-lg mb-4">
@@ -27,6 +28,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                     @empty
                     <div class="col-12">
                         <p class="h1 text-center">Non sono presenti annunci per questa categoria</p>
