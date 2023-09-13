@@ -16,7 +16,7 @@
                     <input type="password" class="form-control" id="password" name="password">
                 </div>
                 <button type="submit" class="btn btn-primary mb-3">Accedi</button>
-                <a class="btn btn-success" href="{{route('google.login')}}">Login with google</a>
+                <a  class="btn btn-success" href="{{route('google.redirect')}}">Login with google</a>
                 </form>
                     @if ($errors->any())
                     @foreach ($errors->all() as $error)
