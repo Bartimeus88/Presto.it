@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 
 class UserController extends Controller
@@ -35,19 +38,32 @@ class UserController extends Controller
     public function googleCallback() {
 
         $googleUser = Socialite::driver('google')->user();
+        
 
-        $user = User::updateOrCreate([
-            'google_id' => $googleUser->id,
-        ], [
-            'name' => $googleUser->name,
-            'email' => $googleUser->email,
-            'google_token' => $googleUser->token,
-            'google_refresh_token' => $googleUser->refreshToken,
-        ]);
+            $userGoogleId=User::where('google_id',$googleUser->id)->first();
+
+            if(!$userGoogleId){
+            $user = new User ;
+
+            $user->name=$googleUser->name;
+            $user->email=$googleUser->email;
+            $user->password= Hash::make(Str::random(50));
+            $user->google_id=$googleUser->id;
+            $user->google_token=$googleUser->token;
+            $user->google_refresh_token=$googleUser->refreshToken;
+
+            $user->save();
+
             Auth::login($user);
+
+            }else {
+                
+                Auth::login($userGoogleId);
+   
+
+            }
    
 	        return redirect('/');
     
-
     }
 }
