@@ -57,7 +57,7 @@ class RevisorController extends Controller
             $lastAnnuncementModified->is_accepted = null;
             $lastAnnuncementModified->status_date = null;
             $lastAnnuncementModified->save();
-            $successMessage = "L'ultima modifica relativa a " . $lastAnnuncementModified->title . " è stata annullata";
+            $successMessage = "L'ultima modifica relativa all'annuncio con il titolo " . $lastAnnuncementModified->title . " è stata annullata";
         } else {
             $successMessage = "Nessun annuncio trovato per annullare l'ultima modifica";
         }
