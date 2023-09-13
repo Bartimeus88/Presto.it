@@ -50,62 +50,58 @@
 
 
     {{-- sezione hero contenente bottone che porta alla creazione annuncio --}}
-    @if (auth()->check())
+     
         <header class="masthead">
             <div class="container">
                 <div class="masthead-subheading">Welcome To Our Studio!</div>
                 <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-                
-                <a class="btn btn-primary btn-xl text-uppercase" href="{{ route('announcements.create') }}">Crea il tuo
+                <!-- L'annuncio viene visualizzato solo dagli utenti loggati -->
+                 @if(auth()->check())
+                    <a class="btn btn-primary btn-xl text-uppercase" href="{{ route('announcements.create') }}">Crea il tuo
                     anuncio</a>
+                 @endif
             </div>
         </header>
-    @else
-        <header class="masthead">
-            <div class="container">
-                <div class="masthead-subheading">Welcome To Our Studio!</div>
-                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-                {{-- <a class="btn btn-primary btn-xl text-uppercase" href="{{ route('announcements.create') }}">Crea il tuo
-                    anuncio</a> --}}
-            </div>
-        </header>
-    @endif
+  
 
-    {{-- categorie annunci --}}
-    <section class="page-section bg-light" id="category">
-        <div class="container ">
-            <div class="text-center ">
-                <h2 class="section-heading text-uppercase ">Categorie</h2>
-                <h3 class="section-subheading text-muted  mt-5mb-5">Lorem ipsum dolor sit amet consectetur.</h3>
-            </div>
-            <div class="row align-items-start">
-                @foreach ($categories as $category)
-                    <div class=" col col-lg-4 col-sm-6 mb-4">
-                        <!-- categorie-->
-                        <div class="category-item">
-                            <a class="category-link" data-bs-toggle="modal" href="#categoryModal1">
-                                <div class="category-hover">
-                                    <div class="category-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid"
-                                    src="https://images.pexels.com/photos/3374197/pexels-photo-3374197.jpeg?auto=compress&cs=tinysrgb&w=600"
-                                    alt="..." />
-                            </a>
-                            <div class="category-caption">
-                                <div class="category-caption-heading">{{ $category->name }}</div>
+        {{-- categorie annunci --}}
+        <section class="page-section bg-light" id="category">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Categorie</h2>
+            <h3 class="section-subheading text-muted mt-5mb-5">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+        <div class="row align-items-start">
+            @foreach ($categories as $category)
+                <div class=" col-12 col-lg-4 col-sm-6 mb-4">
+                    <!-- categorie-->
+                    <div class="category-item">
+                        <a class="category-link" data-bs-toggle="modal" href="#categoryModal{{ $category->id }}">
+                            <div class="category-hover">
+                                <div class="category-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
+                            <img class="img-fluid"
+                                src="https://images.pexels.com/photos/3374197/pexels-photo-3374197.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                alt="..." />
+                        </a>
+                        <div class="category-caption">
+                            <div class="category-caption-heading">{{ $category->name }}</div>
                         </div>
                     </div>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
         </div>
-    </section>
+    </div>
+</section>
 
-    {{-- modale categorie --}}
-    <div class="category-modal modal fade" id="categoryModal1" tabindex="-1" role="dialog" aria-hidden="true">
+{{-- modale categorie --}}
+@foreach ($categories as $category)
+    <div class="category-modal modal fade" id="categoryModal{{ $category->id }}" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="close-modal"><i class="fa-solid fa-x" style="color: #050505;"></i></i></div>
+                <!-- label per chiusura modale -->
+                <label for="chiudi-modale{{ $category->id }}"><div class="close-modal"><i class="fa-solid fa-x" style="color: #050505;"></i></div></label>
+                <!-- body modale -->
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
@@ -124,11 +120,14 @@
                                         {{ $category->name }}
                                     </li>
                                 </ul>
-                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
-                                    type="button">
-                                    <i class="fas fa-xmark me-1 "><a class="text-white"
-                                            href="{{ route('categoryShow', compact('category')) }}">Visualizza</a></i>
+                                <!-- link per visualizzare dettaglio categoria -->
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="categoryModal{{ $category->id }}"
+                                type="button">
+                                    <a class="text-white" href="{{ route('categoryShow', compact('category')) }}">Visualizza</a>
                                 </button>
+                                <!-- Bottone di chiusura modale con display none (la label x viene utilizzata per chiudere la modale) -->
+                                <button class="btn btn-primary btn-xl text-uppercase d-none" data-bs-dismiss="modal" type="button" id="chiudi-modale{{ $category->id }}"></button>
+                               
                             </div>
                         </div>
                     </div>
@@ -136,6 +135,7 @@
             </div>
         </div>
     </div>
+@endforeach
 
     {{-- nuovi ultimi  annunci (ragazzi non chiedetemi perchè li ho chiamati product) --}}
     <section id="product1" class="section-p1">
