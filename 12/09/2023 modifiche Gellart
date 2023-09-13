@@ -1,7 +1,13 @@
  X bottone crea annuncio visibile solo a chi è loggato
  x categorei con modale ciclate ( bug nomi modali categorie - modale icona "x" )
- X icona profilo fontawesome inserita e da sistemare 
+ X icona profilo fontawesome inserita e da sistemare
  - nelle card inserire classe stretch bootstrap
- - form CONTATTACI non funge , inserire method..... ecc 
+ - form CONTATTACI non funge , inserire method..... ecc
  - "vista crea annuncio" nel prezzo un numero con la virgola non funziona
  -
+
+ 14/09/2023 ----------
+
+ - inseriti due form pre la pagina accedi (scegliere insieme quale implementare)
+ - inserito un nuovo possibile footer (decidere insieeme se ternerlo o meno)
+ - scegliere font
