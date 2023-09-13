@@ -1,5 +1,5 @@
 <x-layout>
-    
+
 
     {{-- <h1 class="display-1 text-center my-5">Presto.it</h1> --}}
 
@@ -48,79 +48,94 @@
         </div>
     @endif
 
+
+    {{-- sezione hero contenente bottone che porta alla creazione annuncio --}}
     @if (auth()->check())
-        {{-- <div class="container my-5">
-            <div class="row">
-                <div class="card">
-                    <div class="card-body my-5">
-                        <div class="col-12 text-center display-4 mb-4">
-                            Crea il tuo annuncio
-                        </div>
-                        <div class="col-12 text-center">
-                            <a class="btn shadow-lg btn-primary px-2 py-2"
-                                href="{{ route('announcements.create') }}">Crea
-                                il tuo annuncio personalizzato</a>
-                        </div>
-                    </div>
-                </div>
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Welcome To Our Studio!</div>
+                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+                
+                <a class="btn btn-primary btn-xl text-uppercase" href="{{ route('announcements.create') }}">Crea il tuo
+                    anuncio</a>
             </div>
-        </div> --}}
-
-        {{-- sezione hero contenente bottone che porta alla creazione annuncio --}}
-        <section id="hero">
-            <h4>Test</h4>
-            <h4>Test</h4>
-            <h4>Test</h4>
-            <p>Test</p>
-
-            <button>
-                <a href="{{ route('announcements.create') }}" class="text-dark">Crea il tuo annuncio</a>
-            </button>
-
-        </section>
+        </header>
+    @else
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Welcome To Our Studio!</div>
+                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+                {{-- <a class="btn btn-primary btn-xl text-uppercase" href="{{ route('announcements.create') }}">Crea il tuo
+                    anuncio</a> --}}
+            </div>
+        </header>
     @endif
 
     {{-- categorie annunci --}}
-    <section id="feature" class="section-p1">
-        <section id="feature">
-            <div class="fe-box">
-                <img src="./images/f1.png" alt="">
-                <h6>test</h6>
+    <section class="page-section bg-light" id="category">
+        <div class="container ">
+            <div class="text-center ">
+                <h2 class="section-heading text-uppercase ">Categorie</h2>
+                <h3 class="section-subheading text-muted  mt-5mb-5">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
-        </section>
+            <div class="row align-items-start">
+                @foreach ($categories as $category)
+                    <div class=" col col-lg-4 col-sm-6 mb-4">
+                        <!-- categorie-->
+                        <div class="category-item">
+                            <a class="category-link" data-bs-toggle="modal" href="#categoryModal1">
+                                <div class="category-hover">
+                                    <div class="category-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid"
+                                    src="https://images.pexels.com/photos/3374197/pexels-photo-3374197.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                    alt="..." />
+                            </a>
+                            <div class="category-caption">
+                                <div class="category-caption-heading">{{ $category->name }}</div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
     </section>
 
-    {{-- vecchi ultimi  annunci --}}
-    {{-- <div class="container">
-        <div class="row">
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <h2 class="mb-4">Last announcements</h1>
-                    </div>
-
-                </div>
-            </div>
-            @foreach ($announcements as $announcement)
-                <div class="col-12 col-lg-4">
-                    <div class="card shadow-lg my-4">
-                        <img src="http://picsum.photos/200" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Titolo : {{ $announcement->title }}</h5>
-                            <p class="card-text text-truncate">Descrizione : {{ $announcement->description }}</p>
-                            <p class="card-text mb-2">Prezzo : {{ $announcement->price }} €</p>
-                            <a href="{{ route('announcements.show', $announcement->id) }}"
-                                class="btn btn-primary">Visualizza</a>
-                            <a href="{{ route('categoryShow', ['category' => $announcement->category]) }}"
-                                class="mb-2 card-link btn btn-success shadow">Categoria:
-                                {{ $announcement->category->name }}</a>
-                            <p class="card-footer">Pubblicato il: {{ $announcement->created_at->format('d/m/Y') }}</p>
+    {{-- modale categorie --}}
+    <div class="category-modal modal fade" id="categoryModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal"><i class="fa-solid fa-x" style="color: #050505;"></i></i></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <h2 class="text-uppercase">{{ $category->name }}</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/1.jpg"
+                                    alt="..." />
+                                <p> Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
+                                    repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
+                                    nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>Categoria:</strong>
+                                        {{ $category->name }}
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1 "><a class="text-white"
+                                            href="{{ route('categoryShow', compact('category')) }}">Visualizza</a></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            @endforeach
+            </div>
         </div>
-    </div> --}}
+    </div>
 
     {{-- nuovi ultimi  annunci (ragazzi non chiedetemi perchè li ho chiamati product) --}}
     <section id="product1" class="section-p1">
@@ -129,9 +144,9 @@
         <div class="pro-container">
             @foreach ($announcements as $announcement)
                 <div class="pro">
-                    <img src="img/products/f1.jpg" alt="">
+                    <img src="https://images.pexels.com/photos/1080884/pexels-photo-1080884.jpeg?auto=compress&cs=tinysrgb&w=600"
+                        alt="">
                     <div class="des">
-                        <span>adidas</span>
                         <h5>{{ $announcement->title }}</h5>
                         <p class="text-truncate">{{ $announcement->description }}</p>
                         <div class="star">
@@ -153,6 +168,8 @@
         </div>
     </section>
 
+
+    {{-- lavora con noi --}}
     <div class="container my-5">
         <div class="row">
             <div class="col-12 text-center">
@@ -161,6 +178,77 @@
             </div>
         </div>
     </div>
+
+    <!-- contattaci-->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <div class="text-center p-5">
+                <h2 class="section-heading text-uppercase ">Contattaci</h2>
+                <h3 class="section-subheading mb-2 text-white">Lorem ipsum dolor sit amet consectetur.</h3>
+            </div>
+            <form id="contactForm">
+                <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <!-- Name input-->
+                            <input class="form-control" id="name" type="text" placeholder="Your Name *"
+                                data-sb-validations="required" />
+                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                        </div>
+                        <div class="form-group">
+                            <!-- Email-->
+                            <input class="form-control" id="email" type="email" placeholder="Your Email *"
+                                data-sb-validations="required,email" />
+                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.
+                            </div>
+                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                        </div>
+                        <div class="form-group mb-md-0">
+                            <!-- Phone number input-->
+                            <input class="form-control" id="phone" type="tel" placeholder="Your Phone *"
+                                data-sb-validations="required" />
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is
+                                required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group form-group-textarea mb-md-0">
+                            <!-- Message input-->
+                            <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
+                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Submit success message-->
+                <!---->
+                <!-- This is what your users will see when the form-->
+                <!-- has successfully submitted-->
+                <div class="d-none" id="submitSuccessMessage">
+                    <div class="text-center text-white mb-3">
+                        <div class="fw-bolder">Form submission successful!</div>
+                        To activate this form, sign up at
+                        <br />
+                        <a
+                            href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                    </div>
+                </div>
+                <!-- Submit error message-->
+                <!---->
+                <!-- This is what your users will see when there is-->
+                <!-- an error submitting the form-->
+                <div class="d-none" id="submitErrorMessage">
+                    <div class="text-center text-danger mb-3">Error sending message!</div>
+                </div>
+                <!-- Submit Button-->
+                <div class="text-center "><button class="btn btn-primary btn-xl text-uppercase disabled"
+                        id="submitButton" type="submit">Send Message</button></div>
+            </form>
+        </div>
+    </section>
+
+
 
 
 

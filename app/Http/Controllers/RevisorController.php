@@ -18,11 +18,13 @@ class RevisorController extends Controller
     }
 
     public function acceptAnnouncement(Announcement $announcement){
-        $announcement->setAccepted(true);
+        $announcement->status_date = now();
+        $announcement->setAccepted(true);        
         return redirect()->back()->with('message','Compliment,hai accettato l\'annuncio');
     }
 
     public function rejectAnnouncement(Announcement $announcement){
+        $announcement->status_date = now();
         $announcement->setAccepted(false);
         return redirect()->back()->with('message','Compliment,hai rifiutato l\'annuncio');
     }
@@ -47,4 +49,21 @@ class RevisorController extends Controller
         return view ('revisor.request', ['user'=> $currentUser]);
 
     }
+
+    public function editRevisor(Request $request){
+
+        $lastAnnuncementModified = Announcement::latest('status_date')->first();
+        if ($lastAnnuncementModified->status_date) {
+            $lastAnnuncementModified->is_accepted = null;
+            $lastAnnuncementModified->status_date = null;
+            $lastAnnuncementModified->save();
+            $successMessage = "L'ultima modifica relativa all'annuncio con il titolo " . $lastAnnuncementModified->title . " è stata annullata";
+        } else {
+            $successMessage = "Nessun annuncio trovato per annullare l'ultima modifica";
+        }
+        $announcement_to_check = Announcement::where('is_accepted', null)->first();
+    
+        return redirect()->route('revisor.index')->with(['successMessage' => $successMessage, 'announcement_to_check' => $announcement_to_check]);
+    }
+    
 }

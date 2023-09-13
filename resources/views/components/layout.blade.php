@@ -13,13 +13,14 @@
 </head>
 
 <body>
-<x-navbar2/>
+    <x-navbar2 />
     {{ $slot }}
 
 
 
-    <x-footer/>
+    <x-footer />
     @livewireScripts
+    <script src="https://kit.fontawesome.com/b8bf2cd9cb.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -1,8 +1,16 @@
 <x-layout>
-
+@if(session('successMessage'))
+<div class="container">
+    <div>
+        <p>{{ session('successMessage') }}</p>
+    </div>
+</div>
+@endif
+    
     <div class="container">
         <div class="row">
             <div class="col-12">
+                
                 <h1 class="display-2">
                     {{$announcement_to_check ? 'Ecco l\'annuncio da revisionare' : 'Non ci sono annunci da revisionare'}}
                 </h1>
@@ -65,7 +73,13 @@
         </div>
     </div>
     @endif
-
+    <div class="container">
+    <form action="{{ route('editRevisor') }}" method="POST">
+        @csrf
+        @method('PUT')
+    <input type="submit" value="Annulla Modifica">
+    </form>
+    </div>
 
 
 </x-layout>
