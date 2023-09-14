@@ -15,7 +15,7 @@ class AnnouncementCreate extends Component
     protected $rules = [
         'title' => 'required|min:4',
         'description'=> 'required|min:8',
-        'price'=>'required|numeric|digits_between:0,8',
+        'price'=>'required|numeric',
         'category'=>'required'
     ];
 

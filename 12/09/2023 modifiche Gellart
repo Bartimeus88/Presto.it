@@ -4,9 +4,13 @@
  - nelle card inserire classe stretch bootstrap
  - form CONTATTACI non funge , inserire method..... ecc
  x "vista crea annuncio" nel prezzo un numero con la virgola non funziona
- -login remember me
- -footer non responsive
- 
+ - nella vista lavora con noi si può inviare il messaggio senza annuncio
+ - mettere frontend tutte le indicazioni per registrarsi in modo tale che l'utente sappia prima come comilare i campi
+ - login remember me
+ - footer non responsive
+ - url categorie con il nome della categoria
+ - ordinare in ordine alfabetico le categorie
+ - mettere un edit per gli annunci
 
  14/09/2023 ----------
 
