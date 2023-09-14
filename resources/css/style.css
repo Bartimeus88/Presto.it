@@ -361,7 +361,7 @@ header.masthead .masthead-heading {
 #product1 .pro-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     padding-top: 20px;
 }
 
@@ -375,7 +375,7 @@ header.masthead .masthead-heading {
     position: relative;
     cursor: pointer;
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
-    margin: 15px 0;
+    margin: 15px 10px;
 }
 
 #product1 .pro:hover {
