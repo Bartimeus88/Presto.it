@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Paytone+One&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Spartan', sans-serif;
+    font-family: 'DM Serif Display';
 }
 
 html {
@@ -74,6 +73,16 @@ ul {
 
 a {
     text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+font-family: 'Paytone One', sans-serif;
 }
 
 .section-p1 {
@@ -1336,14 +1345,14 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 /* //badge di verifica */
 .image_with_badge_container {
-    display: inline-block; 
+    display: inline-block;
     position: relative;
     margin-bottom: 5px;
 }
 
 .badge-on-image {
     position: absolute;
-    top: 8px; 
+    top: 8px;
     left: 8px;
     padding: 10px 10px;
 }

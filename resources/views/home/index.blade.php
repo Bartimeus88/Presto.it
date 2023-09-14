@@ -50,92 +50,101 @@
 
 
     {{-- sezione hero contenente bottone che porta alla creazione annuncio --}}
-     
-        <header class="masthead">
-            <div class="container">
-                <div class="masthead-subheading">Welcome To Our Studio!</div>
-                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-                <!-- L'annuncio viene visualizzato solo dagli utenti loggati -->
-                 @if(auth()->check())
-                    <a class="btn btn-primary btn-xl text-uppercase" href="{{ route('announcements.create') }}">Crea il tuo
+
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-subheading">Welcome To Our Studio!</div>
+            <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+            <!-- L'annuncio viene visualizzato solo dagli utenti loggati -->
+            @if (auth()->check())
+                <a class="btn btn-primary btn-xl text-uppercase" href="{{ route('announcements.create') }}">Crea il tuo
                     annuncio</a>
-                 @endif
+            @endif
+        </div>
+    </header>
+
+
+    {{-- categorie annunci --}}
+    <section class="page-section bg-light" id="category">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Categorie</h2>
+                <h3 class="section-subheading text-muted mt-5mb-5">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
-        </header>
-  
-
-        {{-- categorie annunci --}}
-        <section class="page-section bg-light" id="category">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Categorie</h2>
-            <h3 class="section-subheading text-muted mt-5mb-5">Lorem ipsum dolor sit amet consectetur.</h3>
-        </div>
-        <div class="row align-items-start">
-            @foreach ($categories as $category)
-                <div class=" col-12 col-lg-4 col-sm-6 mb-4">
-                    <!-- categorie-->
-                    <div class="category-item">
-                        <a class="category-link" data-bs-toggle="modal" href="#categoryModal{{ $category->id }}">
-                            <div class="category-hover">
-                                <div class="category-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid"
-                                src="https://images.pexels.com/photos/3374197/pexels-photo-3374197.jpeg?auto=compress&cs=tinysrgb&w=600"
-                                alt="..." />
-                        </a>
-                        <div class="category-caption">
-                            <div class="category-caption-heading">{{ $category->name }}</div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-
-{{-- modale categorie --}}
-@foreach ($categories as $category)
-    <div class="category-modal modal fade" id="categoryModal{{ $category->id }}" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <!-- label per chiusura modale -->
-                <label for="chiudi-modale{{ $category->id }}"><div class="close-modal"><i class="fa-solid fa-x" style="color: #050505;"></i></div></label>
-                <!-- body modale -->
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <div class="modal-body">
-                                <h2 class="text-uppercase">{{ $category->name }}</h2>
-                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/1.jpg"
+            <div class="row align-items-start">
+                @foreach ($categories as $category)
+                    <div class=" col-12 col-lg-4 col-sm-6 mb-4">
+                        <!-- categorie-->
+                        <div class="category-item">
+                            <a class="category-link" data-bs-toggle="modal" href="#categoryModal{{ $category->id }}">
+                                <div class="category-hover">
+                                    <div class="category-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid"
+                                    src="https://images.pexels.com/photos/3374197/pexels-photo-3374197.jpeg?auto=compress&cs=tinysrgb&w=600"
                                     alt="..." />
-                                <p> Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                    repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                    nostrum, reiciendis facere nemo!</p>
-                                <ul class="list-inline">
-                                    <li>
-                                        <strong>Categoria:</strong>
-                                        {{ $category->name }}
-                                    </li>
-                                </ul>
-                                <!-- link per visualizzare dettaglio categoria -->
-                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="categoryModal{{ $category->id }}"
-                                type="button">
-                                    <a class="text-white" href="{{ route('categoryShow', compact('category')) }}">Visualizza</a>
-                                </button>
-                                <!-- Bottone di chiusura modale con display none (la label x viene utilizzata per chiudere la modale) -->
-                                <button class="btn btn-primary btn-xl text-uppercase d-none" data-bs-dismiss="modal" type="button" id="chiudi-modale{{ $category->id }}"></button>
-                               
+                            </a>
+                            <div class="category-caption">
+                                <div class="category-caption-heading">{{ $category->name }}</div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- modale categorie --}}
+    @foreach ($categories as $category)
+        <div class="category-modal modal fade" id="categoryModal{{ $category->id }}" tabindex="-1" role="dialog"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- label per chiusura modale -->
+                    <label for="chiudi-modale{{ $category->id }}">
+                        <div class="close-modal"><i class="fa-solid fa-x" style="color: #050505;"></i></div>
+                    </label>
+                    <!-- body modale -->
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <h2 class="text-uppercase">{{ $category->name }}</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto"
+                                        src="https://picsum.photos/id/237/200/300
+                                "
+                                        alt="..." />
+                                    <p> Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos
+                                        deserunt
+                                        repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores
+                                        repudiandae,
+                                        nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Categoria:</strong>
+                                            {{ $category->name }}
+                                        </li>
+                                    </ul>
+                                    <!-- link per visualizzare dettaglio categoria -->
+                                    <button class="btn btn-primary btn-xl text-uppercase"
+                                        data-bs-dismiss="categoryModal{{ $category->id }}" type="button">
+                                        <a class="text-white"
+                                            href="{{ route('categoryShow', compact('category')) }}">Visualizza</a>
+                                    </button>
+                                    <!-- Bottone di chiusura modale con display none (la label x viene utilizzata per chiudere la modale) -->
+                                    <button class="btn btn-primary btn-xl text-uppercase d-none" data-bs-dismiss="modal"
+                                        type="button" id="chiudi-modale{{ $category->id }}"></button>
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-@endforeach
+    @endforeach
 
     {{-- nuovi ultimi  annunci (ragazzi non chiedetemi perchè li ho chiamati product) --}}
     <section id="product1" class="section-p1">
@@ -159,11 +168,11 @@
                         <h4>{{ $announcement->price }}</h4>
                         <button type="button" class="btn btn-primary"><a class="text-white"
                                 href="{{ route('announcements.show', $announcement->id) }}">Visualizza</a></button>
-                                <a href="{{ route('categoryShow', ['category' => $announcement->category]) }}"
-                                class="card-link btn btn-success shadow">Categoria:
-                                {{ $announcement->category->name }}</a>
+                        <a href="{{ route('categoryShow', ['category' => $announcement->category]) }}"
+                            class="card-link btn btn-success shadow">Categoria:
+                            {{ $announcement->category->name }}</a>
                     </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+                    {{-- <a href="#"><i class="fal fa-shopping-cart cart"></i></a> --}}
                 </div>
             @endforeach
         </div>

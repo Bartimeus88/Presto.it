@@ -4,14 +4,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-12">
-                    <h2 class="text-white text-center">Registrati</h2>
+                    <h2 class="text-white text-center pt-5">Registrati</h2>
                 </div>
             </div>
         </div>
     </header>
 
     {{-- form register --}}
-    <section class="section-padding section-bg">
+    {{-- <section class="section-padding section-bg">
         <div class="container content-center">
             <div class="row">
                 <div class="col-lg-12 col-12">
@@ -54,7 +54,7 @@
                                 </div>
                             </div> --}}
 
-                            <div class="col-lg-12 col-12">
+    {{-- <div class="col-lg-12 col-12">
                                 <div class="form-floating">
                                     <input type="password" name="password" id="password" class="form-control"
                                         placeholder="Name">
@@ -62,7 +62,7 @@
                                     <label class="form-label" for="password">password</label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-lg-12 col-12">
                                 <div class="form-floating">
                                     <input type="password" name="password_confirmation" id="password_confirmation"
@@ -96,7 +96,99 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
+
+    <div class="container-fluid mb-5 bg-grey">
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <p class="text-danger">{{ $error }}</p>
+            @endforeach
+        @endif
+        <section class="vh-100">
+            <div class="container py-5 h-100">
+                <div class="row d-flex align-items-center justify-content-center h-100">
+                    <div class="col-md-8 col-lg-7 col-xl-6 ">
+                        <img src="{{ URL::to('/') }}/images/undraw_mobile_payments_re_7udl.svg"
+                            class="img-fluid" alt="Phone image">
+                    </div>
+                    <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                        <form action="/register" method="post" class="custom-form contact-form" role="form">
+                            @csrf
+                            <!-- Name and surname input -->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="name">Nome e Cognome</label>
+                                <input type="text" name="name" id="name" class="form-control"
+                                    placeholder="Nome e cognome" />
+                            </div>
+
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="email">Email</label>
+                                <input type="email" name="email" id="email" class="form-control"
+                                    placeholder="Email" />
+                            </div>
+
+                            <!-- Password input -->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="password">Password</label>
+                                <input type="password" name="password" id="password" class="form-control"
+                                    placeholder="Password" />
+                            </div>
+
+                            <!-- Confirm password input -->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="password_confirmation">Conferma password</label>
+                                <input type="password" name="password_confirmation" id="password_confirmation"
+                                    class="form-control" placeholder="Conferma password" />
+                            </div>
+
+                            <div class="d-flex justify-content-around align-items-center mb-4">
+                                <!-- Checkbox -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="form1Example3"
+                                        checked />
+                                    <label class="form-check-label" for="form1Example3"> Ricordami </label>
+                                </div>
+                                <a href="{{ route('auth.forgot-password') }}">Password dimenticata ?</a>
+                            </div>
+
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+
+
+                            <p class="text-center fw-bold mx-3 my-4 text-muted">OR</p>
+
+
+                            <di class="row ">
+                                <div class="col-12 col-md-6 d-flex align-items-stretch">
+                                    <a class="btn btn-primary btn-lg btn-block btn-login mb-3 "
+                                        style="background-color: #DB4437" href="{{ route('google.redirect') }}"
+                                        role="button">
+                                        <i class="fa-brands fa-google me-2"></i>Continua con Google
+                                    </a>
+                                </div>
+                                <div class="col-12 col-md-6 d-flex align-items-stretch">
+                                    <a class="btn btn-primary btn-lg btn-block btn-login mb-3 "
+                                        style="background-color: #55acee" href="#!" role="button">
+                                        <i class="fab fa-twitter me-2"></i>Continua con Twitter
+                                    </a>
+                                </div>
+                            </di>
+
+                            @if ($errors->any())
+                                @foreach ($errors->all() as $error)
+                                    <p class="text-danger">{{ $error }}</p>
+                                @endforeach
+                            @endif
+
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
 
 
