@@ -171,11 +171,14 @@
 
 
     {{-- lavora con noi --}}
-    <div class="container my-5">
+    <div class="container my-5 py-5">
         <div class="row">
-            <div class="col-12 text-center">
-                <h2 class="display-2 col-12">LAVORA CON NOI</h2>
-                <a href="{{ route('request.revisor') }}" class="btn btn-lg btn-primary">CLICCA QUI</a>
+            <div class="card col-12 shadow py-5">
+                <div class="col-12 card-body text-center">
+                    <h2 class="display-2 col-12 card-title">LAVORA CON NOI</h2>
+                    <p class="card-text col-12 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="{{ route('request.revisor') }}" class="btn btn-lg btn-primary">DIVENTA REVISORE</a>
+                </div>
             </div>
         </div>
     </div>
