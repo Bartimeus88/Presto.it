@@ -159,8 +159,9 @@
                         <h4>{{ $announcement->price }}</h4>
                         <button type="button" class="btn btn-primary"><a class="text-white"
                                 href="{{ route('announcements.show', $announcement->id) }}">Visualizza</a></button>
-                        <button type="button" class="btn btn-primary"><a class="text-white "
-                                href="{{ $announcement->category->name }}">Categorie</a></button>
+                                <a href="{{ route('categoryShow', ['category' => $announcement->category]) }}"
+                                class="card-link btn btn-success shadow">Categoria:
+                                {{ $announcement->category->name }}</a>
                     </div>
                     <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
                 </div>
