@@ -177,6 +177,11 @@
     </div> --}}
 
     <div class="container-fluid mb-5 bg-grey">
+    @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <p class="text-danger">{{$error}}</p>
+                    @endforeach
+                    @endif
         <section class="vh-100">
             <div class="container py-5 h-100">
                 <div class="row d-flex align-items-center justify-content-center h-100">
@@ -185,17 +190,18 @@
                             class="img-fluid" alt="Phone image">
                     </div>
                     <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                        <form>
+                        <form action="/login" method="post">
+                            @csrf
                             <!-- Email input -->
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="form1Example13">Email</label>
-                                <input type="email" id="form1Example13" class="form-control form-control-lg" />
+                                <input name="email" type="email" id="form1Example13" class="form-control form-control-lg" />
                             </div>
 
                             <!-- Password input -->
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="form1Example23">Password</label>
-                                <input type="password" id="form1Example23" class="form-control form-control-lg" />
+                                <input name="password" type="password" id="form1Example23" class="form-control form-control-lg" />
                             </div>
 
                             <div class="d-flex justify-content-around align-items-center mb-4">
@@ -205,23 +211,32 @@
                                         checked />
                                     <label class="form-check-label" for="form1Example3"> Ricordami </label>
                                 </div>
-                                <a href="#!">Password dimenticata ?</a>
+                                <a href="{{route('auth.forgot-password')}}">Password dimenticata ?</a>
                             </div>
 
                             <!-- Submit button -->
                             <button type="submit" class="btn btn-primary btn-lg btn-block">Accedi</button>
 
-                            <div class="divider d-flex align-items-center my-4">
-                                <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
-                            </div>
-
-                            <a class="btn btn-primary btn-lg btn-block btn-login mb-3" style="background-color: #3b5998"
+                            
+                            <p class="text-center fw-bold mx-3 my-4 text-muted">OR</p>
+                            
+                            
+                            <di class="row ">
+                                <div class="col-12 col-md-6 d-flex align-items-stretch">
+                                <a class="btn btn-primary btn-lg btn-block btn-login mb-3 " style="background-color: #3b5998 "
                                 href="#!" role="button">
                                 <i class="fab fa-facebook-f me-2"></i>Continua con Facebook
                             </a>
-                            <a class="btn btn-primary btn-lg btn-block btn-login" style="background-color: #55acee"
+                                </div>
+                                <div class="col-12 col-md-6 d-flex align-items-stretch">
+                                <a class="btn btn-primary btn-lg btn-block btn-login mb-3 " style="background-color: #55acee"
                                 href="#!" role="button">
-                                <i class="fab fa-twitter me-2"></i>Continua con Twitter</a>
+                                <i class="fab fa-twitter me-2"></i>Continua con Twitter
+                            </a>
+                                </div>
+                            </di>
+                           
+                            
 
                         </form>
                     </div>

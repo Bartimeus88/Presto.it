@@ -73,11 +73,12 @@
         </div>
     </div>
     @endif
+    <!-- ANNULLA ULTIMA MODIFICA -->
     <div class="container">
     <form action="{{ route('editRevisor') }}" method="POST">
         @csrf
         @method('PUT')
-    <input type="submit" value="Annulla Modifica">
+        <input type="submit" value="Annulla Modifica">
     </form>
     </div>
 

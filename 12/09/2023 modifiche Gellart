@@ -3,8 +3,10 @@
  X icona profilo fontawesome inserita e da sistemare
  - nelle card inserire classe stretch bootstrap
  - form CONTATTACI non funge , inserire method..... ecc
- - "vista crea annuncio" nel prezzo un numero con la virgola non funziona
- -
+ x "vista crea annuncio" nel prezzo un numero con la virgola non funziona
+ -login remember me
+ -footer non responsive
+ 
 
  14/09/2023 ----------
 
