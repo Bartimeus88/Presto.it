@@ -72,8 +72,16 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-12 ms-auto">
+                            <div class="col-lg-4 col-12 ms-auto mb-5">
                                 <button type="submit" class="form-control">Register</button>
+                            </div>
+
+                            <div class="row">
+                            <div class="col-12 col-md-6 d-flex align-items-stretch">
+                                <a class="btn btn-primary btn-lg btn-block btn-login mb-3 " style="background-color: #DB4437"
+                                href="{{route('google.redirect')}}" role="button">
+                                <i class="fa-brands fa-google me-2"></i>Registrati con Google
+                            </a>
                             </div>
 
                             @if ($errors->any())

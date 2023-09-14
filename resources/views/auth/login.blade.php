@@ -223,9 +223,9 @@
                             
                             <di class="row ">
                                 <div class="col-12 col-md-6 d-flex align-items-stretch">
-                                <a class="btn btn-primary btn-lg btn-block btn-login mb-3 " style="background-color: #3b5998 "
-                                href="#!" role="button">
-                                <i class="fab fa-facebook-f me-2"></i>Continua con Facebook
+                                <a class="btn btn-primary btn-lg btn-block btn-login mb-3 " style="background-color: #DB4437"
+                                href="{{route('google.redirect')}}" role="button">
+                                <i class="fa-brands fa-google me-2"></i>Continua con Google
                             </a>
                                 </div>
                                 <div class="col-12 col-md-6 d-flex align-items-stretch">
