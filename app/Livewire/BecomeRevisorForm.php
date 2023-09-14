@@ -15,8 +15,19 @@ class BecomeRevisorForm extends Component
         return view('livewire.become-revisor-form');
     }
 
+    protected $rules = [
+        'formMessage' => 'required|min:10',
+    ];
+
+    protected $messages = [
+        'required'=>'E\' richiesto un messaggio di testo',
+        'min'=>'Il messaggio è troppo corto , minimo 10 caratteri',
+    ];
+
     public function becomeRevisor()
-    {
+    {           
+        $this->validate();
+
         $mailMessage = $this->formMessage;
         
         // Passa correttamente la variabile $mailMessage al costruttore di BecomeRevisor
@@ -24,6 +35,9 @@ class BecomeRevisorForm extends Component
         $this->formMessage="";
         $this->feedback= "Richiesta inviata correttamente";
 
+    }
+    public function updated($propertyName){
+        $this->validateOnly($propertyName);
     }
     
 }

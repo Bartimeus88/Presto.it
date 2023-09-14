@@ -1,10 +1,14 @@
 
 
-<div class="container py-5">
+<div class="card-body mt-2 mb-5">
     <form wire:submit.prevent="becomeRevisor">
         <div class="mb-3">
-            <label for="formMessage" class="form-label py-5">Dicci perchè dovremmo assumerti</label>
-            <textarea class="form-control" wire:model="formMessage" name="formMessage" id="formMessage" rows="5" placeholder="Inserisci il tuo messaggio qui"></textarea>
+            <p class="card-text text-center h1 pb-3">Perchè dovremmo assumerti?</p>
+            <label for="formMessage" class="form-label">Scrivi la tua richiesta</label>
+            <textarea class="form-control @error('formMessage') is-invalid @enderror" wire:model="formMessage" name="formMessage" id="formMessage" rows="5" placeholder="Inserisci il tuo messaggio qui"></textarea>
+            @error('formMessage')
+                {{$message}}
+            @enderror 
         </div>
         
         <div class="mb-3">

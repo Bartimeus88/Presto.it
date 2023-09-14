@@ -58,7 +58,7 @@
                 <!-- L'annuncio viene visualizzato solo dagli utenti loggati -->
                  @if(auth()->check())
                     <a class="btn btn-primary btn-xl text-uppercase" href="{{ route('announcements.create') }}">Crea il tuo
-                    anuncio</a>
+                    annuncio</a>
                  @endif
             </div>
         </header>
