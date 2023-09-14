@@ -4,7 +4,7 @@
  - nelle card inserire classe stretch bootstrap
  - form CONTATTACI non funge , inserire method..... ecc
  x "vista crea annuncio" nel prezzo un numero con la virgola non funziona
- - nella vista lavora con noi si può inviare il messaggio senza annuncio
+ x nella vista lavora con noi si può inviare il messaggio senza annuncio
  - mettere frontend tutte le indicazioni per registrarsi in modo tale che l'utente sappia prima come comilare i campi
  - login remember me
  - footer non responsive

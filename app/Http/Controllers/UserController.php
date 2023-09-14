@@ -41,8 +41,12 @@ class UserController extends Controller
         
 
             $userGoogleId=User::where('google_id',$googleUser->id)->first();
+            $userGoogleEmail=User::where('email',$googleUser->email)->first();
 
-            if(!$userGoogleId){
+            if($userGoogleEmail){
+                return redirect('/');
+            }
+            elseif(!$userGoogleId){
             $user = new User ;
 
             $user->name=$googleUser->name;
@@ -56,7 +60,8 @@ class UserController extends Controller
 
             Auth::login($user);
 
-            }else {
+            }
+            else {
                 
                 Auth::login($userGoogleId);
    
