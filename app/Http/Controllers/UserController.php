@@ -63,7 +63,7 @@ class UserController extends Controller
 
             }
    
-	        return redirect('/');
+	        return redirect('/nuovo/annuncio');
     
     }
 }
