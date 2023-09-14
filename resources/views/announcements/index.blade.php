@@ -31,7 +31,7 @@
                 </div>
             @empty
                 <div class="col-12">
-                    <p class="h1 text-center">Non sono presenti annunci per questa categoria</p>
+                    <p class="h1 text-center">Non sono presenti annunci</p>
                     <p class="h2 text-center">pubblicane uno : <a class="btn btn-primary shadow"
                             href="{{ route('announcements.create') }}">Nuovo Annuncio</a></p>
                 </div>
