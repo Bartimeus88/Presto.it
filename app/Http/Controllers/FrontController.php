@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\Contact;
 use App\Models\Category;
+use App\Mail\ContactAdmin;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -57,8 +58,13 @@ class FrontController extends Controller
         $user_message= $request->user_message;
         $phone= $request->phone;
 
+        // email mandata al servizio clienti
+        Mail::to('service@presto.it')->send(new ContactAdmin($name, $email, $user_message, $phone));
+        
+        // email di conferma mandata al mittente
         try{Mail::to($email)->send(new Contact($name, $email, $user_message, $phone));}
-         catch(Exeption $error){
+        catch(Exeption $error)
+        {
             return redirect()->back()->with('errorMessage', 'Si è verificato un errore durante l\'invio della mail.');
         };        
         return redirect(route('home.index'))->with('successMessage', 'Grazie per averci contattato, abbiamo ricevuto la tua email. Ti risponderemo il rpima possibile');
