@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Image;
 use App\Models\Category;
 use App\Models\Announcement;
 use Laravel\Scout\Searchable;
@@ -37,6 +38,10 @@ class Announcement extends Model
         $this->is_accepted=$value;
         $this->save();
         return true;
+    }
+
+    public function images() {
+        return $this->hasMany(Image::class);
     }
 
 

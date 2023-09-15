@@ -1359,3 +1359,10 @@ section#contact form#contactForm :-ms-input-placeholder {
     left: 8px;
     padding: 10px 10px;
 }
+
+/* img-preview */
+
+.img-preview {
+    width: 200px;
+    height: 200px;
+}
