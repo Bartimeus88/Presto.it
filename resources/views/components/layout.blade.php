@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presto.it</title>
 
     {{-- aggiunto link per fontawesome --}}
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
@@ -14,7 +15,10 @@
 
 <body>
     <x-navbar2/>
+    
     {{ $slot }}
+    
+    
 
 
 

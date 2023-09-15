@@ -6,7 +6,7 @@
 
 
     {{-- hero --}}
-    {{-- <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+    {{-- <section class=" hero-section d-flex justify-content-center align-items-center shadow" id="section_1">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-12 mx-auto">
@@ -91,15 +91,16 @@
         </div>
     </header>
 
-
+    <!-- INTESTAZIONE CATEGORIE -->
     {{-- categorie annunci --}}
-    <section class="page-section bg-light" id="category">
+    <section class="page-section " id="category">
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Categorie</h2>
                 <h3 class="section-subheading text-muted mt-5mb-5">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
-            <div class="row align-items-start">
+            <!-- FOREACH CON LE CATEGORIE -->
+            <div class="row align-items-start shadow p-5">
                 @foreach ($categories as $category)
                     <div class=" col-12 col-lg-4 col-sm-6 mb-4">
                         <!-- categorie-->
@@ -112,7 +113,7 @@
                                     src="https://images.pexels.com/photos/3374197/pexels-photo-3374197.jpeg?auto=compress&cs=tinysrgb&w=600"
                                     alt="..." />
                             </a>
-                            <div class="category-caption">
+                            <div class="category-caption bg-transparent">
                                 <div class="category-caption-heading">{{ $category->name }}</div>
                             </div>
                         </div>

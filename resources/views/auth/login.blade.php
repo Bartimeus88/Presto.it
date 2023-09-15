@@ -6,27 +6,27 @@
             @endforeach
         @endif
 
-        <section class="min-vw-100">
+        <section>
             <div class="container pt-5 ">
                 <div class="row d-flex align-items-center justify-content-center ">
                     <div class="col-md-8 col-lg-7 col-xl-6">
                         <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
                             class="img-fluid" alt="Phone image">
                     </div>
-                    <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                    <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 ">
                         <form action="/login" method="post">
                             @csrf
 
                             <!-- Email input -->
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="form1Example13">Email</label>
-                                <input name="email" type="email" id="form1Example13" class="form-control form-control-lg" />
+                                <input name="email" type="email" id="form1Example13" class="form-control form-control-lg" placeholder="email" />
                             </div>
 
                             <!-- Password input -->
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="form1Example23">Password</label>
-                                <input name="password" type="password" id="form1Example23" class="form-control form-control-lg" />
+                                <input name="password" type="password" id="form1Example23" class="form-control form-control-lg" placeholder="password"/>
                             </div>
 
                             <div class="d-flex justify-content-around align-items-center mb-4">

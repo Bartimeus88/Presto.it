@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary py-3">
+<nav class="navbar acoli navbar-expand-lg shadow py-2">
   <div class="container  ">
     <!-- Logo che riporta alla Hompage -->
-    <a class="navbar-brand" href="/">Navbar</a>
+    <a class="navbar-brand" href="/">PRESTO.IT</a>
     <!-- Menu a tendina responsive -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -30,7 +30,7 @@
       
         <!-- barra di ricerca -->
         <form action="{{route('announcements.search')}}" method="get" class="d-flex">
-          <input name="searched" type="search" class="form-control me-2" placeholder="Ricerca" aria-label="Ricerca">
+          <input name="searched" type="search" class="form-control mx-2" placeholder="Ricerca" aria-label="Ricerca">
           <button class="btn btn-outline-success" type="submit">Ricerca</button>
         </form>
 
