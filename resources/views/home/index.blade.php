@@ -31,6 +31,34 @@
             </div>
         </div>
     </section> --}}
+    
+    <!-- Messaggio che compare dopo aver compilato il form contattaci -->
+    <!-- Ina caso di successo: -->
+    @if(session('successMessage')) 
+        <div class="container">
+            <div class="my-5 flex flex-row justify-center my2 alert alert-success">
+                {{session('successMessage')}}
+            </div>
+        </div>
+    <!-- nel caso in cui l'ivio non vada a buon fine -->
+    @elseif(session('errorMessage')) 
+       <div class="container">
+            <div class="my-5 flex flex-row justify-center my2 alert alert-danger">
+                {{session('errorMessage')}}
+            </div>
+        </div>
+    <!-- nel caso in cui ci siano campi errati nel form -->
+    @elseif ($errors->any())
+        <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        </div>
+    @endif
+    
+
 
 
     @if (session()->has('access.denied'))
@@ -199,18 +227,19 @@
                 <h2 class="section-heading text-uppercase ">Contattaci</h2>
                 <h3 class="section-subheading mb-2 text-white">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
-            <form id="contactForm">
+            <form method="POST" action="{{route('contact.submit')}}" id="contactForm">
+                @csrf
                 <div class="row align-items-stretch mb-5">
                     <div class="col-md-6">
                         <div class="form-group">
                             <!-- Name input-->
-                            <input class="form-control" id="name" type="text" placeholder="Your Name *"
+                            <input class="form-control" name="name" id="name" type="text" placeholder="Your Name *"
                                 data-sb-validations="required" />
                             <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                         </div>
                         <div class="form-group">
                             <!-- Email-->
-                            <input class="form-control" id="email" type="email" placeholder="Your Email *"
+                            <input class="form-control" name="email" id="email" type="email" placeholder="Your Email *"
                                 data-sb-validations="required,email" />
                             <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.
                             </div>
@@ -218,7 +247,7 @@
                         </div>
                         <div class="form-group mb-md-0">
                             <!-- Phone number input-->
-                            <input class="form-control" id="phone" type="tel" placeholder="Your Phone *"
+                            <input class="form-control" name="phone" id="phone" type="tel" placeholder="Your Phone *"
                                 data-sb-validations="required" />
                             <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is
                                 required.
@@ -228,7 +257,7 @@
                     <div class="col-md-6">
                         <div class="form-group form-group-textarea mb-md-0">
                             <!-- Message input-->
-                            <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
+                            <textarea class="form-control" name="user_message" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
                             <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.
                             </div>
                         </div>
@@ -255,8 +284,12 @@
                     <div class="text-center text-danger mb-3">Error sending message!</div>
                 </div>
                 <!-- Submit Button-->
-                <div class="text-center "><button class="btn btn-primary btn-xl text-uppercase disabled"
-                        id="submitButton" type="submit">Send Message</button></div>
+                <div class="text-center ">
+                    <button class="btn btn-primary btn-xl text-uppercase"
+                    id="submitButton" type="submit">
+                        Send Message
+                    </button>
+                </div>
             </form>
         </div>
     </section>

@@ -33,6 +33,8 @@ Route::get('/tutti/annunci',[AnnouncementController::class,'indexAnnouncement'])
 Route::get('/ricerca/annuncio',[FrontController::class,'searchAnnouncements'])->name('announcements.search');
 Route::get('/',[FrontController::class,'home'])->name('home.index');
 Route::get('/categoria/{category}',[FrontController::class,'categoryShow'])->name('categoryShow');
+// rotta per il form contattaci
+Route::post('/contacts/submit',[FrontController::class,'contact'])->name('contact.submit');
 
 // REVISOR CONTROLLER
 
