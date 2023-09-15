@@ -116,9 +116,9 @@
                             @csrf
                             <!-- Name and surname input -->
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="name">Nome e Cognome</label>
+                                <label class="form-label" for="name">Nome</label>
                                 <input type="text" name="name" id="name" class="form-control"
-                                    placeholder="Nome e cognome" />
+                                    placeholder="Nome" />
                             </div>
 
                             <!-- Email input -->
@@ -167,7 +167,7 @@
                                         <i class="fa-brands fa-google me-2"></i>Continua con Google
                                     </a>
                                 </div>
-                                <div class="col-12 col-md-6 d-flex align-items-stretch">
+                                <div class="col-12 col-md-6 d-none d-flex align-items-stretch">
                                     <a class="btn btn-primary btn-lg btn-block btn-login mb-3 "
                                         style="background-color: #55acee" href="#!" role="button">
                                         <i class="fab fa-twitter me-2"></i>Continua con Twitter

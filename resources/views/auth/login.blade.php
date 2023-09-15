@@ -5,6 +5,11 @@
                 <p class="text-danger">{{ $error }}</p>
             @endforeach
         @endif
+        @if(session()->has('message'))
+                    <div class="flex flex-row justify-center my2 alert alert-warning">
+                    {{session('message')}}
+                    </div>
+                @endif
 
         <section>
             <div class="container pt-5 ">
@@ -50,7 +55,7 @@
                                         <i class="fa-brands fa-google me-2"></i>Continua con Google
                                     </a>
                                 </div>
-                                <div class="col-12 col-md-6 d-flex align-items-stretch">
+                                <div class="col-12 col-md-6 d-flex d-none align-items-stretch">
                                     <a class="btn btn-primary btn-lg btn-block btn-login mb-3" style="background-color: #55acee"
                                         href="#!" role="button">
                                         <i class="fab fa-twitter me-2"></i>Continua con Twitter

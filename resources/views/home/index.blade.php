@@ -176,7 +176,7 @@
     @endforeach
 
     {{-- nuovi ultimi  annunci (ragazzi non chiedetemi perchè li ho chiamati product) --}}
-    <section id="product1" class="section-p1">
+    <section id="product1" class="section-p1 shadow my-5 py-5">
         <h2>Ultimi annunci</h2>
         <p>Dai una occhiata!!</p>
         <div class="pro-container">

@@ -15,14 +15,14 @@
 
 <body>
     <x-navbar2/>
-    
+    <main class="min-vh-100">
     {{ $slot }}
     
-    
+    </main>
 
 
 
-    <x-footer />
+    <x-footer/>
     @livewireScripts
     <script src="https://kit.fontawesome.com/b8bf2cd9cb.js" crossorigin="anonymous"></script>
 </body>

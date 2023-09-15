@@ -43,9 +43,16 @@ class UserController extends Controller
             $userGoogleId=User::where('google_id',$googleUser->id)->first();
             $userGoogleEmail=User::where('email',$googleUser->email)->first();
 
-           
-            if(!$userGoogleId){
-            $user = new User ;
+           if($userGoogleId){
+            Auth::login($userGoogleId);
+           }
+            elseif($userGoogleEmail){
+
+                session()->flash('message','Sei già registrato con questa mail sul nostro sito');
+               return redirect('/login');
+
+            }elseif(!$userGoogleId) {
+                $user = new User ;
 
             $user->name=$googleUser->name;
             $user->email=$googleUser->email;
@@ -57,11 +64,7 @@ class UserController extends Controller
             $user->save();
 
             Auth::login($user);
-
-            }
-            else {
                 
-                Auth::login($userGoogleId);
    
 
             }

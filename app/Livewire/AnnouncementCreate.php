@@ -13,16 +13,16 @@ class AnnouncementCreate extends Component
     public $title , $description , $price , $color,$text, $category;
 
     protected $rules = [
-        'title' => 'required|min:4',
-        'description'=> 'required|min:8',
+        'title' => 'required|min:6',
+        'description'=> 'required|min:6',
         'price'=>'required|numeric',
         'category'=>'required'
     ];
 
     protected $messages = [
-        'required'=>'Il campo :attribute è richiesto',
-        'min'=>'Il campo :attribute è troppo corto',
-        'numeric'=>'Il campo :attribute dev\'essere un numero'
+        'required'=>'Il campo è richiesto',
+        'min'=>'Il campo è troppo corto , minimo 6 caratteri',
+        'numeric'=>'Il campo dev\'essere un numero'
     ];
 
     
