@@ -69,4 +69,10 @@ class FrontController extends Controller
         };        
         return redirect(route('home.index'))->with('successMessage', 'Grazie per averci contattato, abbiamo ricevuto la tua email. Ti risponderemo il rpima possibile');
     }
+
+    // Rotta per settare la lingua
+    public function setLanguage($lang){
+        session()->put('locale', $lang);
+        return redirect()->back();
+    }
 }

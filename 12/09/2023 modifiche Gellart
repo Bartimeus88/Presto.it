@@ -25,3 +25,6 @@
 - bootswatch quarz theme (decidere se farlo vedere alla demo o meno)
 - img modale categorie
 x bug footer persistente
+
+PER IMPORTARE LE BANDIERE 
+npm install --dev flag-icon-css

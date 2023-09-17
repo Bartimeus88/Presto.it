@@ -35,6 +35,8 @@ Route::get('/',[FrontController::class,'home'])->name('home.index');
 Route::get('/categoria/{category}',[FrontController::class,'categoryShow'])->name('categoryShow');
 // rotta per il form contattaci
 Route::post('/contacts/submit',[FrontController::class,'contact'])->name('contact.submit');
+//rotta per cambio lingua
+Route::post('/lingua/{lang}', [FrontController::class, 'setLanguage'])->name('set_language_locale');
 
 // REVISOR CONTROLLER
 
