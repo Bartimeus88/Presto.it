@@ -15,7 +15,7 @@
             @forelse ($announcements as $announcement)
                 <div class="col-12 col-lg-4">
                     <div class="card shadow-lg my-4">
-                        <img src="{{!$announcement->images()->get()->isEmpty()?$announcement->images()->first()->getUrl(400,300) : 'https://picsum.photos/200'}}" class="card-img-top" alt="...">
+                        <img src="{{!$announcement->images()->get()->isEmpty() ? $announcement->images()->first()->getUrl(400,300) : 'https://picsum.photos/400/300'}}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Titolo : {{ $announcement->title }}</h5>
                             <p class="card-text text-truncate">Descrizione : {{ $announcement->description }}</p>

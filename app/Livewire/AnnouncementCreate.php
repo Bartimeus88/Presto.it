@@ -87,14 +87,12 @@ class AnnouncementCreate extends Component
         foreach ($this->images as $image) {
             // $this->announcement->images()->create(['path'=>$image->store('images','public')]);
             $newFileName = "announcements/{$this->announcement->id}";
-            $newImage = $this->announcement->images()->create(['path'=>$image->store($newFileName , 'public')]);
+            $newImage = $this->announcement->images()->create(['path'=>$image->store($newFileName, 'public')]);
 
-            dispatch (new ResizeImage($newImage->path , 400,300 ));
-        }
+            dispatch (new ResizeImage($newImage->path , 400 , 300 )); }
 
          File::deleteDirectory(storage_path('/app/livewire-tmp'));
-
-       }
+        }
 
        // vecchio codice per salvare annuncio prima delle immagini
         // $category = Category::find($this->category);
