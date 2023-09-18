@@ -104,7 +104,7 @@
                 @foreach ($categories as $category)
                     <div class=" col-12 col-lg-4 col-sm-6 mb-4">
                         <!-- categorie-->
-                        <div class="category-item">
+                        <div class="category-item shadow">
                             <a class="category-link" data-bs-toggle="modal" href="#categoryModal{{ $category->id }}">
                                 <div class="category-hover">
                                     <div class="category-hover-content"><i class="fas fa-plus fa-3x"></i></div>
@@ -113,7 +113,7 @@
                                     src="https://images.pexels.com/photos/3374197/pexels-photo-3374197.jpeg?auto=compress&cs=tinysrgb&w=600"
                                     alt="..." />
                             </a>
-                            <div class="category-caption bg-transparent">
+                            <div class="category-caption bg-transparent shadow">
                                 <div class="category-caption-heading">{{ $category->name }}</div>
                             </div>
                         </div>

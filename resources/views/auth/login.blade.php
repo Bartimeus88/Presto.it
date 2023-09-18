@@ -25,13 +25,13 @@
                             <!-- Email input -->
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="form1Example13">Email</label>
-                                <input name="email" type="email" id="form1Example13" class="form-control form-control-lg" placeholder="email" />
+                                <input name="email" type="email" id="form1Example13" class="form-control form-control-lg" placeholder="mario.rossi@gmail.com" />
                             </div>
 
                             <!-- Password input -->
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="form1Example23">Password</label>
-                                <input name="password" type="password" id="form1Example23" class="form-control form-control-lg" placeholder="password"/>
+                                <input name="password" type="password" id="form1Example23" class="form-control form-control-lg" placeholder="Zabra123!"/>
                             </div>
 
                             <div class="d-flex justify-content-around align-items-center mb-4">

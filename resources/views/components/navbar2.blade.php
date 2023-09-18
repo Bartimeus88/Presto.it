@@ -16,7 +16,7 @@
         @endif
         <!-- Vista tutti gli annunci -->
         <li class="nav-item">
-          <a class="nav-link click-scroll text-dark" href="{{ route('announcements.index') }}">Annunci</a>
+          <a class="nav-link click-scroll text-dark" href="{{ route('announcements.index') }}">{{__('ui.announcements')}}</a>
         </li>
         <!-- Menu a tendina con tutte le categorie -->
         <li class="nav-item dropdown">
@@ -79,6 +79,9 @@
         </li>
         <li class="m-0 nav-link active me-2">
           <x-_locale class="flag" lang="it" nation="it" value="it"/>
+        </li>
+        <li class="m-0 nav-link active me-2">
+          <x-_locale class="flag" lang="en" nation="gb" value="gb"/>
         </li>
       </ul>
     </div>
