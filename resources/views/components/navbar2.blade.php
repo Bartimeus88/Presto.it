@@ -30,7 +30,7 @@
       
         <!-- Barra di ricerca -->
         <form action="{{route('announcements.search')}}" method="get" class="d-flex">
-          <input name="searched" type="search" class="form-control mx-2" placeholder="Ricerca" aria-label="Ricerca">
+          <input name="searched" type="search" class="form-control mx-2" placeholder="{{__('ui.search')}}" aria-label="Ricerca">
           <button class="btn btn-outline-success" type="submit">{{__('ui.search')}}</button>
         </form>
 
