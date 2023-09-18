@@ -18,7 +18,7 @@
                     
                         <div class="col-12 col-lg-4">
                             <div class="card shadow-lg mb-4">
-                            <img src="http://picsum.photos/200" class="card-img-top" alt="...">
+                            <img src="{{!$announcement->images()->get()->isEmpty()?Storage::url($announcement->images()->first()->path) : 'https://picsum.photos/200'}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">{{$announcement->title}}</h5>
                                     <p class="card-text text-truncate">{{$announcement->description}}</p>

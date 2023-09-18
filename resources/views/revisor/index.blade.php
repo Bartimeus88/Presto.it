@@ -59,7 +59,7 @@
                     <p class="card-text">{{ $announcement_to_check->price }}</p>
                     <a href="#" class="btn btn-primary">Visualizza</a>
                     <p class="card-footer">Pubblicato il: {{ $announcement_to_check->created_at->format('d/m/Y') }}
-                        - Autore: {{ $announcement->user->name ?? '' }}</p>
+                        - Autore : {{$announcement_to_check->user->name ?? '' }}</p>
                 </div>
                 <div class="row">
                     <div class="col-12 col-md-6">

@@ -182,7 +182,7 @@
         <div class="pro-container">
             @foreach ($announcements as $announcement)
                 <div class="pro">
-                    <img src="https://images.pexels.com/photos/1080884/pexels-photo-1080884.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    <img src="{{!$announcement->images()->get()->isEmpty()?Storage::url($announcement->images()->first()->path) : 'https://picsum.photos/200'}}"
                         alt="">
                     <div class="des">
                         <h5>{{ $announcement->title }}</h5>
