@@ -14,6 +14,7 @@
                 <div class="card col-12">
                     <div class="card-body">
                         <div id="carouselExample" class="carousel slide mb-3">
+                    <!-- immagini del carosello da cercare coun un if se non ci sono immagini caricate -->
                         @if($announcement->images)
                     <div class="carousel-inner">
                         @foreach ($announcement->images as $image)
