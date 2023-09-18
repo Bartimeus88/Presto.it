@@ -11,7 +11,7 @@
         <!-- Link crea annuncio visibile solo a chi è autenticato -->
         @if(auth()->check())
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ route('announcements.create') }}">Crea un annuncio</a>
+          <a class="nav-link active" aria-current="page" href="{{ route('announcements.create') }}">{{__('ui.article_create')}}</a>
         </li>
         @endif
         <!-- Vista tutti gli annunci -->
@@ -20,7 +20,7 @@
         </li>
         <!-- Menu a tendina con tutte le categorie -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorie</a>
+          <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{__('ui.categories')}}</a>
           <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
             @foreach ($categories as $category)
             <li><a class="dropdown-item" href="{{ route('categoryShow', compact('category')) }}">{{ $category->name }}</a></li>
@@ -31,7 +31,7 @@
         <!-- Barra di ricerca -->
         <form action="{{route('announcements.search')}}" method="get" class="d-flex">
           <input name="searched" type="search" class="form-control mx-2" placeholder="Ricerca" aria-label="Ricerca">
-          <button class="btn btn-outline-success" type="submit">Ricerca</button>
+          <button class="btn btn-outline-success" type="submit">{{__('ui.search')}}</button>
         </form>
 
         <!-- Menu utente -->
@@ -43,15 +43,15 @@
             <!-- Accedi e registrati -->
             @if (!auth()->check())
             <li class="nav-item">
-              <a class="nav-link text-dark" href="/login">Accedi</a>
+              <a class="nav-link text-dark" href="/login">{{__('ui.login')}}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="/register">Registrati</a>
+              <a class="nav-link text-dark" href="/register">{{__('ui.register')}}</a>
             </li>
             @else
             <!-- Pagina profilo utente -->
             <li class="nav-item">
-              <a class="nav-link text-dark" href="{{route('user.profile')}}">Profilo Utente</a>
+              <a class="nav-link text-dark" href="{{route('user.profile')}}">{{__('ui.profile')}}</a>
             </li>
 
             <li class="nav-item mx-4 d-none">
@@ -61,13 +61,13 @@
               </form>            
             </li>
             <li class="nav-item">
-              <label class="nav-link text-dark" for="logout-nav">Logout</label>
+              <label class="nav-link text-dark" for="logout-nav">{{__('ui.logout')}}</label>
             </li>
             @endif
             <!-- Visibile solo se si è revisori e registrati -->
             @if (auth()->check() && Auth::user()->is_revisor)
             <li class="nav-item">
-              <a class="nav-link active btn btn-outline-success btn-sm position-relative" aria-current="page" href="{{route('revisor.index')}}">Zona revisore
+              <a class="nav-link active btn btn-outline-success btn-sm position-relative" aria-current="page" href="{{route('revisor.index')}}">{{__('ui.revisor_zone')}}
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                   {{App\Models\Announcement::toBeRevisionedCount()}}
                   <span class="visually-hidden">unread messages</span>
@@ -77,12 +77,31 @@
             @endif
           </ul>
         </li>
-        <li class="m-0 nav-link active me-2">
-          <x-_locale class="flag" lang="it" nation="it" value="it"/>
+        <!-- Menu multi lingua -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{__('ui.language')}}</a>
+          <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+           <!-- Italiano -->
+            <li class="m-0 nav-link active me-2 g-light d-flex ">
+             <x-_locale id="italiano" class="flag" lang="it" nation="it" value="it"/>
+              <p class="mx-2">Italiano</p>            
+            </li>
+            <!-- Inglese -->
+            <li class="m-0 nav-link active me-2 g-light d-flex">
+              <x-_locale class="flag" lang="en" nation="gb" value="gb"/>
+              <p class="mx-2">English</p>
+            </li>
+            <!-- Francese -->
+            <li class="m-0 nav-link active me-2 g-light d-flex">
+              <x-_locale class="flag" lang="fr" nation="fr" value="fr"/>
+              <p class="mx-2">Français</p>
+            </li>           
+           
+          </ul>
         </li>
-        <li class="m-0 nav-link active me-2">
-          <x-_locale class="flag" lang="en" nation="gb" value="gb"/>
-        </li>
+        
+       
+      
       </ul>
     </div>
   </div>
