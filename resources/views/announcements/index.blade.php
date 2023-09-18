@@ -15,7 +15,7 @@
             @forelse ($announcements as $announcement)
                 <div class="col-12 col-lg-4">
                     <div class="card shadow-lg my-4">
-                        <img src="http://picsum.photos/200" class="card-img-top" alt="...">
+                        <img src="{{!$announcement->images()->get()->isEmpty()?Storage::url($announcement->images()->first()->path) : 'https://picsum.photos/200'}}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Titolo : {{ $announcement->title }}</h5>
                             <p class="card-text text-truncate">Descrizione : {{ $announcement->description }}</p>
@@ -61,7 +61,7 @@
         <div class="pro-container">
             @foreach ($announcements as $announcement)
                 <div class="pro" onclick="window.location.href='sproduct.html'>
-       <img src="img/products/f1.jpg" alt="">
+       <img src="{{!announcement->images()->get()->isEmpty()?Storage::url($announcement->images()->first()->path) : 'https://picsum.photos/200'}}" alt="">
                     <div class="des">
                         <span>adidas</span>
                         <h5>{{ $announcement->title }}</h5>

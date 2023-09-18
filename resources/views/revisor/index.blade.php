@@ -22,7 +22,15 @@
         <div class="row">
             <div class="card col-12">
                 <div id="carouselExample" class="carousel slide mb-4">
+                    @if($announcement_to_check->images)
                     <div class="carousel-inner">
+                        @foreach ($announcement_to_check->images as $image)
+                        <div class="carousel-item @if($loop->first)active @endif">
+                            <img src="{{Storage::url($image->path)}}" class="d-block w-100" alt="...">
+                        </div>
+                        @endforeach
+                    </div> 
+                    @else  
                         <div class="carousel-item active">
                             <img src="https://picsum.photos/id/27/1201/400" class="d-block w-100" alt="...">
                         </div>
@@ -33,6 +41,7 @@
                             <img src="https://picsum.photos/id/27/1203/403" class="d-block w-100" alt="...">
                         </div>
                     </div>
+                    @endif
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
                         data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
