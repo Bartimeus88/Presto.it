@@ -52,24 +52,23 @@
                                     {{$message}}
                                 @enderror
                             </div>
-                            @if(!empty($temporary_images))
+                            @if(!empty($images))
 
                             <div class="row">
                                 <div class="col 12">
                                     <p>photo preview</p>
                                     <div class="row border border-4 border-info rounded shadow py-4">
-                                        @foreach($temporary_images as $key => $image)
+                                        @foreach($images as $key => $image)
                                             <div class="col my-3">
-                                                <div class="mx-auto shadow rounded img-preview" style="background-image:url({{$image->temporaryUrl()}};)">
+                                                 <div class="mx-auto shadow rounded img-preview" style="background-image:url({{$image->temporaryUrl()}});">
                                                     <button type="button" class="btn btn-danger shadow d-block text-center mt-2 mx-auto" wire:click="removeImage({{$key}})">Cancella</button>
                                                 </div>
-                                            </div>
                                         @endforeach
+                                         </div>
                                     </div>
                                 </div>
                             </div>
                             @endif
-                            </div>
                             <div class="col-auto">
                                 <button wire:click='store' type="button" class="btn btn-primary mb-3">Aggiungi</button>
                             </div> 

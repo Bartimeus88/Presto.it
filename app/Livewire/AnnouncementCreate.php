@@ -40,10 +40,33 @@ class AnnouncementCreate extends Component
         'image.max'=>'Dev\'essere massimo di 1mb',
     ];
 
+    public function updatedTemporaryImages(){
+        if($this->validate([
+            'temporary_images.*'=>'image|max:1024'
+        ])) {
+            foreach ($this->temporary_images as $image) {
+                $this->images[]=$image;
+            }
+        }
+    }
+
+    public function removeImage($key){
+        if(in_array($key,array_keys($this->images))){
+            unset($this->images[$key]);
+        }
+    }
+
     
     public function store() {
 
        $this->validate();
+
+       $this->announcement = Category::find($this->category)->announcements()->create($this->validate());
+       if(count($this->images)){
+        foreach ($this->images as $image) {
+            $this->announcement->images()->create(['path'=>$image->store('images','public')]);
+        }
+       }
 
 
         $category = Category::find($this->category);
@@ -70,6 +93,9 @@ class AnnouncementCreate extends Component
         $this->description ='';
         $this->price='';
         $this->category='';
+        $this->image='';
+        $this->images=[];
+        $this->form_id=rand();
         }
 
     public function render()
