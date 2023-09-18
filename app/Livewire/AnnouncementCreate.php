@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Category;
+use App\Jobs\ResizeImage;
 use App\Models\Announcement;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
@@ -83,8 +84,15 @@ class AnnouncementCreate extends Component
        //if per controllare se ci sono immagini e nel caso crea un path nella tabella e le salva tramite store nel public images
        if(count($this->images)){
         foreach ($this->images as $image) {
-            $this->announcement->images()->create(['path'=>$image->store('images','public')]);
+            // $this->announcement->images()->create(['path'=>$image->store('images','public')]);
+            $newFileName = "announcements/{$this->announcement->id}";
+            $newImage = $this->announcement->images()->create(['path'=>$image->store($newFileName , 'public')]);
+
+            dispatch (new ResizeImage($newImage->path , 400,300 ));
         }
+
+        File::deleteDirectory(storage_path('/app/livewire-tmp'));
+
        }
 
        // vecchio codice per salvare annuncio prima delle immagini
