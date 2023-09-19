@@ -127,7 +127,6 @@ class AnnouncementCreate extends Component
         $this->image='';
         $this->images=[];
         $this->temporary_images=[];
-        $this->form_id=rand();
         }
 
         //funzione di ritorno della vista

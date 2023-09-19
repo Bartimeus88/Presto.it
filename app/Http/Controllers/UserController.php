@@ -47,17 +47,12 @@ class UserController extends Controller
             Auth::login($userGoogleId);
            }
             elseif($userGoogleEmail){
+     
 
-            //     $user = User::find($id);
-            //     $user->google_id=$googleUser->id;
-            //     $user->google_token=$googleUser->token;
-            //     $user->google_refresh_token=$googleUser->refreshToken;
-            //     $user->save();
+            Auth::login($userGoogleEmail);
 
-            // Auth::login($user);
-
-                session()->flash('message','Sei già registrato con questa mail sul nostro sito');
-               return redirect('/login');
+            //     session()->flash('message','Sei già registrato con questa mail sul nostro sito');
+            //    return redirect('/login');
 
             }elseif(!$userGoogleId) {
                 $user = new User ;
