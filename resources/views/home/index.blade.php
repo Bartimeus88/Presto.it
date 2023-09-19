@@ -1,7 +1,7 @@
 <x-layout>
 
 
-@dd(session('locale'))   
+  
 
 
     <!-- Messaggio che compare dopo aver compilato il form contattaci -->
@@ -84,7 +84,17 @@
                                     alt="..." />
                             </a>
                             <div class="category-caption bg-transparent shadow">
-                                <div class="category-caption-heading">{{ $category->name }}</div>
+                                <div class="category-caption-heading">
+                                    <!-- cambia nome categoria in base alla lingua impostata -->
+                                    @if(session('locale')=="it")
+                                    {{ $category->name }}
+                                    @elseif(session('locale'=="fr"))
+                                    {{$category->fr}}
+                                    @else
+                                    {{$category->en}}
+                                    @endif
+
+                                </div>
                             </div>
                         </div>
                     </div>
