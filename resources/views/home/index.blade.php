@@ -79,9 +79,17 @@
                                 <div class="category-hover">
                                     <div class="category-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid"
-                                    src="https://images.pexels.com/photos/3374197/pexels-photo-3374197.jpeg?auto=compress&cs=tinysrgb&w=600"
-                                    alt="..." />
+                                <!-- contenitore dell'icona della categoria -->
+                                <div class="p-5 fs-1 text-center text-body">
+                                    <!-- aggiunto contenitore per dare più padding -->
+                                    <div class="p-5">
+                                        <!-- icona -->
+                                        {!! $category->icon !!}
+                                        
+                                     </div>
+                                    
+
+                                </div>
                             </a>
                             <div class="category-caption bg-transparent shadow">
                                 <div class="category-caption-heading">

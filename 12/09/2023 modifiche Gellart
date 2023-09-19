@@ -36,5 +36,6 @@ php artisan queue:work da lasciare aperto
 PER CAMBIO LINGUA CATEGORIE
 php artisan migrate 
 e inserire manualmente nel database le traduzioni come indicato in chat
+e anche le icone font awesome
 
 
