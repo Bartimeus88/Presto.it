@@ -23,7 +23,19 @@
           <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{__('ui.categories')}}</a>
           <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
             @foreach ($categories as $category)
-            <li><a class="dropdown-item" href="{{ route('categoryShow', compact('category')) }}">{{ $category->name }}</a></li>
+            <li>
+              <a class="dropdown-item" href="{{ route('categoryShow', compact('category')) }}">
+                <!-- cambia nome categoria in base alla lingua impostata -->
+                @if(session('locale')=="it")
+                  {{ $category->name }}
+                @elseif(session('locale')=="fr")
+                 {{$category->fr}}
+                @else
+                  {{$category->en}}
+                @endif
+            
+              </a>
+            </li>
             @endforeach
           </ul>
         </li>

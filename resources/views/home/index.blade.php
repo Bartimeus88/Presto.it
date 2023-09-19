@@ -88,7 +88,7 @@
                                     <!-- cambia nome categoria in base alla lingua impostata -->
                                     @if(session('locale')=="it")
                                     {{ $category->name }}
-                                    @elseif(session('locale'=="fr"))
+                                    @elseif(session('locale')=="fr")
                                     {{$category->fr}}
                                     @else
                                     {{$category->en}}
