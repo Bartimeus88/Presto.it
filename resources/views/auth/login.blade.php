@@ -41,13 +41,13 @@
                                 <!-- Checkbox -->
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-                                    <label class="form-check-label" for="form1Example3"> {{__(ui.remember_me)}} </label>
+                                    <label class="form-check-label" for="form1Example3"> {{__('ui.remember_me')}} </label>
                                 </div>
-                                <a href="{{ route('auth.forgot-password') }}">{{__(ui.forgot_password)}} ?</a>
+                                <a href="{{ route('auth.forgot-password') }}">{{__('ui.forgot_password')}} ?</a>
                             </div>
 
                             <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">{{__(ui.login)}}</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">{{__('ui.login')}}</button>
 
                             <p class="text-center fw-bold mx-3 my-4 text-muted">OR</p>
 
@@ -55,7 +55,7 @@
                                 <div class="col-12 col-md-6 d-flex align-items-stretch">
                                     <a class="btn btn-primary btn-lg btn-block btn-login mb-3" style="background-color: #DB4437"
                                         href="{{ route('google.redirect') }}" role="button">
-                                        <i class="fa-brands fa-google me-2"></i>{{__(ui.continue_with_google)}}
+                                        <i class="fa-brands fa-google me-2"></i>{{__('ui.continue_with_google')}}
                                     </a>
                                 </div>
                                 <!-- <div class="col-12 col-md-6 d-flex d-none align-items-stretch">
