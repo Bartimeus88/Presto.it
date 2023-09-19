@@ -9,14 +9,17 @@
             </div>
         </div>
     </div>
-
+    <!-- Container annunci -->
     <div class="container my-5">
         <div class="row">
             @forelse ($announcements as $announcement)
                 <div class="col-12 col-lg-4">
+                    <!-- Card -->
                     <div class="card shadow-lg my-4">
-                        <img src="{{!$announcement->images()->get()->isEmpty() ? $announcement->images()->first()->getUrl(400,300) : 'https://picsum.photos/400/300'}}" class="card-img-top" alt="...">
+                        <!-- immagine dell'annuncio -->
+                        <img src="{{!$announcement->images()->get()->isEmpty() ? $announcement->images()->first()->getUrl(400,300) : 'https://picsum.photos/400/300'}}" class="card-img-top" alt="{{ $announcement->title }}">
                         <div class="card-body">
+                            <!-- titolo e corpo dell'annuncio -->
                             <h5 class="card-title">Titolo : {{ $announcement->title }}</h5>
                             <p class="card-text text-truncate">Descrizione : {{ $announcement->description }}</p>
                             <p class="card-text">Prezzo : {{ $announcement->price }} €</p>
@@ -29,6 +32,7 @@
                         </div>
                     </div>
                 </div>
+             <!-- Nel caso in cui non ci siano annunci -->
             @empty
                 <div class="col-12">
                     <p class="h1 text-center">Non sono presenti annunci</p>
@@ -36,6 +40,7 @@
                             href="{{ route('announcements.create') }}">Nuovo Annuncio</a></p>
                 </div>
             @endforelse
+            <!-- Paginazione per gli annunci -->
             <div class="container my-5">
                 <div class="row">
                     <div class="col-12">

@@ -32,5 +32,5 @@ npm install --dev flag-icon-css
 in .env 
 QUEUE_CONNECTION=database
 php artisan queue:work da lasciare aperto
-php artisan queue:table
+
 
