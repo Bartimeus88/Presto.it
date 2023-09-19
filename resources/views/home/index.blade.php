@@ -85,18 +85,16 @@
             <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
             <!-- L'annuncio viene visualizzato solo dagli utenti loggati -->
             @if (auth()->check())
-                <a class="btn btn-primary btn-xl text-uppercase" href="{{ route('announcements.create') }}">Crea il tuo
-                    annuncio</a>
+                <a class="btn btn-primary btn-xl text-uppercase" href="{{ route('announcements.create') }}">{{__(ui.create_your_announcement)}}</a>
             @endif
         </div>
     </header>
 
     <!-- INTESTAZIONE CATEGORIE -->
-    {{-- categorie annunci --}}
     <section class="page-section " id="category">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Categorie</h2>
+                <h2 class="section-heading text-uppercase">{{__(ui.categories)}}</h2>
                 <h3 class="section-subheading text-muted mt-5mb-5">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
             <!-- FOREACH CON LE CATEGORIE -->
@@ -152,7 +150,7 @@
                                         nostrum, reiciendis facere nemo!</p>
                                     <ul class="list-inline">
                                         <li>
-                                            <strong>Categoria:</strong>
+                                            <strong>{{__(ui.category)}}:</strong>
                                             {{ $category->name }}
                                         </li>
                                     </ul>
@@ -160,7 +158,7 @@
                                     <button class="btn btn-primary btn-xl text-uppercase"
                                         data-bs-dismiss="categoryModal{{ $category->id }}" type="button">
                                         <a class="text-white"
-                                            href="{{ route('categoryShow', compact('category')) }}">Visualizza</a>
+                                            href="{{ route('categoryShow', compact('category')) }}">{{__(ui.view)}}</a>
                                     </button>
                                     <!-- Bottone di chiusura modale con display none (la label x viene utilizzata per chiudere la modale) -->
                                     <button class="btn btn-primary btn-xl text-uppercase d-none" data-bs-dismiss="modal"
@@ -177,8 +175,8 @@
 
     {{-- nuovi ultimi  annunci (ragazzi non chiedetemi perchè li ho chiamati product) --}}
     <section id="product1" class="section-p1 shadow my-5 py-5">
-        <h2>Ultimi annunci</h2>
-        <p>Dai una occhiata!!</p>
+        <h2>{{__(ui.last_announcements)}}</h2>
+        <p>{{__(ui.take_a_look)}}!!</p>
         <div class="pro-container">
             @foreach ($announcements as $announcement)
                 <div class="pro">
@@ -196,9 +194,9 @@
                         </div>
                         <h4>{{ $announcement->price }}</h4>
                         <button type="button" class="btn btn-primary"><a class="text-white"
-                                href="{{ route('announcements.show', $announcement->id) }}">Visualizza</a></button>
+                                href="{{ route('announcements.show', $announcement->id) }}">{{__(ui.view)}}</a></button>
                         <a href="{{ route('categoryShow', ['category' => $announcement->category]) }}"
-                            class="card-link btn btn-success shadow">Categoria:
+                            class="card-link btn btn-success shadow">{{__(ui.category)}}:
                             {{ $announcement->category->name }}</a>
                     </div>
                     {{-- <a href="#"><i class="fal fa-shopping-cart cart"></i></a> --}}
@@ -213,9 +211,9 @@
         <div class="row">
             <div class="card col-12 shadow py-5">
                 <div class="col-12 card-body text-center">
-                    <h2 class="display-2 col-12 card-title">LAVORA CON NOI</h2>
+                    <h2 class="display-2 col-12 card-title">{{__(ui.work_with_us)}}</h2>
                     <p class="card-text col-12 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <a href="{{ route('request.revisor') }}" class="btn btn-lg btn-primary">DIVENTA REVISORE</a>
+                    <a href="{{ route('request.revisor') }}" class="btn btn-lg btn-primary">{{__(ui.become_a_reviewer)}}</a>
                 </div>
             </div>
         </div>
@@ -225,7 +223,7 @@
     <section class="page-section" id="contact">
         <div class="container">
             <div class="text-center p-5">
-                <h2 class="section-heading text-uppercase ">Contattaci</h2>
+                <h2 class="section-heading text-uppercase ">{{__(ui.contact_us)}}</h2>
                 <h3 class="section-subheading mb-2 text-white">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
             <form method="POST" action="{{route('contact.submit')}}" id="contactForm">

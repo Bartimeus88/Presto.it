@@ -9,8 +9,8 @@
     </div>
 
     <div class="container my-5">
-        <div class="row">
-            <div class="col-12">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
                 <div class="card col-12">
                     <div class="card-body">
                         <div id="carouselExample" class="carousel slide mb-3">
@@ -25,13 +25,13 @@
                     </div> 
                     @else  
                         <div class="carousel-item active">
-                            <img src="https://picsum.photos/id/27/1201/400" class="d-block w-100" alt="...">
+                            <img src="https://picsum.photos/400/301'" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://picsum.photos/id/27/1200/405" class="d-block w-100" alt="...">
+                            <img src="https://picsum.photos/400/300'" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://picsum.photos/id/27/1203/403" class="d-block w-100" alt="...">
+                            <img src="https://picsum.photos/400/300'" class="d-block w-100" alt="...">
                         </div>
                     </div>
                     @endif

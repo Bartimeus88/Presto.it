@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="display-1 text-center">
-                    Ecco i nostri annunci
+                {{__('ui.our_announcements')}}
                 </h2>
             </div>
         </div>
@@ -20,24 +20,24 @@
                         <img src="{{!$announcement->images()->get()->isEmpty() ? $announcement->images()->first()->getUrl(400,300) : 'https://picsum.photos/400/300'}}" class="card-img-top" alt="{{ $announcement->title }}">
                         <div class="card-body">
                             <!-- titolo e corpo dell'annuncio -->
-                            <h5 class="card-title">Titolo : {{ $announcement->title }}</h5>
-                            <p class="card-text text-truncate">Descrizione : {{ $announcement->description }}</p>
-                            <p class="card-text">Prezzo : {{ $announcement->price }} €</p>
+                            <h5 class="card-title">{{__('ui.title')}} : {{ $announcement->title }}</h5>
+                            <p class="card-text text-truncate">{{__('ui.description')}} : {{ $announcement->description }}</p>
+                            <p class="card-text">{{__('ui.price')}} : {{ $announcement->price }} €</p>
                             <a href="{{ route('announcements.show', $announcement->id) }}"
-                                class="btn btn-primary">Visualizza</a>
+                                class="btn btn-primary">{{__('ui.view')}}</a>
                             <a href="{{ route('categoryShow', ['category' => $announcement->category]) }}"
-                                class="card-link btn btn-success shadow">Categoria:
+                                class="card-link btn btn-success shadow">{{__('ui.category')}}:
                                 {{ $announcement->category->name }}</a>
-                            <p class="card-footer">Pubblicato il: {{ $announcement->created_at->format('d/m/Y') }}</p>
+                            <p class="card-footer">{{__('ui.published_on')}}: {{ $announcement->created_at->format('d/m/Y') }}</p>
                         </div>
                     </div>
                 </div>
              <!-- Nel caso in cui non ci siano annunci -->
             @empty
                 <div class="col-12">
-                    <p class="h1 text-center">Non sono presenti annunci</p>
-                    <p class="h2 text-center">pubblicane uno : <a class="btn btn-primary shadow"
-                            href="{{ route('announcements.create') }}">Nuovo Annuncio</a></p>
+                    <p class="h1 text-center">{{__('ui.no_announcements')}}</p>
+                    <p class="h2 text-center">{{__('ui.article_create')}} : <a class="btn btn-primary shadow"
+                            href="{{ route('announcements.create') }}">{{__('ui.new_announcement')}}</a></p>
                 </div>
             @endforelse
             <!-- Paginazione per gli annunci -->
