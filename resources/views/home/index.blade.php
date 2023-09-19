@@ -1,37 +1,9 @@
 <x-layout>
 
 
-    {{-- <h1 class="display-1 text-center my-5">Presto.it</h1> --}}
+@dd(session('locale'))   
 
 
-
-    {{-- hero --}}
-    {{-- <section class=" hero-section d-flex justify-content-center align-items-center shadow" id="section_1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-12 mx-auto">
-                    <h1 class="text-white text-center">Presto.it</h1>
-
-                    <h6 class="text-center">platform for creatives around the world</h6>
-
-                    <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5 d-none" role="search">
-                        <div class="input-group input-group-lg">
-                            <span class="input-group-text bi-search" id="basic-addon1">
-
-                            </span>
-
-                            <input name="keyword" type="search" class="form-control" id="keyword"
-                                placeholder="Design, Code, Marketing, Finance ..." aria-label="Search">
-
-                            <button type="submit" class="form-control">Search</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </section> --}}
-    
     <!-- Messaggio che compare dopo aver compilato il form contattaci -->
     <!-- Ina caso di successo: -->
     @if(session('successMessage')) 
@@ -85,7 +57,7 @@
             <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
             <!-- L'annuncio viene visualizzato solo dagli utenti loggati -->
             @if (auth()->check())
-                <a class="btn btn-primary btn-xl text-uppercase" href="{{ route('announcements.create') }}">{{__(ui.create_your_announcement)}}</a>
+                <a class="btn btn-primary btn-xl text-uppercase" href="{{ route('announcements.create') }}">{{__('ui.create_your_announcement')}}</a>
             @endif
         </div>
     </header>
