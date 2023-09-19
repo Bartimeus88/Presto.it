@@ -23,23 +23,24 @@
             <div class="card col-12">
                 <div id="carouselExample" class="carousel slide mb-4">
                     <!-- immagini del carosello da cercare coun un if se non ci sono immagini caricate -->
-                    @if($announcement_to_check->images)
+                    @if($announcement_to_check->images && count($announcement_to_check->images)>0)
                     <div class="carousel-inner">
                         @foreach ($announcement_to_check->images as $image)
                         <div class="carousel-item @if($loop->first)active @endif">
-                            <img src="{{Storage::url($image->path)}}" class="d-block w-100" alt="...">
+                            <img src="{{$image->getUrl(400,300)}}" class="d-block w-100" alt="...">
                         </div>
                         @endforeach
                     </div> 
                     @else  
+                    <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="https://picsum.photos/id/27/1201/400" class="d-block w-100" alt="...">
+                            <img src="https://picsum.photos/400/301" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://picsum.photos/id/27/1200/405" class="d-block w-100" alt="...">
+                            <img src="https://picsum.photos/400/300" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://picsum.photos/id/27/1203/403" class="d-block w-100" alt="...">
+                            <img src="https://picsum.photos/400/300" class="d-block w-100" alt="...">
                         </div>
                     </div>
                     @endif
