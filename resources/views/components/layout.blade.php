@@ -14,12 +14,11 @@
 </head>
 
 <body>
+    <x-navbar2/>
+    <main class="min-vh-100">
+    {{ $slot }}
     
-    <div class="super_container">
-        <x-navbar2 />
-
-        {{ $slot }}
-    </div>
+    </main>
 
 
 
