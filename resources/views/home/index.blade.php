@@ -1,37 +1,54 @@
 <x-layout>
 
 
-  
-
+    {{-- hero (if you are autenticate , you can create announcement) --}}
+    <div class="main_slider" style="background-image: url('')">
+        <div class="container fill_height">
+            <div class="row align-items-center fill_height">
+                <div class="col">
+                    <div class="main_slider_content">
+                        <h6>Bug.it</h6>
+                        @if (auth()->check())
+                            <h1 class="">Crea il tuo annuncio!!</h1>
+                            <div class="red_button shop_now_button btn_crea_annuncio"><a
+                                    href="{{ route('announcements.create') }}">{{ __('ui.article_create') }}</a></div>
+                        @else
+                            <h1>Accedi registrati o per creare il tuo annuncio!!</h1>
+                            <div class="red_button shop_now_button"><a href="/login">{{ __('ui.login') }}</a></div>
+                            <div class="red_button shop_now_button"><a href="/register">{{ __('ui.register') }}</a>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Messaggio che compare dopo aver compilato il form contattaci -->
     <!-- Ina caso di successo: -->
-    @if(session('successMessage')) 
+    @if (session('successMessage'))
         <div class="container">
             <div class="my-5 flex flex-row justify-center my2 alert alert-success">
-                {{session('successMessage')}}
+                {{ session('successMessage') }}
             </div>
         </div>
-    <!-- nel caso in cui l'ivio non vada a buon fine -->
-    @elseif(session('errorMessage')) 
-       <div class="container">
+        <!-- nel caso in cui l'ivio non vada a buon fine -->
+    @elseif(session('errorMessage'))
+        <div class="container">
             <div class="my-5 flex flex-row justify-center my2 alert alert-danger">
-                {{session('errorMessage')}}
+                {{ session('errorMessage') }}
             </div>
         </div>
-    <!-- nel caso in cui ci siano campi errati nel form -->
+        <!-- nel caso in cui ci siano campi errati nel form -->
     @elseif ($errors->any())
         <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
     @endif
-    
-
-
 
     @if (session()->has('access.denied'))
         <div class="container">
@@ -49,24 +66,14 @@
     @endif
 
 
-    {{-- sezione hero contenente bottone che porta alla creazione annuncio --}}
 
-    <header class="masthead">
-        <div class="container">
-            <div class="masthead-subheading">Welcome To Our Studio!</div>
-            <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-            <!-- L'annuncio viene visualizzato solo dagli utenti loggati -->
-            @if (auth()->check())
-                <a class="btn btn-primary btn-xl text-uppercase" href="{{ route('announcements.create') }}">{{__('ui.create_your_announcement')}}</a>
-            @endif
-        </div>
-    </header>
+
 
     <!-- INTESTAZIONE CATEGORIE -->
     <section class="page-section " id="category">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">{{__('ui.categories')}}</h2>
+                <h2 class="section-heading text-uppercase">{{ __('ui.categories') }}</h2>
                 <h3 class="section-subheading text-muted mt-5mb-5">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
             <!-- FOREACH CON LE CATEGORIE -->
@@ -85,21 +92,21 @@
                                     <div class="p-5">
                                         <!-- icona -->
                                         {!! $category->icon !!}
-                                        
-                                     </div>
-                                    
+
+                                    </div>
+
 
                                 </div>
                             </a>
                             <div class="category-caption bg-transparent shadow">
                                 <div class="category-caption-heading">
                                     <!-- cambia nome categoria in base alla lingua impostata -->
-                                    @if(session('locale')=="it")
-                                    {{ $category->name }}
-                                    @elseif(session('locale')=="fr")
-                                    {{$category->fr}}
+                                    @if (session('locale') == 'it')
+                                        {{ $category->name }}
+                                    @elseif(session('locale') == 'fr')
+                                        {{ $category->fr }}
                                     @else
-                                    {{$category->en}}
+                                        {{ $category->en }}
                                     @endif
 
                                 </div>
@@ -140,7 +147,7 @@
                                         nostrum, reiciendis facere nemo!</p>
                                     <ul class="list-inline">
                                         <li>
-                                            <strong>{{__('ui.category')}}:</strong>
+                                            <strong>{{ __('ui.category') }}:</strong>
                                             {{ $category->name }}
                                         </li>
                                     </ul>
@@ -148,7 +155,7 @@
                                     <button class="btn btn-primary btn-xl text-uppercase"
                                         data-bs-dismiss="categoryModal{{ $category->id }}" type="button">
                                         <a class="text-white"
-                                            href="{{ route('categoryShow', compact('category')) }}">{{__('ui.view')}}</a>
+                                            href="{{ route('categoryShow', compact('category')) }}">{{ __('ui.view') }}</a>
                                     </button>
                                     <!-- Bottone di chiusura modale con display none (la label x viene utilizzata per chiudere la modale) -->
                                     <button class="btn btn-primary btn-xl text-uppercase d-none" data-bs-dismiss="modal"
@@ -163,37 +170,52 @@
         </div>
     @endforeach
 
-    {{-- nuovi ultimi  annunci (ragazzi non chiedetemi perchè li ho chiamati product) --}}
-    <section id="product1" class="section-p1 shadow my-5 py-5">
-        <h2>{{__('ui.last_announcements')}}</h2>
-        <p>{{__('ui.take_a_look')}}!!</p>
-        <div class="pro-container">
-            @foreach ($announcements as $announcement)
-                <div class="pro">
-                    <img src="{{!$announcement->images()->get()->isEmpty()?Storage::url($announcement->images()->first()->path) : 'https://picsum.photos/200'}}"
-                        alt="">
-                    <div class="des">
-                        <h5>{{ $announcement->title }}</h5>
-                        <p class="text-truncate">{{ $announcement->description }}</p>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>{{ $announcement->price }}</h4>
-                        <button type="button" class="btn btn-primary"><a class="text-white"
-                                href="{{ route('announcements.show', $announcement->id) }}">{{__('ui.view')}}</a></button>
-                        <a href="{{ route('categoryShow', ['category' => $announcement->category]) }}"
-                            class="card-link btn btn-success shadow">{{__('ui.category')}}:
-                            {{ $announcement->category->name }}</a>
+    {{-- last announcements  --}}
+    <div class="new_arrivals">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <div class="section_title new_arrivals_title">
+                        <h2>Ultimi annunci</h2>
                     </div>
-                    {{-- <a href="#"><i class="fal fa-shopping-cart cart"></i></a> --}}
                 </div>
-            @endforeach
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="product-grid"
+                        data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+
+                        <!-- Product 1 -->
+                        @foreach ($announcements as $announcement)
+                            <div class="product-item men">
+                                <div class="product discount product_filter">
+                                    <div class="product_image">
+                                        <img src="{{ !$announcement->images()->get()->isEmpty()? Storage::url($announcement->images()->first()->path): 'https://picsum.photos/200' }}"
+                                            alt="">
+                                    </div>
+                                    <div class="favorite favorite_left"></div>
+                                    <div
+                                        class="product_price product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center text-center">
+                                        <span>{{ $announcement->price }}</span></div>
+                                    <div class="product_info">
+                                        <h6 class="product_name"><a
+                                                href="{{ route('categoryShow', ['category' => $announcement->category]) }}">Categoria:
+                                                {{ $announcement->category->name }}</a></h6>
+                                        <div class="text-truncate">Titolo. {{ $announcement->title }}</div>
+                                        <div class="text-truncate">Descrizione: {{ $announcement->description }}</div>
+                                    </div>
+                                </div>
+                                <div class="red_button add_to_cart_button"><a
+                                        href="{{ route('announcements.show', $announcement->id) }}">Visualizza</a>
+                                </div>
+                            </div>
+                        @endforeach
+
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
 
 
     {{-- lavora con noi --}}
@@ -201,9 +223,10 @@
         <div class="row">
             <div class="card col-12 shadow py-5">
                 <div class="col-12 card-body text-center">
-                    <h2 class="display-2 col-12 card-title">{{__('ui.work_with_us')}}</h2>
+                    <h2 class="display-2 col-12 card-title">{{ __('ui.work_with_us') }}</h2>
                     <p class="card-text col-12 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <a href="{{ route('request.revisor') }}" class="btn btn-lg btn-primary">{{__('ui.become_a_reviewer')}}</a>
+                    <a href="{{ route('request.revisor') }}"
+                        class="btn btn-lg btn-primary">{{ __('ui.become_a_reviewer') }}</a>
                 </div>
             </div>
         </div>
@@ -213,31 +236,31 @@
     <section class="page-section" id="contact">
         <div class="container">
             <div class="text-center p-5">
-                <h2 class="section-heading text-uppercase ">{{__('ui.contact_us')}}</h2>
+                <h2 class="section-heading text-uppercase ">{{ __('ui.contact_us') }}</h2>
                 <h3 class="section-subheading mb-2 text-white">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
-            <form method="POST" action="{{route('contact.submit')}}" id="contactForm">
+            <form method="POST" action="{{ route('contact.submit') }}" id="contactForm">
                 @csrf
                 <div class="row align-items-stretch mb-5">
                     <div class="col-md-6">
                         <div class="form-group">
                             <!-- Name input-->
-                            <input class="form-control" name="name" id="name" type="text" placeholder="Your Name *"
-                                data-sb-validations="required" />
+                            <input class="form-control" name="name" id="name" type="text"
+                                placeholder="Your Name *" data-sb-validations="required" />
                             <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                         </div>
                         <div class="form-group">
                             <!-- Email-->
-                            <input class="form-control" name="email" id="email" type="email" placeholder="Your Email *"
-                                data-sb-validations="required,email" />
+                            <input class="form-control" name="email" id="email" type="email"
+                                placeholder="Your Email *" data-sb-validations="required,email" />
                             <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.
                             </div>
                             <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                         </div>
                         <div class="form-group mb-md-0">
                             <!-- Phone number input-->
-                            <input class="form-control" name="phone" id="phone" type="tel" placeholder="Your Phone *"
-                                data-sb-validations="required" />
+                            <input class="form-control" name="phone" id="phone" type="tel"
+                                placeholder="Your Phone *" data-sb-validations="required" />
                             <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is
                                 required.
                             </div>
@@ -246,7 +269,8 @@
                     <div class="col-md-6">
                         <div class="form-group form-group-textarea mb-md-0">
                             <!-- Message input-->
-                            <textarea class="form-control" name="user_message" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
+                            <textarea class="form-control" name="user_message" id="message" placeholder="Your Message *"
+                                data-sb-validations="required"></textarea>
                             <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.
                             </div>
                         </div>
@@ -274,8 +298,7 @@
                 </div>
                 <!-- Submit Button-->
                 <div class="text-center ">
-                    <button class="btn btn-primary btn-xl text-uppercase"
-                    id="submitButton" type="submit">
+                    <button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">
                         Send Message
                     </button>
                 </div>

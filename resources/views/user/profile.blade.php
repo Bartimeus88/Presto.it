@@ -1,5 +1,9 @@
 <x-layout>
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="container my-5">
         <div class="row">
             <div class="col-12">
@@ -38,7 +42,7 @@
                     </div>
                 </div>
                 @endforeach
-           
+
         </div>
     </div>
 
