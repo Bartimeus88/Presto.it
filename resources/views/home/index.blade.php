@@ -1,35 +1,55 @@
 <x-layout>
 
 
-  
+    {{-- <div class="main_slider" style="background-image: url('https://images.pexels.com/photos/17117787/pexels-photo-17117787/free-photo-of-bianco-e-nero-paesaggio-uomo-persone.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
+        <div class="container fill_height">
+            <div class="row align-items-center fill_height">
+                <div class="col">
+                    <div class="main_slider_content">
+                        <h6>Bug.it</h6>
+                        @if (auth()->check())
+                            <h1 class="">Crea il tuo annuncio!!</h1>
+                            <div class="red_button shop_now_button btn_crea_annuncio"><a
+                                    href="{{ route('announcements.create') }}">{{ __('ui.article_create') }}</a></div>
+                        @else
+                            <h1>Accedi registrati o per creare il tuo annuncio!!</h1>
+                            <div class="green_button shop_now_button bg-success"><a href="/login">{{ __('ui.login') }}</a></div>
+                            <div class="green_button shop_now_button bg-succes"><a href="/register">{{ __('ui.register') }}</a>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
 
 
     <!-- Messaggio che compare dopo aver compilato il form contattaci -->
     <!-- Ina caso di successo: -->
-    @if(session('successMessage')) 
+    @if (session('successMessage'))
         <div class="container">
             <div class="my-5 flex flex-row justify-center my2 alert alert-success">
-                {{session('successMessage')}}
+                {{ session('successMessage') }}
             </div>
         </div>
-    <!-- nel caso in cui l'ivio non vada a buon fine -->
-    @elseif(session('errorMessage')) 
-       <div class="container">
+        <!-- nel caso in cui l'ivio non vada a buon fine -->
+    @elseif(session('errorMessage'))
+        <div class="container">
             <div class="my-5 flex flex-row justify-center my2 alert alert-danger">
-                {{session('errorMessage')}}
+                {{ session('errorMessage') }}
             </div>
         </div>
-    <!-- nel caso in cui ci siano campi errati nel form -->
+        <!-- nel caso in cui ci siano campi errati nel form -->
     @elseif ($errors->any())
         <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
     @endif
-    
+
 
 
 
@@ -57,22 +77,22 @@
             <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
             <!-- L'annuncio viene visualizzato solo dagli utenti loggati -->
             @if (auth()->check())
-                <a class="btn btn-primary btn-xl text-uppercase" href="{{ route('announcements.create') }}">{{__('ui.create_your_announcement')}}</a>
+                <a class="btn btn-success btn-xl text-uppercase" href="{{ route('announcements.create') }}">{{__('ui.create_your_announcement')}}</a>
             @endif
         </div>
     </header>
 
     <!-- INTESTAZIONE CATEGORIE -->
     <section class="page-section " id="category">
-        <div class="container">
+        <div class="container ">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">{{__('ui.categories')}}</h2>
+                <h2 class="section-heading text-uppercase">{{ __('ui.categories') }}</h2>
                 <h3 class="section-subheading text-muted mt-5mb-5">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
             <!-- FOREACH CON LE CATEGORIE -->
             <div class="row align-items-start shadow p-5">
                 @foreach ($categories as $category)
-                    <div class=" col-12 col-lg-4 col-sm-6 mb-4">
+                    <div class=" col-12 col-lg-4 col-sm-6 mb-4 ">
                         <!-- categorie-->
                         <div class="category-item shadow">
                             <a class="category-link" data-bs-toggle="modal" href="#categoryModal{{ $category->id }}">
@@ -85,9 +105,9 @@
                                     <div class="p-5">
                                         <!-- icona -->
                                         {!! $category->icon !!}
-                                        
-                                     </div>
-                                    
+
+                                    </div>
+
 
                                 </div>
                             </a>
@@ -95,20 +115,20 @@
                                 <div class="category-caption-heading text-truncate">
                                     <!-- cambia nome categoria in base alla lingua impostata -->
                                     <!-- quando parte la sessione se la lingua preferita del browser è italiano -->
-                                    @if(session('locale')==null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2)=="it")
-                                    {{ $category->name }}
-                                    <!-- quando parte la sessione se la lingua preferita del browser è francese -->
-                                    @elseif(session('locale')==null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2)=="fr")
-                                     {{$category->fr}}
-                                    <!-- quando l'utente seleziona l'italiano -->
-                                     @elseif(session('locale')=="it")
-                                    {{ $category->name }}
-                                    <!-- quando l'utente seleziona il francese -->
-                                    @elseif(session('locale')=="fr")
-                                    {{$category->fr}}
-                                    <!-- in tutti gli altri casi -->
+                                    @if (session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'it')
+                                        {{ $category->name }}
+                                        <!-- quando parte la sessione se la lingua preferita del browser è francese -->
+                                    @elseif(session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'fr')
+                                        {{ $category->fr }}
+                                        <!-- quando l'utente seleziona l'italiano -->
+                                    @elseif(session('locale') == 'it')
+                                        {{ $category->name }}
+                                        <!-- quando l'utente seleziona il francese -->
+                                    @elseif(session('locale') == 'fr')
+                                        {{ $category->fr }}
+                                        <!-- in tutti gli altri casi -->
                                     @else
-                                     {{$category->en}}
+                                        {{ $category->en }}
                                     @endif
 
                                 </div>
@@ -149,7 +169,7 @@
                                         nostrum, reiciendis facere nemo!</p>
                                     <ul class="list-inline">
                                         <li>
-                                            <strong>{{__('ui.category')}}:</strong>
+                                            <strong>{{ __('ui.category') }}:</strong>
                                             {{ $category->name }}
                                         </li>
                                     </ul>
@@ -157,7 +177,7 @@
                                     <button class="btn btn-primary btn-xl text-uppercase"
                                         data-bs-dismiss="categoryModal{{ $category->id }}" type="button">
                                         <a class="text-white"
-                                            href="{{ route('categoryShow', compact('category')) }}">{{__('ui.view')}}</a>
+                                            href="{{ route('categoryShow', compact('category')) }}">{{ __('ui.view') }}</a>
                                     </button>
                                     <!-- Bottone di chiusura modale con display none (la label x viene utilizzata per chiudere la modale) -->
                                     <button class="btn btn-primary btn-xl text-uppercase d-none" data-bs-dismiss="modal"
@@ -174,12 +194,12 @@
 
     {{-- nuovi ultimi  annunci (ragazzi non chiedetemi perchè li ho chiamati product) --}}
     <section id="product1" class="section-p1 shadow my-5 py-5">
-        <h2>{{__('ui.last_announcements')}}</h2>
-        <p>{{__('ui.take_a_look')}}!!</p>
+        <h2>{{ __('ui.last_announcements') }}</h2>
+        <p>{{ __('ui.take_a_look') }}!!</p>
         <div class="pro-container">
             @foreach ($announcements as $announcement)
                 <div class="pro">
-                    <img src="{{!$announcement->images()->get()->isEmpty()?Storage::url($announcement->images()->first()->path) : 'https://picsum.photos/200'}}"
+                    <img src="{{ !$announcement->images()->get()->isEmpty()? Storage::url($announcement->images()->first()->path): 'https://picsum.photos/200' }}"
                         alt="">
                     <div class="des">
                         <h5>{{ $announcement->title }}</h5>
@@ -193,9 +213,9 @@
                         </div>
                         <h4>{{ $announcement->price }}</h4>
                         <button type="button" class="btn btn-primary"><a class="text-white"
-                                href="{{ route('announcements.show', $announcement->id) }}">{{__('ui.view')}}</a></button>
+                                href="{{ route('announcements.show', $announcement->id) }}">{{ __('ui.view') }}</a></button>
                         <a href="{{ route('categoryShow', ['category' => $announcement->category]) }}"
-                            class="card-link btn btn-success shadow">{{__('ui.category')}}:
+                            class="card-link btn btn-success shadow">{{ __('ui.category') }}:
                             {{ $announcement->category->name }}</a>
                     </div>
                     {{-- <a href="#"><i class="fal fa-shopping-cart cart"></i></a> --}}
@@ -206,13 +226,14 @@
 
 
     {{-- lavora con noi --}}
-    <div class="container my-5 py-5">
+    <div class="container my-5 py-5 ">
         <div class="row">
-            <div class="card col-12 shadow py-5">
+            <div class="card col-12 shadow py-5bg-success">
                 <div class="col-12 card-body text-center">
-                    <h2 class="display-2 col-12 card-title">{{__('ui.work_with_us')}}</h2>
+                    <h2 class="display-2 col-12 card-title">{{ __('ui.work_with_us') }}</h2>
                     <p class="card-text col-12 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <a href="{{ route('request.revisor') }}" class="btn btn-lg btn-primary">{{__('ui.become_a_reviewer')}}</a>
+                    <a href="{{ route('request.revisor') }}"
+                        class="btn btn-lg btn-primary">{{ __('ui.become_a_reviewer') }}</a>
                 </div>
             </div>
         </div>
@@ -222,31 +243,31 @@
     <section class="page-section" id="contact">
         <div class="container">
             <div class="text-center p-5">
-                <h2 class="section-heading text-uppercase ">{{__('ui.contact_us')}}</h2>
+                <h2 class="section-heading text-uppercase ">{{ __('ui.contact_us') }}</h2>
                 <h3 class="section-subheading mb-2 text-white">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
-            <form method="POST" action="{{route('contact.submit')}}" id="contactForm">
+            <form method="POST" action="{{ route('contact.submit') }}" id="contactForm">
                 @csrf
                 <div class="row align-items-stretch mb-5">
                     <div class="col-md-6">
                         <div class="form-group">
                             <!-- Name input-->
-                            <input class="form-control" name="name" id="name" type="text" placeholder="Your Name *"
-                                data-sb-validations="required" />
+                            <input class="form-control" name="name" id="name" type="text"
+                                placeholder="Your Name *" data-sb-validations="required" />
                             <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                         </div>
                         <div class="form-group">
                             <!-- Email-->
-                            <input class="form-control" name="email" id="email" type="email" placeholder="Your Email *"
-                                data-sb-validations="required,email" />
+                            <input class="form-control" name="email" id="email" type="email"
+                                placeholder="Your Email *" data-sb-validations="required,email" />
                             <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.
                             </div>
                             <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                         </div>
                         <div class="form-group mb-md-0">
                             <!-- Phone number input-->
-                            <input class="form-control" name="phone" id="phone" type="tel" placeholder="Your Phone *"
-                                data-sb-validations="required" />
+                            <input class="form-control" name="phone" id="phone" type="tel"
+                                placeholder="Your Phone *" data-sb-validations="required" />
                             <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is
                                 required.
                             </div>
@@ -255,7 +276,8 @@
                     <div class="col-md-6">
                         <div class="form-group form-group-textarea mb-md-0">
                             <!-- Message input-->
-                            <textarea class="form-control" name="user_message" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
+                            <textarea class="form-control" name="user_message" id="message" placeholder="Your Message *"
+                                data-sb-validations="required"></textarea>
                             <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.
                             </div>
                         </div>
@@ -283,8 +305,7 @@
                 </div>
                 <!-- Submit Button-->
                 <div class="text-center ">
-                    <button class="btn btn-primary btn-xl text-uppercase"
-                    id="submitButton" type="submit">
+                    <button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">
                         Send Message
                     </button>
                 </div>

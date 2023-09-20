@@ -1,9 +1,9 @@
-<nav class="navbar acoli navbar-expand-lg shadow py-2">
-  
- 
+<nav class="navbar acoli navbar-expand-lg shadow py-2 fixed-top bg-white mb-5">
+
+
   <div class="container">
     <!-- Logo che riporta alla Homepage -->
-    <a class="navbar-brand" href="/">PRESTO.IT</a>   
+    <a class="navbar-brand" href="/">PRESTO.IT</a>
     <!-- Menu a tendina responsive -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -12,12 +12,12 @@
       <ul class="navbar-nav align-items-md-center mb-2 mb-lg-0">
         <!-- Link crea annuncio visibile solo a chi è autenticato -->
         @if(auth()->check())
-        <li class="nav-item">
+        <li class="nav-item overlay">
           <a class="nav-link active" aria-current="page" href="{{ route('announcements.create') }}">{{__('ui.article_create')}}</a>
         </li>
         @endif
         <!-- Vista tutti gli annunci -->
-        <li class="nav-item">
+        <li class="nav-item overlay">
           <a class="nav-link click-scroll text-dark" href="{{ route('announcements.index') }}">{{__('ui.announcements')}}</a>
         </li>
         <!-- Menu a tendina con tutte le categorie -->
@@ -44,13 +44,13 @@
                 @else
                   {{$category->en}}
                 @endif
-            
+
               </a>
             </li>
             @endforeach
           </ul>
         </li>
-      
+
         <!-- Barra di ricerca -->
         <form action="{{route('announcements.search')}}" method="get" class="d-flex">
           <input name="searched" type="search" class="form-control mx-2" placeholder="{{__('ui.search')}}" aria-label="Ricerca">
@@ -81,7 +81,7 @@
               <form action="/logout" method="post">
                 @csrf
                 <input class="d-none" type="submit" value="Logout" id="logout-nav">
-              </form>            
+              </form>
             </li>
             <li class="nav-item">
               <label class="nav-link text-dark" for="logout-nav">{{__('ui.logout')}}</label>
@@ -107,7 +107,7 @@
            <!-- Italiano -->
             <li class="m-0 nav-link active me-2 g-light d-flex ">
              <x-_locale id="italiano" class="flag" lang="it" nation="it" value="it"/>
-              <p class="mx-2">Italiano</p>            
+              <p class="mx-2">Italiano</p>
             </li>
             <!-- Inglese -->
             <li class="m-0 nav-link active me-2 g-light d-flex">
@@ -118,13 +118,13 @@
             <li class="m-0 nav-link active me-2 g-light d-flex">
               <x-_locale class="flag" lang="fr" nation="fr" value="fr"/>
               <p class="mx-2">Français</p>
-            </li>           
-           
+            </li>
+
           </ul>
         </li>
-        
-       
-      
+
+
+
       </ul>
     </div>
   </div>

@@ -3,7 +3,7 @@
     <div class="container my-5">
         <div class="row">
             <div class="col-12">
-                <h2 class="display-2 text-center">Annuncio {{$announcement->title}}</h2>
+                <h2 class="display-2 text-center">Annuncio {{ $announcement->title }}</h2>
             </div>
         </div>
     </div>
@@ -14,43 +14,49 @@
                 <div class="card col-12">
                     <div class="card-body">
                         <div id="carouselExample" class="carousel slide mb-3">
-                    <!-- immagini del carosello da cercare coun un if se non ci sono immagini caricate -->
-                        @if($announcement->images && count($announcement->images)>0)
-                    <div class="carousel-inner">
-                        @foreach ($announcement->images as $image)
-                        <div class="carousel-item @if($loop->first)active @endif">
-                            <img src="{{$image->getUrl(400,300)}}" class="d-block w-100" alt="...">
-                        </div>
-                        @endforeach
-                    </div>
-                    @else
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="https://picsum.photos/400/301" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://picsum.photos/400/300" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://picsum.photos/400/300" class="d-block w-100" alt="...">
-                        </div>
-                    </div>
-                    @endif
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                            <!-- immagini del carosello da cercare coun un if se non ci sono immagini caricate -->
+                            @if ($announcement->images && count($announcement->images) > 0)
+                                <div class="carousel-inner">
+                                    @foreach ($announcement->images as $image)
+                                        <div class="carousel-item @if ($loop->first) active @endif">
+                                            <img src="{{ $image->getUrl(400, 300) }}" class="d-block w-100"
+                                                alt="...">
+                                        </div>
+                                    @endforeach
+                                </div>
+                            @else
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="https://picsum.photos/400/301" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://picsum.photos/400/300" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://picsum.photos/400/300" class="d-block w-100" alt="...">
+                                    </div>
+                                </div>
+                            @endif
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
                         <div class="col-12">
-                            <h5 class="card-title mb-3">Titolo:{{$announcement->title}}</h5>
-                            <p class="class-text mb-3">Descrizione: {{$announcement->description}}</p>
-                            <p class="class-text mb-3">Prezzo : {{$announcement->price}} €</p>
-                            <a class="card-link btn btn-success shadow mb-5" href="{{route('categoryShow',['category'=>$announcement->category])}}">Categoria : {{$announcement->category->name}}</a>
-                            <p class="card-footer">Pubblicato il : {{$announcement->created_at->format('d/m/Y')}} - Autore : {{$announcement->user->name ?? ''}}</p>
+                            <h5 class="card-title mb-3">Titolo:{{ $announcement->title }}</h5>
+                            <p class="class-text mb-3">Descrizione: {{ $announcement->description }}</p>
+                            <p class="class-text mb-3">Prezzo : {{ $announcement->price }} €</p>
+                            <a class="card-link btn btn-success shadow mb-5"
+                                href="{{ route('categoryShow', ['category' => $announcement->category]) }}">Categoria :
+                                {{ $announcement->category->name }}</a>
+                            <p class="card-footer">Pubblicato il : {{ $announcement->created_at->format('d/m/Y') }} -
+                                Autore : {{ $announcement->user->name ?? '' }}</p>
                         </div>
                     </div>
                 </div>
@@ -76,5 +82,31 @@
             </a>
         </div>
     </div> --}}
+
+    <!-- Product section-->
+    <!-- <section class="py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5 align-items-center">
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+                    <div class="col-md-6">
+                        <div class="small mb-1">SKU: BST-498</div>
+                        <h1 class="display-5 fw-bolder">Shop item template</h1>
+                        <div class="fs-5 mb-5">
+                            <span class="text-decoration-line-through">$45.00</span>
+                            <span>$40.00</span>
+                        </div>
+                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
+                        <div class="d-flex">
+                            <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                                <i class="bi-cart-fill me-1"></i>
+                                Add to cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+    <!-- Related items section-->
 
 </x-layout>

@@ -17,7 +17,7 @@
     <x-navbar2/>
     <main class="min-vh-100">
     {{ $slot }}
-    
+
     </main>
 
 
