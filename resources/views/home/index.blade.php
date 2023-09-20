@@ -92,8 +92,8 @@
                                 </div>
                             </a>
                             <div class="category-caption bg-transparent shadow">
-                                <div class="category-caption-heading">
-                                      <!-- cambia nome categoria in base alla lingua impostata -->
+                                <div class="category-caption-heading text-truncate">
+                                    <!-- cambia nome categoria in base alla lingua impostata -->
                                     <!-- quando parte la sessione se la lingua preferita del browser è italiano -->
                                     @if(session('locale')==null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2)=="it")
                                     {{ $category->name }}
