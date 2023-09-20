@@ -1,4 +1,12 @@
 <x-layout>
+
+    {{-- momentanei --}}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
     <!-- Messaggi di errore -->
     <div class="container-fluid mb-5 bg-grey">
         @if ($errors->any())
