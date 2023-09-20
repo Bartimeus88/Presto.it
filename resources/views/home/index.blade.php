@@ -93,13 +93,22 @@
                             </a>
                             <div class="category-caption bg-transparent shadow">
                                 <div class="category-caption-heading">
-                                    <!-- cambia nome categoria in base alla lingua impostata -->
-                                    @if(session('locale')=="it")
+                                      <!-- cambia nome categoria in base alla lingua impostata -->
+                                    <!-- quando parte la sessione se la lingua preferita del browser è italiano -->
+                                    @if(session('locale')==null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2)=="it")
                                     {{ $category->name }}
+                                    <!-- quando parte la sessione se la lingua preferita del browser è francese -->
+                                    @elseif(session('locale')==null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2)=="fr")
+                                     {{$category->fr}}
+                                    <!-- quando l'utente seleziona l'italiano -->
+                                     @elseif(session('locale')=="it")
+                                    {{ $category->name }}
+                                    <!-- quando l'utente seleziona il francese -->
                                     @elseif(session('locale')=="fr")
                                     {{$category->fr}}
+                                    <!-- in tutti gli altri casi -->
                                     @else
-                                    {{$category->en}}
+                                     {{$category->en}}
                                     @endif
 
                                 </div>
