@@ -26,37 +26,16 @@
 - img modale categorie
 x bug footer persistente
 
-PER IMPORTARE LE BANDIERE
+PER IMPORTARE LE BANDIERE 
 npm install --dev flag-icon-css
 
-in .env
+in .env 
 QUEUE_CONNECTION=database
 php artisan queue:work da lasciare aperto
 
 PER CAMBIO LINGUA CATEGORIE
-php artisan migrate
+php artisan migrate 
 e inserire manualmente nel database le traduzioni come indicato in chat
 e anche le icone font awesome
 
 
-20/09/2023
-
-- inserita nuova navbar, da sistemare {
-
-    - dropdown profilo utente e dropdown bandiere
-    - per mobile sidebar non funge
-
-}
-
-- nuova sezione hero {
-
-    - da inserire immagine di background
-
-}
-
-
-- nuove card annunci {
-
-    - da fixare bottone visualizza
-
-}

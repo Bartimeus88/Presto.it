@@ -1,11 +1,4 @@
 <x-layout>
-    
-    {{-- momentanei --}}
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
 
     <div class="container my-5">
         <div class="row">
