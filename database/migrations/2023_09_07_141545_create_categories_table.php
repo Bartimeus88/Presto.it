@@ -14,7 +14,7 @@ return new class extends Migration
     {
 
         // MIGRAZIONE PER INSERIRE STATICAMENTE LE CATEGORIE
-       /*  Schema::create('categories', function (Blueprint $table) {
+         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('en');
@@ -84,19 +84,19 @@ return new class extends Migration
                 'fr' => 'Immobilier',
                 'icon' => '<i class="fa-solid fa-house"></i>'
             ],
-        ]; */
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
-        });
+        ];
+    //     Schema::create('categories', function (Blueprint $table) {
+    //         $table->id();
+    //         $table->string('name');
+    //         $table->timestamps();
+    //     });
 
-        $categories = ['Motori','Informatica','Elettrodomestici','libri','Giochi','Sport','Accessori per animali','Telefoni','Arredamento','Immobili'];
+    //     $categories = ['Motori','Informatica','Elettrodomestici','libri','Giochi','Sport','Accessori per animali','Telefoni','Arredamento','Immobili'];
         
 
-        foreach ($categories as $category) {
-            Category::create(['name'=>$category]);
-        }
+    foreach ($categories as $categoryData) {
+        Category::create($categoryData);
+    }
 
 
     }
