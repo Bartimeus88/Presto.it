@@ -83,6 +83,7 @@
                                 <i class="fa-brands fa-google me-2"></i>Registrati con Google
                             </a>
                             </div>
+                            
 
                             @if ($errors->any())
                                 @foreach ($errors->all() as $error)
@@ -167,12 +168,12 @@
                                         <i class="fa-brands fa-google me-2"></i>Continua con Google
                                     </a>
                                 </div>
-                                <div class="col-12 col-md-6 d-none d-flex align-items-stretch">
-                                    <a class="btn btn-primary btn-lg btn-block btn-login mb-3 "
-                                        style="background-color: #55acee" href="#!" role="button">
-                                        <i class="fab fa-twitter me-2"></i>Continua con Twitter
+                                <div class="col-12 col-md-6 d-flex align-items-stretch">
+                                    <a class="btn btn-primary btn-lg btn-block btn-login mb-3" style="background-color:#2b3137"
+                                        href="{{ route('github.redirect') }}" role="button">
+                                        <i class="fa-brands fa-github me-2"></i>{{__('ui.continue_with_google')}}
                                     </a>
-                                </div>
+                                </div>>
                             </di>
 
                             @if ($errors->any())

@@ -37,11 +37,12 @@ class UserController extends Controller
     //rotta google callback
     public function googleCallback() {
 
-        $googleUser = Socialite::driver('google')->user();
+        $googleUser = Socialite::driver('google')->stateless()->user();
         
 
             $userGoogleId=User::where('google_id',$googleUser->id)->first();
             $userGoogleEmail=User::where('email',$googleUser->email)->first();
+
 
            if($userGoogleId){
             Auth::login($userGoogleId);
@@ -73,6 +74,51 @@ class UserController extends Controller
             }
    
 	        return redirect('/nuovo/annuncio');
+    
+    }
+
+    //rotta per github
+    public function githubRedirect() {
+        return Socialite::driver('github')->redirect();
+    }
+
+    //rotta per redirect github
+
+    public function githubCallback() {
+
+        $githubUser = Socialite::driver('github')->stateless()->user();
+        $userGithubId=User::where('github_id',$githubUser->id)->first();
+        $userGithubEmail=User::where('email',$githubUser->email)->first();
+
+        if($userGithubId){
+            Auth::login($userGithubId);
+           }
+            elseif($userGithubEmail){
+     
+
+            Auth::login($userGithubEmail);
+
+            //     session()->flash('message','Sei già registrato con questa mail sul nostro sito');
+            //    return redirect('/login');
+
+            }elseif(!$userGithubId) {
+                $user = new User ;
+
+                $user->name=$githubUser->nickname;
+                $user->email=$githubUser->email;
+                $user->password= Hash::make(Str::random(50));
+                $user->github_id=$githubUser->id;
+                $user->github_token=$githubUser->token;
+                $user->github_refresh_token=$githubUser->refreshToken;
+    
+                $user->save();
+    
+                Auth::login($user);
+      
+    }
+
+        return redirect('/nuovo/annuncio');
+     
     
     }
 }

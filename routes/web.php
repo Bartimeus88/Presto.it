@@ -66,3 +66,8 @@ Route::get('/forgot-password', [UserController::class, 'forgotPassword'])->name(
 Route::get('/auth/google/redirect',[UserController::class, 'googleRedirect'])->name('google.redirect');
 //rotta google callback
 Route::get('auth/google/callback',[UserController::class, 'googleCallback'])->name('google.callback');
+
+//rotta google socialite redirect
+Route::get('/auth/github/redirect',[UserController::class, 'githubRedirect'])->name('github.redirect');
+//rotta google callback
+Route::get('/auth/github/callback',[UserController::class, 'githubCallback'])->name('github.callback');
