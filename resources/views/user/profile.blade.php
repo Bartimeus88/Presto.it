@@ -34,6 +34,19 @@
                                 class="card-link btn btn-success shadow">Categoria:
                                 {{ $announcement->category->name }}</a>
                             <p class="card-footer">Pubblicato il: {{ $announcement->created_at->format('d/m/Y') }}</p>
+                            <div class="col-12 row justify-content-center">
+                                <div class="col-6">
+                                    <a class="text-center" href="{{route('announcements.edit', [$announcement->id])}}">Modifica</a>
+                                </div>
+                                <div class="col-6">
+                                    <form action="{{route('announcements.destroy', [$announcement->id])}}" method="post">
+                                        @csrf 
+                                        @method('DELETE')
+                                        <input type="submit" value="elimina">
+                                    </form>
+                                    
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -26,6 +26,10 @@ Route::get('/nuovo/annuncio',[AnnouncementController::class,'createAnnouncement'
 Route::get('/dettaglio/annuncio/{announcement}',[AnnouncementController::class,'showAnnouncement'])->name('announcements.show');
 // mostra tutti gli annunci
 Route::get('/tutti/annunci',[AnnouncementController::class,'indexAnnouncement'])->name('announcements.index');
+//form di modifica annuncio
+Route::get('/annuncio/modifica/{id}',[AnnouncementController::class,'edit'])->name('announcements.edit');
+//form di eliminazione annuncio
+Route::delete('/annuncio/modifica/{id}',[AnnouncementController::class,'destroy'])->name('announcements.destroy');
 
 // FRONT CONTROLLER
 

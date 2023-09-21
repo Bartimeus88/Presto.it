@@ -1,41 +1,45 @@
+ FATTI:
  X bottone crea annuncio visibile solo a chi è loggato
  x categorei con modale ciclate ( bug nomi modali categorie - modale icona "x" )
  X icona profilo fontawesome inserita e da sistemare
- - nelle card inserire classe stretch bootstrap
- - form CONTATTACI non funge , inserire method..... ecc
+ x nelle card inserire classe stretch bootstrap
+ x form CONTATTACI non funge , inserire method..... ecc
  x "vista crea annuncio" nel prezzo un numero con la virgola non funziona
  x nella vista lavora con noi si può inviare il messaggio senza annuncio
- - mettere frontend tutte le indicazioni per registrarsi in modo tale che l'utente sappia prima come comilare i campi
- - login remember me
+ - mettere frontend tutte le indicazioni per registrarsi in modo tale che l'utente sappia prima come compilare i campi
+ x login remember me
  x footer non responsive
- - url categorie con il nome della categoria
  x ordinare in ordine alfabetico le categorie
- - mettere un edit per gli annunci
+ x form registrazione
+ x bug footer persistente
+ x inseriti due form pre la pagina accedi (scegliere insieme quale implementare)
+ x inserito un nuovo possibile footer (decidere insieeme se ternerlo o meno)
 
- 14/09/2023 ----------
-
- - inseriti due form pre la pagina accedi (scegliere insieme quale implementare)
- - inserito un nuovo possibile footer (decidere insieeme se ternerlo o meno)
+ DA FARE:
  - scegliere font
+ - mettere edit, delete per gli annunci
+ - eliminazione automatica dallo storage delle foto
+ - modale con riepilogo revisore
+ - accesso 2 fattori otp
+ - nuove carte annunci front
+ - img modale categorie
+ - pagina degli annunci front 
+ - show annunci front
+ - front revisore
+ - front profilo utente
+ - se utente è già revisore fare in modo che non possa inviare nuovamente la richiesta
+ - cambiare l'url di profilo utente in annunci utente e creare una nuova vista con il profilo
+ 
+ 
 
 
-15/09/2023 -----------
 
-- form registrazione
-- bootswatch quarz theme (decidere se farlo vedere alla demo o meno)
-- img modale categorie
-x bug footer persistente
 
-PER IMPORTARE LE BANDIERE 
-npm install --dev flag-icon-css
 
 in .env 
 QUEUE_CONNECTION=database
 php artisan queue:work da lasciare aperto
 
-PER CAMBIO LINGUA CATEGORIE
-php artisan migrate 
-e inserire manualmente nel database le traduzioni come indicato in chat
-e anche le icone font awesome
+
 
 
