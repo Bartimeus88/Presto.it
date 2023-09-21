@@ -170,12 +170,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 text-center my-5">
-                @if (session()->has('message'))
-                    <div class="flex flex-row justify-center my-2 alert alert-success">
-                        {{ session('mex') }}
-                    </div>
-                @endif
+             <div class="col-12 text-center my-5">
+             @if(session()->has('mex'))
+                                    <div class="flex flex-row justify-center my-2 alert alert-success">
+                                        {{ session('mex') }}
+                                    </div>
+                                @endif
                 <div class="display-2 mt-2 mb-4">Elimina le immagini</div>
                 @foreach ($announcement->images as $key => $aImage)
                     <div class=" shadow rounded img-preview"
