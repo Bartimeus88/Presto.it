@@ -77,7 +77,8 @@
             <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
             <!-- L'annuncio viene visualizzato solo dagli utenti loggati -->
             @if (auth()->check())
-                <a class="btn btn-success btn-xl text-uppercase" href="{{ route('announcements.create') }}">{{__('ui.create_your_announcement')}}</a>
+                <a class="btn btn-success btn-xl text-uppercase"
+                    href="{{ route('announcements.create') }}">{{ __('ui.create_your_announcement') }}</a>
             @endif
         </div>
     </header>
@@ -193,7 +194,7 @@
     @endforeach
 
     {{-- nuovi ultimi  annunci (ragazzi non chiedetemi perchè li ho chiamati product) --}}
-    <section id="product1" class="section-p1 shadow my-5 py-5">
+    {{-- <section id="product1" class="section-p1 shadow my-5 py-5">
         <h2>{{ __('ui.last_announcements') }}</h2>
         <p>{{ __('ui.take_a_look') }}!!</p>
         <div class="pro-container">
@@ -219,10 +220,52 @@
                             {{ $announcement->category->name }}</a>
                     </div>
                     {{-- <a href="#"><i class="fal fa-shopping-cart cart"></i></a> --}}
-                </div>
+    {{-- </div>
             @endforeach
         </div>
-    </section>
+    </section> --}}
+
+    <div class="bg0 m-t-23 p-b-140">
+        <div class="container text-center">
+            <div class="row  align-items-start">
+                @foreach ($announcements as $announcement)
+                    <div class="col col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+
+                        <!-- Block2 -->
+                        <div class="block2 mb-2 align-items-start">
+                            <div class="block2-pic hov-img0">
+                                <img src="{{ !$announcement->images()->get()->isEmpty()? Storage::url($announcement->images()->first()->path): 'https://picsum.photos/200' }}"
+                                    alt="IMG-PRODUCT">
+
+                                <a href="{{ route('announcements.show', $announcement->id) }}"
+                                    class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                    {{ __('ui.view') }}
+                                </a>
+                            </div>
+
+                            <div class="block2-txt flex-w flex-t p-t-14">
+                                <div class="block2-txt-child1 flex-col-l ">
+                                    <a href="{{ route('categoryShow', ['category' => $announcement->category]) }}"
+                                        class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                         {{ $announcement->category->name }}
+                                    </a>
+
+                                    <span class="stext-105 cl3">
+                                        Titolo: {{ $announcement->title }}
+                                    </span>
+                                    <span class="stext-105 cl3">
+                                        Prezzo {{ $announcement->price }}
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
 
 
     {{-- lavora con noi --}}
