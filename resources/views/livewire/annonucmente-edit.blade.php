@@ -19,7 +19,6 @@
                                                     <div class="carousel-item @if ($loop->first) active @endif">
                                                         
                                                         <img src="{{ $image->getUrl(400, 300)}}" class="d-block w-100" alt="{{$image->announcement->title}}">
-                                                        <button>Elimina</button>
                                                     </div>
                                                 @endforeach
                                             </div>
@@ -77,7 +76,7 @@
                                 @endif
                                 <form wire:submit.prevent="store">
                                     @csrf
-                                    <div class="card">
+                                    <div class="card">   
                                         <div class="card-body">
                                             <div class="card-title text-center display-5 my-3">Modifica Annuncio</div>
                                             <div class="mb-3">
@@ -165,6 +164,25 @@
                     </div>
                 </div>
             </div>
+             <div class="col-12 text-center my-5">
+             @if(session()->has('message'))
+                                    <div class="flex flex-row justify-center my-2 alert alert-success">
+                                        {{ session('mex') }}
+                                    </div>
+                                @endif
+                <div class="display-2 mt-2 mb-4">Elimina le immagini</div>
+                                                @foreach($announcement->images as  $key => $aImage)
+                                                
+                                                        <div class=" shadow rounded img-preview"
+                                                            style="background-image:url({{ $aImage->getUrl(400, 300)}});">
+                                                                        <!-- bottone per eliminare l'immagine -->
+                                                        <button type="button"
+                                                            class="btn btn-danger shadow d-block text-center mt-2 mx-auto"
+                                                            wire:click="removeAImage({{$aImage}})">Cancella</button>
+                                                    </div>
+                                                
+                                                @endforeach
+                                            </div>
         </div>
         </div>
     <!-- messaggio in cui un utente cerchi di modificare un annuncio che non ha pubblicato -->

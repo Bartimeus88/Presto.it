@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 use File;
+use App\Models\Image;
 use Livewire\Component;
 use App\Jobs\ResizeImage;
 use App\Models\Announcement;
@@ -21,7 +22,7 @@ class AnnonucmenteEdit extends Component
         $this->title = $this->announcement->title;
         $this->description = $this->announcement->description;
         $this->price = $this->announcement->price;
-        $this->category = $this->announcement->price;
+        $this->category = $this->announcement->category->id;
         $this->currentImages=$this->announcement->images;
        
     }
@@ -78,6 +79,22 @@ class AnnonucmenteEdit extends Component
             unset($this->images[$key]);
         }
     }
+
+    public function removeAImage($aImage){
+       $idImage = $aImage['id'];
+       $pathImage = $aImage['path'];
+       $pathImageArray=explode("/", $pathImage);
+       $imgName=$pathImageArray['2'];
+       $imgDirectory=$pathImageArray['1'];
+       dd($imgDirectory);
+        $image=Image::find($idImage);
+        $image->delete();
+        File::delete(storage_path("app/public/$pathImage"));
+        File::delete(storage_path("app/public/announcements/$imgDirectory/crop_400x300_$imgName"));
+      return back()->with('mex',"L'immagine è stata eliminata");
+            
+    }
+
  
     //funzione store per caricare i dati del nuovo annuncio
 
