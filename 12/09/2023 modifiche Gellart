@@ -6,7 +6,6 @@
  x form CONTATTACI non funge , inserire method..... ecc
  x "vista crea annuncio" nel prezzo un numero con la virgola non funziona
  x nella vista lavora con noi si può inviare il messaggio senza annuncio
- - mettere frontend tutte le indicazioni per registrarsi in modo tale che l'utente sappia prima come compilare i campi
  x login remember me
  x footer non responsive
  x ordinare in ordine alfabetico le categorie
@@ -14,11 +13,13 @@
  x bug footer persistente
  x inseriti due form pre la pagina accedi (scegliere insieme quale implementare)
  x inserito un nuovo possibile footer (decidere insieeme se ternerlo o meno)
-
+ 
  DA FARE:
+ - fare crud utente (eventualmente decidere se aggiungere altri campi)
+ - cambiare la pagina profilo utente in "i tuoi annunci" compreso url
  - scegliere font
- - mettere edit, delete per gli annunci
- - eliminazione automatica dallo storage delle foto
+ - mettere edit, delete per gli annunci 
+ x eliminazione automatica dallo storage delle foto
  - modale con riepilogo revisore
  - accesso 2 fattori otp
  - nuove carte annunci front
@@ -29,7 +30,8 @@
  - front profilo utente
  - se utente è già revisore fare in modo che non possa inviare nuovamente la richiesta
  - cambiare l'url di profilo utente in annunci utente e creare una nuova vista con il profilo
- 
+ - fare in modo che l'utente possa inserire solo immagini nel 
+- mettere frontend tutte le indicazioni per registrarsi e caricamento annunci in modo tale che l'utente sappia prima come compilare i campi
  
 
 

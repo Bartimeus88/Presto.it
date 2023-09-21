@@ -13,7 +13,7 @@ class AnnonucmenteEdit extends Component
 {
     use WithFileUploads;
 
-    public $announcement, $title, $description , $price , $color, $text, $category ,$temporary_images, $images=[], $currentImages, $image;
+    public $announcement, $title, $description , $price , $color, $text, $category ,$temporary_images, $images=[], $currentImages, $image, $imageId;
 
     public function mount($announcement)
     {
@@ -23,7 +23,7 @@ class AnnonucmenteEdit extends Component
         $this->price = $this->announcement->price;
         $this->category = $this->announcement->price;
         $this->currentImages=$this->announcement->images;
-        
+       
     }
 
     public function render()
@@ -73,7 +73,7 @@ class AnnonucmenteEdit extends Component
 
     //funzione per rimuovere le immagini caricate una ad una
 
-     public function removeImage($key){
+    public function removeImage($key){
         if(in_array($key,array_keys($this->images))){
             unset($this->images[$key]);
         }
@@ -93,7 +93,8 @@ class AnnonucmenteEdit extends Component
        $currentAnnouncemet->status_date=null;
        $currentAnnouncemet->is_accepted=null;
        $currentAnnouncemet->user_revisor_id=null;
-       $currentAnnouncemet->save();
+       
+       $this->currentImages=$currentAnnouncemet->images;
 
         //if per controllare se ci sono immagini e nel caso crea un path nella tabella e le salva tramite store nel public images
         if(count($this->images)){
@@ -102,19 +103,29 @@ class AnnonucmenteEdit extends Component
                 $newFileName = "announcements/{$this->announcement->id}";
                 $newImage = $this->announcement->images()->create(['path'=>$image->store($newFileName, 'public')]);
     
-                dispatch (new ResizeImage($newImage->path , 400 , 300 )); }
-    
-                File::deleteDirectory(storage_path('app/livewire-tmp'));
+                dispatch (new ResizeImage($newImage->path , 400 , 300 )); 
             }
+            $this->images=[];
+            File::deleteDirectory(storage_path('app/livewire-tmp'));
+        }
+        $currentAnnouncemet->save();
 
-
-       //messaggio flash che compare dopo il save con successo
-       session()->flash('message','Annuncio modificato con successo e in attesa di validazione');
+        
+            //messaggio flash che compare dopo il save con successo
+            session()->flash('message','Annuncio modificato con successo e in attesa di validazione');
        }
 
     //rende le validazioni di errore in tempo reale
     public function updated($propertyName){
         $this->validateOnly($propertyName);
+    }
+
+    public function delete(){
+        $image = Image::find($this->imageId);
+
+        if ($image) {
+        // Elimina l'immagine dal database
+        $image->delete();}
     }
 
 }
