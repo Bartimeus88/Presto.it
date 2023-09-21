@@ -165,9 +165,9 @@
                 </div>
             </div>
              <div class="col-12 text-center my-5">
-             @if(session()->has('message'))
+             @if(session()->has('mex'))
                                     <div class="flex flex-row justify-center my-2 alert alert-success">
-                                        {{ session('message') }}
+                                        {{ session('mex') }}
                                     </div>
                                 @endif
                 <div class="display-2 mt-2 mb-4">Elimina le immagini</div>
