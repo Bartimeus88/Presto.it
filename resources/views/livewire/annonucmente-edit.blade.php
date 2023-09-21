@@ -167,7 +167,7 @@
              <div class="col-12 text-center my-5">
              @if(session()->has('message'))
                                     <div class="flex flex-row justify-center my-2 alert alert-success">
-                                        {{ session('mex') }}
+                                        {{ session('message') }}
                                     </div>
                                 @endif
                 <div class="display-2 mt-2 mb-4">Elimina le immagini</div>
