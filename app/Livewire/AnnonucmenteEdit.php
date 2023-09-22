@@ -86,7 +86,6 @@ class AnnonucmenteEdit extends Component
        $pathImageArray=explode("/", $pathImage);
        $imgName=$pathImageArray['2'];
        $imgDirectory=$pathImageArray['1'];
-       dd($imgDirectory);
         $image=Image::find($idImage);
         $image->delete();
         File::delete(storage_path("app/public/$pathImage"));
