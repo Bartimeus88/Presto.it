@@ -103,7 +103,7 @@
                                 <!-- contenitore dell'icona della categoria -->
                                 <div class="p-5 fs-1 text-center text-body">
                                     <!-- aggiunto contenitore per dare più padding -->
-                                    <div class="p-5">
+                                    <div class="p-5 fer-icons">
                                         <!-- icona -->
                                         {!! $category->icon !!}
 
@@ -224,9 +224,13 @@
             @endforeach
         </div>
     </section> --}}
-
+    <!-- ULTIMI ANNUNCI -->
     <div class="container">
         <div class="row">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase mt-5">{{ __('ui.last_announcements') }}</h2>
+                <h3 class="section-subheading text-muted mt-3 pb-5 mb-5 fs-6">Lorem ipsum dolor sit amet consectetur.</h3>
+            </div>
 
             <div class="bg0 m-t-23 p-b-140">
                 <div class="container text-center">

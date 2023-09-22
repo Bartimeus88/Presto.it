@@ -208,6 +208,12 @@ header.masthead .masthead-heading {
 
 
 /* categories */
+.fer-icons{
+    font-size: 9rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
 .center {
     display: flex;
     height: 100vh;

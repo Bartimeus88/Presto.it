@@ -67,13 +67,27 @@
                     <div>
                         {{!!auth()->user()->twoFactorQrCodeSvg()!!}}
                     </div>
+
+                    <div class="container">
+                        <div class="container">
+                        <p class="container pt-3 mx-5">Scansiona il QR Code grazie ad una qualsiasi app di autentificazione, ti verrà inviato un TOTP con cui potrai effettuare l'accesso </p>
+
+                        </div>
+                        
+                    </div>
+                    
+
+                    <a class="col-12" target=”_blank” href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&pcampaignid=web_share">Google Autentificator</a>
+                    <br>
+
+        
                     <!-- @foreach(json_decode(decrypt(auth()->user()->two_factor_recovery_codes)) as $code)
                      <p>{{$code}}</p>
                     @endforeach -->
                  <button class="btn btn-primary col-3 my-5">Disabilita</button>
                 @else
                     <!-- input che fa inviare l'email in caso di click su abilita -->
-                    <input type="hidden" name="disable" value="true">
+                    
                     <button class="btn btn-primary col-3 my-5">Abilita</button>   
 
                 @endif
