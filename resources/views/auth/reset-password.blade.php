@@ -1,5 +1,5 @@
 <x-layout>
-
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <!-- form per reset password -->
     <form action="/reset-password" method="post">
         @csrf

@@ -56,5 +56,10 @@ class FortifyServiceProvider extends ServiceProvider
         // rotta per reset password
         Fortify::resetPasswordView(function (Request $request) {return view('auth.reset-password', ['request' => $request]);});
 
+        // 2 fattori di conferma
+        Fortify::confirmPasswordView(function () {return view('auth.password-confirm');});
+
+        Fortify::twoFactorChallengeView(function () {return view('auth.two-factor-challenge');});
+
     }
 }

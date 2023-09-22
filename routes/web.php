@@ -62,8 +62,10 @@ Route::put('/annulla/modifica',[RevisorController::class,'editRevisor'])->middle
 
 // USER CONTROLLER
 
-//rotta profilo auth
-Route::get('/utenti/profilo',[UserController::class,'profile'])->middleware(['auth','verified'])->name('user.profile');
+//rotta per dettaglio profilo utente
+Route::get('/profilo', [UserController::class, 'index'])->middleware(['auth','verified'])->name('user.index');
+//rotta annunci utente
+Route::get('/profilo/annunci',[UserController::class,'profile'])->middleware(['auth','verified'])->name('user.profile');
 // Rotta get che porta al form di recupero password 
 Route::get('/forgot-password', [UserController::class, 'forgotPassword'])->name('auth.forgot-password');
 //rotta google socialite redirect

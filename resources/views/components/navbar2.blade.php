@@ -74,7 +74,11 @@
             @else
             <!-- Pagina profilo utente -->
             <li class="nav-item">
-              <a class="nav-link text-dark" href="{{route('user.profile')}}">{{__('ui.profile')}}</a>
+              <a class="nav-link text-dark" href="{{route('user.index')}}">{{__('ui.profile')}}</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="{{route('user.profile')}}">{{__('ui.your_announcements')}}</a>
             </li>
 
             <li class="nav-item mx-4 d-none">

@@ -30,4 +30,5 @@ return [
     'title' => 'Titolo',
     'view' => 'Visualizza',
     'work_with_us' => 'LAVORA CON NOI',
+    'your_announcements' => "I tuoi annunci",
 ];

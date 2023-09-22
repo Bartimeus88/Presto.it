@@ -12,6 +12,13 @@ use Laravel\Socialite\Facades\Socialite;
 
 class UserController extends Controller
 {
+    // Profilo utente
+    public function index () {
+        
+        return view('user.index');
+    }
+
+    // Annunci utente
     public function profile () {
 
         $user_announcements = User::find(auth()->user()->id);

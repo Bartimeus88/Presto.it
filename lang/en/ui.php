@@ -30,4 +30,5 @@ return [
     'title' => 'Title',
     'view' => 'View',
     'work_with_us' => 'WORK WITH US',
+    'your_announcements' => "Your announcements",
 ];

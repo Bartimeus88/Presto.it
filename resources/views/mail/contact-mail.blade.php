@@ -13,5 +13,6 @@
     <p>ai recapiti che ci hai fornito</p>
     <p>email: {{$email}}</p>
     <p>telefono: {{$phone}}</p>
+    
 </body>
 </html>

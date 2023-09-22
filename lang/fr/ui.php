@@ -30,6 +30,7 @@ return [
     'title' => 'Titre',
     'view' => 'Voir',
     'work_with_us' => 'TRAVAILLEZ AVEC NOUS',
+    'your_announcements' => "Ton annonces",
 ];
 
 
