@@ -1,4 +1,5 @@
 <x-layout>
+    <div class="py-5"></div>
     @if(session('successMessage'))
     <div class="container">
         <div>
@@ -19,8 +20,8 @@
 
     @if($announcement_to_check)
     <div class="container">
-        <div class="row">
-            <div class="card col-12">
+        <div class="row justify-content-center mx-auto">
+            <div class="card col-6 justify-content-center">
                 <div id="carouselExample" class="carousel slide mb-4">
                     <!-- immagini del carosello da cercare coun un if se non ci sono immagini caricate -->
                     @if($announcement_to_check->images && count($announcement_to_check->images)>0)
@@ -86,8 +87,8 @@
     </div>
     @endif
 
-    <div class="container py-5 ">
-       <div class="row">
+    <div class="container py-5 justify-content-center mx-auto ">
+       <div class="row  justify-content-center mx-auto">
         <!-- ANNULLA ULTIMA MODIFICA -->
        <div class="col-6 d-flex justify-content-center">
             <form action="{{ route('editRevisor') }}" method="POST">
@@ -97,14 +98,14 @@
             </form>
         </div>
         <!-- MODALE DI RIEPILOGO -->
-        <div class="col-6 d-flex justify-content-center">
+        <!-- <div class="col-6 d-flex justify-content-center"> -->
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Riepilogo">
+           <!--  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Riepilogo">
                 Launch demo modal
-            </button>
+            </button> -->
 
             <!-- Modal -->
-            <div class="modal fade" id="Riepilogo" tabindex="-1" aria-labelledby="RiepilogoLabel" aria-hidden="true">
+            <!-- <div class="modal fade" id="Riepilogo" tabindex="-1" aria-labelledby="RiepilogoLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -112,7 +113,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <!-- Modal content here -->
+                            
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -120,7 +121,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
        </div>
     </div>

@@ -119,21 +119,21 @@
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="name">Nome</label>
                                 <input type="text" name="name" id="name" class="form-control"
-                                    placeholder="Nome" />
+                                    placeholder="Mario Rossi" />
                             </div>
 
                             <!-- Email input -->
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="email">Email</label>
                                 <input type="email" name="email" id="email" class="form-control"
-                                    placeholder="Email" />
+                                    placeholder="mario.rossi@email.com" />
                             </div>
 
                             <!-- Password input -->
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="password">Password</label>
                                 <input type="password" name="password" id="password" class="form-control"
-                                    placeholder="Password" />
+                                    placeholder="Inserici una password" />
                             </div>
 
                             <!-- Confirm password input -->

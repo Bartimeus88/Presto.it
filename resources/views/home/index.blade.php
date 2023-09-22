@@ -216,7 +216,7 @@
         <div class="pro-container">
             @foreach ($announcements as $announcement)
                 <div class="pro">
-                    <img src="{{ !$announcement->images()->get()->isEmpty()? Storage::url($announcement->images()->first()->path): 'https://picsum.photos/200' }}"
+                    <img src="{{ !$announcement->images()->get()->isEmpty()? $announcement->images()->first()->getUrl(400, 300): 'https://picsum.photos/200' }}"
                         alt="">
                     <div class="des">
                         <h5>{{ $announcement->title }}</h5>
@@ -257,7 +257,7 @@
                                 <!-- Block2 -->
                                 <div class="block2 mb-2 align-items-start">
                                     <div class="block2-pic hov-img0">
-                                        <img src="{{ !$announcement->images()->get()->isEmpty()? Storage::url($announcement->images()->first()->path): 'https://picsum.photos/200' }}"
+                                        <img src="{{ !$announcement->images()->get()->isEmpty()? $announcement->images()->first()->getUrl(400, 300): 'https://picsum.photos/200' }}"
                                             alt="IMG-PRODUCT">
 
                                         <a href="{{ route('announcements.show', $announcement->id) }}"
