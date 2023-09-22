@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-12">
-                    <h2 class="text-white text-center pt-5">Registrati</h2>
+                    <h2 class=" text-center pt-5">Registrati</h2>
                 </div>
             </div>
         </div>
@@ -144,36 +144,31 @@
                             </div>
 
                             <div class="d-flex justify-content-around align-items-center mb-4">
-                                <!-- Checkbox -->
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="form1Example3"
-                                        checked />
-                                    <label class="form-check-label" for="form1Example3"> Ricordami </label>
-                                </div>
+                               
                                 <a href="{{ route('auth.forgot-password') }}">Password dimenticata ?</a>
                             </div>
 
                             <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block col-12">Registrati</button>
 
 
                             <p class="text-center fw-bold mx-3 my-4 text-muted">OR</p>
 
 
-                            <di class="row ">
-                                <div class="col-12 col-md-6 d-flex align-items-stretch">
-                                    <a class="btn btn-primary btn-lg btn-block btn-login mb-3 "
+                            <di class="row justify-content-center">
+                                <div class="col-12 col-md-6 d-flex align-items-stretch justify-content-center">
+                                    <a class="btn btn-primary btn-lg btn-block btn-login  "
                                         style="background-color: #DB4437" href="{{ route('google.redirect') }}"
                                         role="button">
-                                        <i class="fa-brands fa-google me-2"></i>Continua con Google
+                                        <i class="fa-brands fa-google me-2"></i>{{__('ui.continue_with_google')}}
                                     </a>
                                 </div>
-                                <div class="col-12 col-md-6 d-flex align-items-stretch">
-                                    <a class="btn btn-primary btn-lg btn-block btn-login mb-3" style="background-color:#2b3137"
+                                <div class="col-12 col-md-6 d-flex align-items-stretch justify-content-center">
+                                    <a class="btn btn-primary btn-lg btn-block btn-login " style="background-color:#2b3137"
                                         href="{{ route('github.redirect') }}" role="button">
-                                        <i class="fa-brands fa-github me-2"></i>{{__('ui.continue_with_google')}}
+                                        <i class="fa-brands fa-github me-2"></i>Continua con Github
                                     </a>
-                                </div>>
+                                </div>
                             </di>
 
                             @if ($errors->any())

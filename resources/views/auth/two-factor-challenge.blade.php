@@ -4,16 +4,16 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Two factor Challenge') }}</div>
+                <div class="card-header">{{ __('Autentificazione') }}</div>
 
                 <div class="card-body">
-                    {{ __('Please enter your authentication code to login.') }}
+                   
 
                     <form method="POST" action="{{ route('two-factor.login') }}">
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="code" class="col-md-4 col-form-label text-md-end">{{ __('code') }}</label>
+                            <label for="code" class="col-md-4 col-form-label text-center"> {{ __('Perfavore inserisci il codice TOTP') }}</label>
 
                             <div class="col-md-6">
                                 <input id="code" type="code" class="form-control @error('code') is-invalid @enderror" name="code" required autocomplete="current-code">
@@ -28,8 +28,8 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Submit') }}
+                                <button type="submit" class="btn btn-primary col-6">
+                                    {{ __('Accedi') }}
                                 </button>
                                 
                                 
@@ -38,7 +38,7 @@
                     </form>
                 </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                 <div class="card-header">{{ __('Two factor Challenge') }}</div>
 
                 <div class="card-body">
@@ -72,7 +72,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

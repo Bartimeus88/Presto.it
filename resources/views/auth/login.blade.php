@@ -1,4 +1,5 @@
 <x-layout>
+    <div class="py-5"></div>
     <!-- Messaggi di errore -->
     <div class="container-fluid mb-5 bg-grey">
         @if ($errors->any())
@@ -47,23 +48,23 @@
                             </div>
 
                             <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">{{__('ui.login')}}</button>
+                            <button type="submit" class=" col-12 btn btn-primary btn-lg btn-block">{{__('ui.login')}}</button>
 
                             <p class="text-center fw-bold mx-3 my-4 text-muted">OR</p>
 
-                            <div class="row">
-                                <div class="col-12 col-md-6 d-flex align-items-stretch">
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-6 d-flex align-items-stretch justify-content-center">
                                     <a class="btn btn-primary btn-lg btn-block btn-login mb-3" style="background-color: #DB4437"
                                         href="{{ route('google.redirect') }}" role="button">
                                         <i class="fa-brands fa-google me-2"></i>{{__('ui.continue_with_google')}}
                                     </a>
                                 </div>
-                                <div class="col-12 col-md-6 d-flex align-items-stretch">
+                                <div class="col-12 col-md-6 d-flex align-items-stretch justify-content-center">
                                     <a class="btn btn-primary btn-lg btn-block btn-login mb-3" style="background-color:#2b3137"
                                         href="{{ route('github.redirect') }}" role="button">
-                                        <i class="fa-brands fa-github me-2"></i>{{__('ui.continue_with_google')}}
+                                        <i class="fa-brands fa-github me-2"></i>Continua con Github
                                     </a>
-                                </div>>
+                                </div>
                             </div>
                         </form>
                     </div>
