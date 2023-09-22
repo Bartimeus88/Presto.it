@@ -2,11 +2,6 @@
     <div class="py-5"></div>
     <!-- Messaggi di errore -->
     <div class="container-fluid mb-5 bg-grey">
-        @if ($errors->any())
-            @foreach ($errors->all() as $error)
-                <p class="text-danger">{{ $error }}</p>
-            @endforeach
-        @endif
         @if(session()->has('message'))
             <div class="flex flex-row justify-center my2 alert alert-warning">
                 {{session('message')}}
@@ -30,12 +25,26 @@
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="form1Example13">Email</label>
                                 <input name="email" type="email" id="form1Example13" class="form-control form-control-lg" placeholder="mario.rossi@gmail.com" />
+                                @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <p class="text-danger">{{'Email non corretta'}}</p>
+            @endforeach
+        @endif
                             </div>
 
                             <!-- Password input -->
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="form1Example23">Password</label>
                                 <input name="password" type="password" id="form1Example23" class="form-control form-control-lg" placeholder="Zabra123!"/>
+                                @if ($errors->any())
+            @foreach ($errors->all() as $error)
+            @if ($error[1])
+                <p class="text-danger">'La password non è corretta'</p>
+                @else
+                <p class="d-none text-danger">'La password non </p>
+                @endif
+            @endforeach
+        @endif
                             </div>
 
                             <div class="d-flex justify-content-around align-items-center mb-4">
