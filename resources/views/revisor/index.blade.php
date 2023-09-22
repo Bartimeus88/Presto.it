@@ -86,7 +86,8 @@
         </div>
     </div>
     @endif
-
+ 
+ 
     <div class="container py-5 justify-content-center mx-auto ">
        <div class="row  justify-content-center mx-auto">
         <!-- ANNULLA ULTIMA MODIFICA -->
@@ -97,6 +98,8 @@
                 <input class="btn btn-primary" type="submit" value="Annulla Modifica">
             </form>
         </div>
+
+      
         <!-- MODALE DI RIEPILOGO -->
         <!-- <div class="col-6 d-flex justify-content-center"> -->
             <!-- Button trigger modal -->
@@ -125,4 +128,46 @@
         </div>
        </div>
     </div>
+
+    @if($announcement_to_check)
+    <div class="container">
+        <div class="row">
+            @if($announcement_to_check->images)
+            @foreach($announcement_to_check->images as $image)
+            <div class="card mb-3">
+                <div class="row p-2">
+                    <div class="col-12 col-md-6">
+                        <img src="{{$image->getUrl(400,300)}}" alt="" class="img-fluid p-3 rounded">
+                    </div>
+                    <div class="col-12col-md-3">
+                         <h5 class="mt-3 ">Tags</h5>
+                         
+                        <div class="p-2">
+                            @if($image->labels)
+                            @foreach($image->labels as $label)
+                            <p class="d-inline">{{$label}}</p>
+                            @endforeach
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card-body">
+                            <h5>Revisione immagini</h5>
+                            <p>Adulti : <span class="{{$image->adult}}"></span></p>
+                            <p>Satira : <span class="{{$image->spoof}}"></span></p>
+                            <p>Medicina : <span class="{{$image->medical}}"></span></p>
+                            <p>Violenza : <span class="{{$image->violence}}"></span></p>
+                            <p>Contenuto Razzista : <span class="{{$image->race}}"></span></p>
+                        </div>
+                    </div>
+
+
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            @endif
+        </div>
+    </div>
+    @endif
 </x-layout>
