@@ -13,35 +13,43 @@
  x bug footer persistente
  x inseriti due form pre la pagina accedi (scegliere insieme quale implementare)
  x inserito un nuovo possibile footer (decidere insieeme se ternerlo o meno)
- 
+
  DA FARE:
  - fare crud utente (eventualmente decidere se aggiungere altri campi)
  - cambiare la pagina profilo utente in "i tuoi annunci" compreso url
  - scegliere font
- - mettere edit, delete per gli annunci 
+ - mettere edit, delete per gli annunci
  x eliminazione automatica dallo storage delle foto
  - modale con riepilogo revisore
  - accesso 2 fattori otp
  - nuove carte annunci front
  - img modale categorie
- - pagina degli annunci front 
+ - pagina degli annunci front
  - show annunci front
  - front revisore
  - front profilo utente
  - se utente è già revisore fare in modo che non possa inviare nuovamente la richiesta
  - cambiare l'url di profilo utente in annunci utente e creare una nuova vista con il profilo
- - fare in modo che l'utente possa inserire solo immagini nel 
+ - fare in modo che l'utente possa inserire solo immagini nel
 - mettere frontend tutte le indicazioni per registrarsi e caricamento annunci in modo tale che l'utente sappia prima come compilare i campi
- 
 
 
 
 
 
-in .env 
+
+in .env
 QUEUE_CONNECTION=database
 php artisan queue:work da lasciare aperto
 
 
+22/09/2023--------------
 
+- inserite nuove carte per gli annunci
+- cambiato layout pagina di dettaglio del annuncio
+- cambiato layout pagina di tutti gli annunci
+
+BUG {
+  - da mobile,  in pagina del dettaglio per l'annuncio, slider orizzontale
+}
 

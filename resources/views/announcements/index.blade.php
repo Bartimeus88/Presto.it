@@ -1,16 +1,16 @@
 <x-layout>
 
-    <div class="container my-5">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="display-1 text-center">
-                {{__('ui.our_announcements')}}
-                </h2>
-            </div>
+    <header class="masthead_show_announcements">
+        <div class="container">
+
+            <h2 class="display-1 text-center text-dark">
+                {{ __('ui.our_announcements') }}
+            </h2>
         </div>
-    </div>
+    </header>
+
     <!-- Container annunci -->
-    <div class="container my-5">
+    {{-- <div class="container my-5">
         <div class="row">
             @forelse ($announcements as $announcement)
                 <div class="col-12 col-lg-4">
@@ -49,47 +49,54 @@
             </div>
 
         </div>
+    </div> --}}
+    <div class="container">
+        <div class="row">
+
+            <div class="bg0 m-t-23 p-b-140">
+                <div class="container text-center">
+                    <div class="row  align-items-start">
+                        @foreach ($announcements as $announcement)
+                            <div class="col col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+
+                                <!-- Block2 -->
+                                <div class="block2 mb-2 align-items-start">
+                                    <div class="block2-pic hov-img0">
+                                        <img src="{{ !$announcement->images()->get()->isEmpty()? Storage::url($announcement->images()->first()->path): 'https://picsum.photos/200' }}"
+                                            alt="IMG-PRODUCT">
+
+                                        <a href="{{ route('announcements.show', $announcement->id) }}"
+                                            class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                            {{ __('ui.view') }}
+                                        </a>
+                                    </div>
+
+                                    <div class="block2-txt flex-w flex-t p-t-14">
+                                        <div class="block2-txt-child1 flex-col-l ">
+                                            <a href="{{ route('categoryShow', ['category' => $announcement->category]) }}"
+                                                class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                                {{ $announcement->category->name }}
+                                            </a>
+
+                                            <span class="stext-105 cl3">
+                                                Titolo: {{ $announcement->title }}
+                                            </span>
+                                            <span class="stext-105 cl3">
+                                                Prezzo {{ $announcement->price }}
+                                            </span>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    {{-- codice inserito da Gellart --}}
-    {{--<x-navbar />
 
-    <section id="page-header">
-
-        <h2 class="text-dark">Ecco</h2>
-        <h2 class="text-dark">I</h2>
-        <h2 class="text-dark">Nostri annunci</h2>
-    </section>
-
-
-    <section id="product1" class="section-p1">
-        <div class="pro-container">
-            @foreach ($announcements as $announcement)
-                <div class="pro" onclick="window.location.href='sproduct.html'>
-       <img src="{{!announcement->images()->get()->isEmpty()?Storage::url($announcement->images()->first()->path) : 'https://picsum.photos/200'}}" alt="">
-                    <div class="des">
-                        <span>adidas</span>
-                        <h5>{{ $announcement->title }}</h5>
-                        <p class="text-truncate">{{ $announcement->description }}</p>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>{{ $announcement->price }}</h4>
-                        <button type="button" class="btn btn-primary"><a class="text-white"
-                                href="{{ route('announcements.show', $announcement->id) }}">Visualizza</a></button>
-                        <button type="button" class="btn btn-primary"><a class="text-white "
-                                href="{{ $announcement->category->name }}">Categorie</a></button>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-            @endforeach
-        </div>
-    </section>
-
---}}
 
 </x-layout>
