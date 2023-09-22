@@ -171,7 +171,23 @@
                                     <ul class="list-inline">
                                         <li>
                                             <strong>{{ __('ui.category') }}:</strong>
-                                            {{ $category->name }}
+                                            <!-- cambia nome categoria in base alla lingua impostata -->
+                                    <!-- quando parte la sessione se la lingua preferita del browser è italiano -->
+                                    @if (session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'it')
+                                        {{ $category->name }}
+                                        <!-- quando parte la sessione se la lingua preferita del browser è francese -->
+                                    @elseif(session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'fr')
+                                        {{ $category->fr }}
+                                        <!-- quando l'utente seleziona l'italiano -->
+                                    @elseif(session('locale') == 'it')
+                                        {{ $category->name }}
+                                        <!-- quando l'utente seleziona il francese -->
+                                    @elseif(session('locale') == 'fr')
+                                        {{ $category->fr }}
+                                        <!-- in tutti gli altri casi -->
+                                    @else
+                                        {{ $category->en }}
+                                    @endif
                                         </li>
                                     </ul>
                                     <!-- link per visualizzare dettaglio categoria -->
@@ -254,14 +270,30 @@
                                         <div class="block2-txt-child1 flex-col-l ">
                                             <a href="{{ route('categoryShow', ['category' => $announcement->category]) }}"
                                                 class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                 {{ $announcement->category->name }}
+                                                 <!-- cambia nome categoria in base alla lingua impostata -->
+                                    <!-- quando parte la sessione se la lingua preferita del browser è italiano -->
+                                    @if (session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'it')
+                                        {{ $category->name }}
+                                        <!-- quando parte la sessione se la lingua preferita del browser è francese -->
+                                    @elseif(session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'fr')
+                                        {{ $category->fr }}
+                                        <!-- quando l'utente seleziona l'italiano -->
+                                    @elseif(session('locale') == 'it')
+                                        {{ $category->name }}
+                                        <!-- quando l'utente seleziona il francese -->
+                                    @elseif(session('locale') == 'fr')
+                                        {{ $category->fr }}
+                                        <!-- in tutti gli altri casi -->
+                                    @else
+                                        {{ $category->en }}
+                                    @endif
                                             </a>
 
                                             <span class="stext-105 cl3">
-                                                Titolo: {{ $announcement->title }}
+                                            {{ __('ui.title') }}: {{ $announcement->title }}
                                             </span>
                                             <span class="stext-105 cl3">
-                                                Prezzo {{ $announcement->price }}
+                                            {{ __('ui.price') }} {{ $announcement->price }}
                                             </span>
 
                                         </div>
