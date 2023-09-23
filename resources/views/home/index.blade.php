@@ -70,21 +70,29 @@
 
 
     {{-- sezione hero contenente bottone che porta alla creazione annuncio --}}
-
-    <header class="masthead">
+    {{-- <header class="masthead">
         <div class="container">
-            <div class="masthead-subheading">Welcome To Our Studio!</div>
-            <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-            <!-- L'annuncio viene visualizzato solo dagli utenti loggati -->
-            @if (auth()->check())
-                <a class="btn btn-success btn-xl text-uppercase"
+            {{-- <div class="masthead-subheading">Welcome To Our Studio!</div>
+            <div class="masthead-heading text-uppercase">It's Nice To Meet You</div> --}}
+    <!-- L'annuncio viene visualizzato solo dagli utenti loggati -->
+    {{-- @if (auth()->check())
+                <a class="btn btn-dark btn-xl text-uppercase"
                     href="{{ route('announcements.create') }}">{{ __('ui.create_your_announcement') }}</a>
             @endif
         </div>
-    </header>
+    </header> --}}
+    <section class="hero_homepage">
+        @if (auth()->check())
+            <div class="hero_homepage_content">
+                <h1 class="text-dark">Clicca quì per creare <br>il tuo annuncio</h1>
+                <a class="btn btn-dark btn-xl text-uppercase"
+                    href="{{ route('announcements.create') }}">{{ __('ui.create_your_announcement') }}</a>
+            </div>
+        @endif
+    </section>
 
     <!-- INTESTAZIONE CATEGORIE -->
-    <section class="page-section " id="category">
+    {{-- <section class="page-section " id="category">
         <div class="container ">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">{{ __('ui.categories') }}</h2>
@@ -139,7 +147,51 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </section> --}}
+    <div class="container-fluid mt-1 category-background-color">
+        <div class="text-center p-5">
+            <h2 class="section-heading text-uppercase">{{ __('ui.categories') }}</h2>
+            <h3 class="section-subheading text-muted mt-5mb-5">Seleziona una tra le nostre catgorie</h3>
+        </div>
+        <div class="row g-2">
+            @foreach ($categories as $category)
+                <div class="col-md-3 pb-5">
+                    <div class="product">
+                        <div class="product-card">
+                            <!-- cambia nome categoria in base alla lingua impostata -->
+                            <!-- quando parte la sessione se la lingua preferita del browser è italiano -->
+                            @if (session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'it')
+                                <span class="sale">{{ $category->name }}</span>
+                                <!-- quando parte la sessione se la lingua preferita del browser è francese -->
+                            @elseif(session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'fr')
+                                <span class="sale">{{ $category->fr }}</span>
+                                <!-- quando l'utente seleziona l'italiano -->
+                            @elseif(session('locale') == 'it')
+                                <span class="sale">{{ $category->name }}</span>
+                                <!-- quando l'utente seleziona il francese -->
+                            @elseif(session('locale') == 'fr')
+                                <span class="sale">{{ $category->fr }}</span>
+                                <!-- in tutti gli altri casi -->
+                            @else
+                                <span class="sale">{{ $category->en }}</span>
+                            @endif
+
+                            <img src="{{ asset('images/motor.jpg') }}" alt="" class="img-fluid">
+                            <div class="buttons d-flex flex-row">
+
+                                <a class="btn btn-dark btn-xl text-uppercase ms-3"
+                                    href="{{ route('categoryShow', compact('category')) }}">{{ __('visualizza') }}</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <div class="mt-5">
+            <p></p>
+        </div>
+    </div>
 
     {{-- modale categorie --}}
     @foreach ($categories as $category)
@@ -172,22 +224,22 @@
                                         <li>
                                             <strong>{{ __('ui.category') }}:</strong>
                                             <!-- cambia nome categoria in base alla lingua impostata -->
-                                    <!-- quando parte la sessione se la lingua preferita del browser è italiano -->
-                                    @if (session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'it')
-                                        {{ $category->name }}
-                                        <!-- quando parte la sessione se la lingua preferita del browser è francese -->
-                                    @elseif(session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'fr')
-                                        {{ $category->fr }}
-                                        <!-- quando l'utente seleziona l'italiano -->
-                                    @elseif(session('locale') == 'it')
-                                        {{ $category->name }}
-                                        <!-- quando l'utente seleziona il francese -->
-                                    @elseif(session('locale') == 'fr')
-                                        {{ $category->fr }}
-                                        <!-- in tutti gli altri casi -->
-                                    @else
-                                        {{ $category->en }}
-                                    @endif
+                                            <!-- quando parte la sessione se la lingua preferita del browser è italiano -->
+                                            @if (session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'it')
+                                                {{ $category->name }}
+                                                <!-- quando parte la sessione se la lingua preferita del browser è francese -->
+                                            @elseif(session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'fr')
+                                                {{ $category->fr }}
+                                                <!-- quando l'utente seleziona l'italiano -->
+                                            @elseif(session('locale') == 'it')
+                                                {{ $category->name }}
+                                                <!-- quando l'utente seleziona il francese -->
+                                            @elseif(session('locale') == 'fr')
+                                                {{ $category->fr }}
+                                                <!-- in tutti gli altri casi -->
+                                            @else
+                                                {{ $category->en }}
+                                            @endif
                                         </li>
                                     </ul>
                                     <!-- link per visualizzare dettaglio categoria -->
@@ -244,8 +296,9 @@
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase mt-5">{{ __('ui.last_announcements') }}</h2>
-                <h3 class="section-subheading text-muted mt-3 pb-5 mb-5 fs-6">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h1 class="section-heading text-uppercase mt-5 text-dark">{{ __('ui.last_announcements') }}</h1>
+                <h1 class="section-subheading text-muted mt-3 pb-5 mb-5 fs-6">
+                </h1>
             </div>
 
             <div class="bg0 m-t-23 p-b-140">
@@ -270,30 +323,30 @@
                                         <div class="block2-txt-child1 flex-col-l ">
                                             <a href="{{ route('categoryShow', ['category' => $announcement->category]) }}"
                                                 class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                 <!-- cambia nome categoria in base alla lingua impostata -->
-                                    <!-- quando parte la sessione se la lingua preferita del browser è italiano -->
-                                    @if (session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'it')
-                                        {{ $category->name }}
-                                        <!-- quando parte la sessione se la lingua preferita del browser è francese -->
-                                    @elseif(session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'fr')
-                                        {{ $category->fr }}
-                                        <!-- quando l'utente seleziona l'italiano -->
-                                    @elseif(session('locale') == 'it')
-                                        {{ $category->name }}
-                                        <!-- quando l'utente seleziona il francese -->
-                                    @elseif(session('locale') == 'fr')
-                                        {{ $category->fr }}
-                                        <!-- in tutti gli altri casi -->
-                                    @else
-                                        {{ $category->en }}
-                                    @endif
+                                                <!-- cambia nome categoria in base alla lingua impostata -->
+                                                <!-- quando parte la sessione se la lingua preferita del browser è italiano -->
+                                                @if (session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'it')
+                                                    {{ $category->name }}
+                                                    <!-- quando parte la sessione se la lingua preferita del browser è francese -->
+                                                @elseif(session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'fr')
+                                                    {{ $category->fr }}
+                                                    <!-- quando l'utente seleziona l'italiano -->
+                                                @elseif(session('locale') == 'it')
+                                                    {{ $category->name }}
+                                                    <!-- quando l'utente seleziona il francese -->
+                                                @elseif(session('locale') == 'fr')
+                                                    {{ $category->fr }}
+                                                    <!-- in tutti gli altri casi -->
+                                                @else
+                                                    {{ $category->en }}
+                                                @endif
                                             </a>
 
                                             <span class="stext-105 cl3">
-                                            {{ __('ui.title') }}: {{ $announcement->title }}
+                                                {{ __('ui.title') }}: {{ $announcement->title }}
                                             </span>
                                             <span class="stext-105 cl3">
-                                            {{ __('ui.price') }} {{ $announcement->price }}
+                                                {{ __('ui.price') }} {{ $announcement->price }}
                                             </span>
 
                                         </div>
@@ -399,7 +452,7 @@
         </div>
     </section>
 
-    
+
 
 
 

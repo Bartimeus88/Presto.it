@@ -149,7 +149,7 @@
                 </div>
                 <div class="col-md-6">
 
-                    <h1 class="display-5 fw-bolder">{{ $announcement->title }}</h1>
+                    <h1 class="display-5 fw-bolder text-dark">{{ $announcement->title }}</h1>
                     <div class="fs-5 mt-3 mb-3">
                         <span class="text-dark">{{ $announcement->price }} €</span>
                     </div>
@@ -159,7 +159,7 @@
                     </p>
                     <div class="d-flex">
 
-                        <button class="btn btn-outline-success flex-shrink-0" type="button" href=""><a
+                        <button class="btn btn-outline-dark flex-shrink-0" type="button" href=""><a
                                 class="ann_link"
                                 href="{{ route('announcements.index') }}">{{ $announcement->category->name }}</a>
                         </button>

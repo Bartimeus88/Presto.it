@@ -1,4 +1,4 @@
-<nav class="navbar acoli navbar-expand-lg shadow py-2 fixed-top bg-white mb-5">
+<nav class="navbar acoli navbar-expand-lg shadow py-2 fixed-top bg-warning mb-5">
 
 
   <div class="container">
@@ -13,12 +13,12 @@
         <!-- Link crea annuncio visibile solo a chi è autenticato -->
         @if(auth()->check())
         <li class="nav-item overlay">
-          <a class="nav-link active" aria-current="page" href="{{ route('announcements.create') }}">{{__('ui.article_create')}}</a>
+          <a class="nav-link active text-dark" aria-current="page" href="{{ route('announcements.create') }}">{{__('ui.article_create')}}</a>
         </li>
         @endif
         <!-- Vista tutti gli annunci -->
         <li class="nav-item overlay">
-          <a class="nav-link click-scroll text-dark" href="{{ route('announcements.index') }}">{{__('ui.announcements')}}</a>
+          <a class="nav-link click-scroll text-dark text-dark" href="{{ route('announcements.index') }}">{{__('ui.announcements')}}</a>
         </li>
         <!-- Menu a tendina con tutte le categorie -->
         <li class="nav-item dropdown">
@@ -54,7 +54,7 @@
         <!-- Barra di ricerca -->
         <form action="{{route('announcements.search')}}" method="get" class="d-flex">
           <input name="searched" type="search" class="form-control mx-2" placeholder="{{__('ui.search')}}" aria-label="Ricerca">
-          <button class="btn btn-outline-success" type="submit">{{__('ui.search')}}</button>
+          <button class="btn btn-outline-dark" type="submit">{{__('ui.search')}}</button>
         </form>
 
         <!-- Menu utente -->

@@ -53,3 +53,15 @@ BUG {
   - da mobile,  in pagina del dettaglio per l'annuncio, slider orizzontale
 }
 
+
+23/09/2023---------------------
+
+- nuova hero nella homepage {
+    - bug -> immagini di canva non sono resposive per mobile , devo trovare una soluzione
+}
+
+- nuove categorie , fatemi sapere se preferite le altre o queste
+
+- BUG {
+    - quando creo un annuncio e inserisco delle immagini , questultime non vengono prese e  inserite , perciò appaiono senza immagini 
+}
