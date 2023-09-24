@@ -10,15 +10,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Google\Cloud\Vision\V1\ImageAnnotatorClient;
-use Google\Cloud\Vision\V1\Feature\Type;
 
-use Google\Cloud\Vision\V1\Likelihood;
-
-class GoogleVisionSafeSearch implements ShouldQueue
+class GoogleVisionLabelImage implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
-
     private $announcement_image_id;
     /**
      * Create a new job instance.
@@ -44,33 +39,21 @@ class GoogleVisionSafeSearch implements ShouldQueue
         putenv('GOOGLE_APPLICATION_CREDENTIALS='.base_path('google_credential.json'));
 
         $imageAnnotator = new ImageAnnotatorClient();
-        $response = $imageAnnotator->safeSearchDetection($image);
-        $imageAnnotator->close();
+        $response = $imageAnnotator->labelDetection($image);
+        $labels=$response->getLabelAnnotations();
 
-        $safe = $response->getSafeSearchAnnotation();
+        if($labels){
+            $result=[];
+            foreach($labels as $label){
+                $result[] = $label->getDescription();
+            }
 
-        $adult = $safe->getAdult();
-        $medical = $safe->getMedical();
-        $spoof= $safe->getSpoof();
-        $violence = $safe->getViolence();
-        $racy = $safe->getRacy();
+            $i->labels=$result;
+            $i->save();
 
+        }
         
-
-        $likelihoodName = [
-            'text-secondary fas fa-circle','text-success fas fa-circle','text-success fas fa-circle','text-warning fas fa-circle','text-warning fas fa-circle','text-dangerary fas fa-circle',
-        ];
-
-
-        $i->adult = $likelihoodName[$adult];
-        $i->medical = $likelihoodName[$medical];
-        $i->spoof = $likelihoodName[$spoof];
-        $i->violence = $likelihoodName[$violence];
-        $i->racy = $likelihoodName[$racy];
-
-        $i->save();
-
-
-
+        $imageAnnotator->close();
+      
     }
 }

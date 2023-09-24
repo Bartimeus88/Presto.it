@@ -10,6 +10,7 @@ use App\Models\Announcement;
 use Livewire\WithFileUploads;
 use App\Jobs\GoogleVisionSafeSearch;
 use Illuminate\Support\Facades\Auth;
+use App\Jobs\GoogleVisionLabelImage;
 
 class AnnouncementCreate extends Component
 {
@@ -92,6 +93,7 @@ class AnnouncementCreate extends Component
        
             dispatch (new ResizeImage($newImage->path , 400 , 300 ));
             dispatch (new GoogleVisionSafeSearch($newImage->id));
+            dispatch (new GoogleVisionLabelImage($newImage->id));
         
         }
 
