@@ -365,14 +365,16 @@
 
 
     {{-- lavora con noi --}}
-    <div class="container my-5 py-5 ">
+    <div class="container my-5 py-5 work_with_us">
         <div class="row">
-            <div class="card col-12 shadow py-5bg-success">
-                <div class="col-12 card-body text-center">
-                    <h2 class="display-2 col-12 card-title">{{ __('ui.work_with_us') }}</h2>
-                    <p class="card-text col-12 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <a href="{{ route('request.revisor') }}"
-                        class="btn btn-lg btn-primary">{{ __('ui.become_a_reviewer') }}</a>
+            <div class="col">
+                <div class="card col-12 shadow py-5bg-success">
+                    <div class="col-12 card-body text-center">
+                        <h2 class="display-2 col-12 card-title">{{ __('ui.work_with_us') }}</h2>
+                        <p class="card-text col-12 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <a href="{{ route('request.revisor') }}"
+                            class="btn btn-lg btn-dark">{{ __('ui.become_a_reviewer') }}</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -444,7 +446,7 @@
                 </div>
                 <!-- Submit Button-->
                 <div class="text-center ">
-                    <button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">
+                    <button class="btn btn-dark btn-xl text-uppercase" id="submitButton" type="submit">
                         Send Message
                     </button>
                 </div>

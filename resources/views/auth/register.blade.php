@@ -4,101 +4,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-12">
-                    <h2 class=" text-center pt-5">Registrati</h2>
+                    <h1 class=" text-center pt-5 text-dark">Registrati</h1>
                 </div>
             </div>
         </div>
     </header>
 
     {{-- form register --}}
-    {{-- <section class="section-padding section-bg">
-        <div class="container content-center">
-            <div class="row">
-                <div class="col-lg-12 col-12">
-                    <h3 class="mb-4 pb-2">Non essere timido!</h3>
-                </div>
-
-                <div class="col-lg-6 col-12">
-                    <form action="/register" method="post" class="custom-form contact-form" role="form">
-                        @csrf
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <div class="form-floating">
-                                    <input type="text" name="name" id="name" class="form-control"
-                                        placeholder="Name">
-
-                                    <label class="form-label" for="name">Nome e cognome</label>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <div class="form-floating">
-                                    <input type="email" name="email" id="email" class="form-control"
-                                        placeholder="Name">
-
-                                    <label class="form-label" for="email">email</label>
-                                </div>
-                            </div>
-
-                            {{-- <div class="col-lg-12 col-12">
-                                <div class="form-floating">
-                                    <input type="text" name="subject" id="name" class="form-control" placeholder="Name" required="">
-
-                                    <label for="floatingInput">Subject</label>
-                                </div>
-
-                                <div class="form-floating">
-                                    <textarea class="form-control" id="message" name="message" placeholder="Tell me about the project"></textarea>
-
-                                    <label for="floatingTextarea">Tell me about the project</label>
-                                </div>
-                            </div> --}}
-
-    {{-- <div class="col-lg-12 col-12">
-                                <div class="form-floating">
-                                    <input type="password" name="password" id="password" class="form-control"
-                                        placeholder="Name">
-
-                                    <label class="form-label" for="password">password</label>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-12 col-12">
-                                <div class="form-floating">
-                                    <input type="password" name="password_confirmation" id="password_confirmation"
-                                        class="form-control" placeholder="Name">
-
-                                    <label class="form-label" for="password_confirmation">conferma password</label>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-12 ms-auto mb-5">
-                                <button type="submit" class="form-control">Register</button>
-                            </div>
-
-                            <div class="row">
-                            <div class="col-12 col-md-6 d-flex align-items-stretch">
-                                <a class="btn btn-primary btn-lg btn-block btn-login mb-3 " style="background-color: #DB4437"
-                                href="{{route('google.redirect')}}" role="button">
-                                <i class="fa-brands fa-google me-2"></i>Registrati con Google
-                            </a>
-                            </div>
-                            
-
-                            @if ($errors->any())
-                                @foreach ($errors->all() as $error)
-                                    <p class="text-danger">{{ $error }}</p>
-                                @endforeach
-                            @endif
-
-
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-
     <div class="container-fluid mb-5 bg-grey">
         @if ($errors->any())
             @foreach ($errors->all() as $error)
@@ -109,7 +21,7 @@
             <div class="container py-5 h-100">
                 <div class="row d-flex align-items-center justify-content-center h-100">
                     <div class="col-md-8 col-lg-7 col-xl-6 ">
-                        <img src="{{ URL::to('/') }}/images/undraw_mobile_payments_re_7udl.svg"
+                        <img src="{{ URL::to('/') }}/images/register.png"
                             class="img-fluid" alt="Phone image">
                     </div>
                     <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
@@ -117,39 +29,39 @@
                             @csrf
                             <!-- Name and surname input -->
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="name">Nome</label>
-                                <input type="text" name="name" id="name" class="form-control"
+                                <label class="form-label" for="name"><h4>Nome</h4></label>
+                                <input type="text" name="name" id="name" class="form-control rounded-2 border-0 px-4 shadow"
                                     placeholder="Mario Rossi" />
                             </div>
 
                             <!-- Email input -->
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="email">Email</label>
-                                <input type="email" name="email" id="email" class="form-control"
+                                <label class="form-label" for="email"><h4>Email</h4></label>
+                                <input type="email" name="email" id="email" class="form-control rounded-2 border-0 px-4 shadow"
                                     placeholder="mario.rossi@email.com" />
                             </div>
 
                             <!-- Password input -->
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="password">Password</label>
-                                <input type="password" name="password" id="password" class="form-control"
+                                <label class="form-label" for="password"><h4>Password</h4></label>
+                                <input type="password" name="password" id="password" class="form-control rounded-2 border-0 px-4 shadow"
                                     placeholder="Inserici una password" />
                             </div>
 
                             <!-- Confirm password input -->
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="password_confirmation">Conferma password</label>
+                                <label class="form-label" for="password_confirmation"><h4>Conferma password</h4></label>
                                 <input type="password" name="password_confirmation" id="password_confirmation"
-                                    class="form-control" placeholder="Conferma password" />
+                                    class="form-control rounded-2 border-0 px-4 shadow" placeholder="Conferma password" />
                             </div>
 
                             <div class="d-flex justify-content-around align-items-center mb-4">
-                               
+
                                 <a href="{{ route('auth.forgot-password') }}">Password dimenticata ?</a>
                             </div>
 
                             <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary btn-lg btn-block col-12">Registrati</button>
+                            <button type="submit" class="btn btn-dark btn-lg btn-block col-12">Registrati</button>
 
 
                             <p class="text-center fw-bold mx-3 my-4 text-muted">OR</p>

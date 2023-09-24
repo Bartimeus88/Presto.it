@@ -63,5 +63,22 @@ BUG {
 - nuove categorie , fatemi sapere se preferite le altre o queste
 
 - BUG {
-    - quando creo un annuncio e inserisco delle immagini , questultime non vengono prese e  inserite , perciò appaiono senza immagini 
+    - quando creo un annuncio e inserisco delle immagini , questultime non vengono prese e  inserite , perciò appaiono senza immagini
+}
+
+
+
+24/09/2023--------------
+
+cose da fare front-end {
+
+    - risolvere bug immagini hero e create
+    - hover link navbar
+    - aggiustare link revisore e rispettivo counter
+    - sezione lavora con noi
+    - footer
+    - pagina profilo
+    - pagina i tuoi annunci
+    - pagina annunci
+
 }
