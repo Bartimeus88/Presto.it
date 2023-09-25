@@ -4,7 +4,24 @@
         <div class="container">
 
             <h2 class="display-1 text-center text-dark">
-            Tutti gli annunci della categoria {{$category->name}}
+            {{ __('ui.category_ann') }} <!-- cambia nome categoria in base alla lingua impostata -->
+                                                <!-- quando parte la sessione se la lingua preferita del browser è italiano -->
+                                                @if (session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'it')
+                                                    {{ $category->name }}.''. {{ __('ui.category') }}
+                                                    <!-- quando parte la sessione se la lingua preferita del browser è francese -->
+                                                @elseif(session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'fr')
+                                                    {{ $category->fr }}
+                                                    <!-- quando l'utente seleziona l'italiano -->
+                                                @elseif(session('locale') == 'it')
+                                                    {{ $category->name }}
+                                                    <!-- quando l'utente seleziona il francese -->
+                                                @elseif(session('locale') == 'fr')
+                                                    {{ $category->fr }}
+                                                    <!-- in tutti gli altri casi -->
+                                                @else
+                                                    {{ $category->en }} {{ __('ui.category') }}
+                                                @endif
+                                                
             </h2>
         </div>
     </header>

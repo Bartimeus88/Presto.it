@@ -21,7 +21,9 @@ class FrontController extends Controller
 
     public function categoryShow(Category $category){
         Paginator::useBootstrap();
-            $catAnnouncements=$category->announcements->where('is_accepted',true)->toQuery()->paginate(12);
+            // $announcements=Announcement::paginate(12);
+            $catAnnouncements=Announcement::where('is_accepted','=',true)->where('category_id','=',$category->id)->paginate(12);
+            
         return view('category.show',compact('category','catAnnouncements'));
     }
 

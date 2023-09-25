@@ -6,6 +6,7 @@ return [
     'become_a_reviewer' => 'BECOME A REVIEWER',
     'categories' => 'Categories',
     'category' => 'Category',
+    'category_ann'=>'All Announcements in the ',
     'contact_us' => 'Contact Us',
     'continue_with_google' => 'Continue with Google',
     'create_announcement' => 'Publish one',

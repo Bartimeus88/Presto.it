@@ -6,6 +6,7 @@ return [
     'become_a_reviewer' => 'DIVENTA UN REVISORE',
     'categories' => 'Categorie',
     'category' => 'Categoria',
+    'category_ann'=>'Tutti gli Annunci della Categoria ',
     'contact_us' => 'Contattaci',
     'continue_with_google'=> "Continua con Google",
     'create_announcement' => 'Pubblicane uno',
