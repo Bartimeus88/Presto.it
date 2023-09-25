@@ -101,30 +101,29 @@
 
       
         <!-- MODALE DI RIEPILOGO -->
-        <!-- <div class="col-6 d-flex justify-content-center"> -->
-            <!-- Button trigger modal -->
-           <!--  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Riepilogo">
-                Launch demo modal
-            </button> -->
+        <div class="col-6 d-flex justify-content-center"> 
+           <!-- Button trigger modal  -->
+           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Riepilogo">
+                Riepilogo Revisore
+            </button>
 
             <!-- Modal -->
-            <!-- <div class="modal fade" id="Riepilogo" tabindex="-1" aria-labelledby="RiepilogoLabel" aria-hidden="true">
-                <div class="modal-dialog">
+             <div class="modal fade" id="Riepilogo" tabindex="-1" aria-labelledby="RiepilogoLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="RiepilogoLabel">Modal title</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
+
+                            @livewire('revisor-summary')
                             
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Dettaglio</button>
-                        </div>
+                       
                     </div>
                 </div>
-            </div> -->
+            </div> 
         </div>
        </div>
     </div>
