@@ -37,6 +37,7 @@ class GoogleVisionLogo implements ShouldQueue
         $image->watermark(base_path('resources/img/logo.png'))
         ->watermarkPosition('center')
         ->watermarkPadding(10, 10) 
+        ->watermarkOpacity(50)
         ->watermarkFit(Manipulations::FIT_STRETCH);
 
         $image->save($srcPath);
