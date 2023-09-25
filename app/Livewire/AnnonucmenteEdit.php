@@ -4,9 +4,12 @@ namespace App\Livewire;
 use File;
 use App\Models\Image;
 use Livewire\Component;
+use App\Jobs\RemoveFaces;
 use App\Jobs\ResizeImage;
 use App\Models\Announcement;
 use Livewire\WithFileUploads;
+use App\Jobs\GoogleVisionLabelImage;
+use App\Jobs\GoogleVisionSafeSearch;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -119,8 +122,13 @@ class AnnonucmenteEdit extends Component
                 $newFileName = "announcements/{$this->announcement->id}";
                 $newImage = $this->announcement->images()->create(['path'=>$image->store($newFileName, 'public')]);
     
-                dispatch (new ResizeImage($newImage->path , 400 , 300 ));
-                dispatch (new GoogleVisionSafeSearch($newImage->id));
+                RemoveFaces::withChain(
+                    [
+                        (new ResizeImage($newImage->path , 400 , 300 )),
+                        (new GoogleVisionSafeSearch($newImage->id)),
+                        (new GoogleVisionLabelImage($newImage->id))
+                    ]
+                )->dispatch($newImage->id);
              
                 
             }
