@@ -36,6 +36,13 @@
                     </div>
                     @endforelse
                 </div>
+                <!-- <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                $announcements->links()
+                                </div>
+                            </div>
+                        </div> -->
             </div>
         </div>
     </div>
