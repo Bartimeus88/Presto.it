@@ -22,14 +22,14 @@ class RevisorController extends Controller
         $announcement->status_date = now();
         $announcement->user_revisor_id = auth()->id();
         $announcement->setAccepted(true);        
-        return redirect()->back()->with('message','Compliment,hai accettato l\'annuncio');
+        return redirect()->back()->with('message','Complimenti!,hai accettato l\'annuncio');
     }
 
     public function rejectAnnouncement(Announcement $announcement){
         $announcement->status_date = now();
         $announcement->user_revisor_id = auth()->id();
         $announcement->setAccepted(false);
-        return redirect()->back()->with('message','Compliment,hai rifiutato l\'annuncio');
+        return redirect()->back()->with('message','Complimenti!,hai rifiutato l\'annuncio');
     }
 
     public function createRevisor(){
@@ -38,12 +38,12 @@ class RevisorController extends Controller
 
     public function becomeRevisor() {
         Mail::to('admin@presto.it')->send(new BecomeRevisor(Auth::user()));
-        return redirect()->back()->with('message','Complimenti!La tua richiesta di diventare revisore è andata a buon fine');
+        return redirect()->back()->with('message','Complimenti!,La tua richiesta di diventare revisore è andata a buon fine');
     }
 
     public function makeRevisor(User $user){
         Artisan::call('presto:MakeUserRevisor',['email'=>$user->email]);
-        return redirect('/')->with('message','Complimenti! L\'utente è diventato revisore');
+        return redirect('/')->with('message','Complimenti!,L\'utente è diventato revisore');
     }
 
     public function requestRevisor(){

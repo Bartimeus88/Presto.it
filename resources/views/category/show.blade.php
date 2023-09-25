@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="row">
-                    @forelse ($category->announcements as $announcement)
+                    @forelse ($catAnnouncements as $announcement)
                         @if($announcement->is_accepted)
                     
                         <div class="col-12 col-lg-4">
@@ -36,13 +36,13 @@
                     </div>
                     @endforelse
                 </div>
-                <!-- <div class="container">
+                <div class="container">
                             <div class="row">
                                 <div class="col-12">
-                                $announcements->links()
+                                {{$catAnnouncements->links()}}
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
             </div>
         </div>
     </div>

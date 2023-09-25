@@ -19,7 +19,7 @@ class AnnouncementController extends Controller
 
     public function indexAnnouncement(){
 
-      $announcements=Announcement::where('is_accepted',true)->paginate(8);
+      $announcements=Announcement::where('is_accepted',true)->paginate(12);
       return view('announcements.index',compact('announcements'));
 
     }

@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Mail\ContactAdmin;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Mail;
 
 class FrontController extends Controller
@@ -19,12 +20,13 @@ class FrontController extends Controller
     }
 
     public function categoryShow(Category $category){
-    
-        return view('category.show',compact('category'));
+        Paginator::useBootstrap();
+            $catAnnouncements=$category->announcements->where('is_accepted',true)->toQuery()->paginate(12);
+        return view('category.show',compact('category','catAnnouncements'));
     }
 
     public function searchAnnouncements(Request $request){
-        $announcements = Announcement::search($request->searched)->where('is_accepted',true)->paginate(6);
+        $announcements = Announcement::search($request->searched)->where('is_accepted',true)->paginate(8);
 
         return view('announcements.index',compact('announcements'));
     }
