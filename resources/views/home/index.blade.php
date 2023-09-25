@@ -82,13 +82,13 @@
         </div>
     </header> --}}
     <section class="hero_homepage">
-        @if (auth()->check())
-            <div class="hero_homepage_content">
-                <h1 class="text-dark">Clicca quì per creare <br>il tuo annuncio</h1>
-                <a class="btn btn-dark btn-xl text-uppercase"
-                    href="{{ route('announcements.create') }}">{{ __('ui.create_your_announcement') }}</a>
-            </div>
-        @endif
+        <div class="hero_homepage_content text-center d-flex flex-column justify-content-center align-items-center">
+            <h1 class="text-dark display-1 mb-4" style="margin: 0; padding: 0;"> BENVENUTI SU <br>PRESTO.IT</h1>
+            @if (auth()->check())
+                <h1 class="text-dark mb-3" style="margin: 0; padding: 0;">Clicca quì per creare <br>il tuo annuncio</h1>
+                <a class="btn btn-dark btn-xl text-uppercase" href="{{ route('announcements.create') }}">{{ __('ui.create_your_announcement') }}</a>
+            @endif
+        </div>
     </section>
 
     <!-- INTESTAZIONE CATEGORIE -->
@@ -261,37 +261,7 @@
         </div>
     @endforeach
 
-    {{-- nuovi ultimi  annunci (ragazzi non chiedetemi perchè li ho chiamati product) --}}
-    {{-- <section id="product1" class="section-p1 shadow my-5 py-5">
-        <h2>{{ __('ui.last_announcements') }}</h2>
-        <p>{{ __('ui.take_a_look') }}!!</p>
-        <div class="pro-container">
-            @foreach ($announcements as $announcement)
-                <div class="pro">
-                    <img src="{{ !$announcement->images()->get()->isEmpty()? $announcement->images()->first()->getUrl(400, 300): 'https://picsum.photos/200' }}"
-                        alt="">
-                    <div class="des">
-                        <h5>{{ $announcement->title }}</h5>
-                        <p class="text-truncate">{{ $announcement->description }}</p>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>{{ $announcement->price }}</h4>
-                        <button type="button" class="btn btn-primary"><a class="text-white"
-                                href="{{ route('announcements.show', $announcement->id) }}">{{ __('ui.view') }}</a></button>
-                        <a href="{{ route('categoryShow', ['category' => $announcement->category]) }}"
-                            class="card-link btn btn-success shadow">{{ __('ui.category') }}:
-                            {{ $announcement->category->name }}</a>
-                    </div>
-                    {{-- <a href="#"><i class="fal fa-shopping-cart cart"></i></a> --}}
-    {{-- </div>
-            @endforeach
-        </div>
-    </section> --}}
+
     <!-- ULTIMI ANNUNCI -->
     <div class="container">
         <div class="row">
@@ -305,7 +275,7 @@
                 <div class="container text-center">
                     <div class="row  align-items-start">
                         @foreach ($announcements as $announcement)
-                            <div class="col col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 
                                 <!-- Block2 -->
                                 <div class="block2 mb-2 align-items-start">

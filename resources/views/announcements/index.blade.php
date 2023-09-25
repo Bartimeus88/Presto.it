@@ -57,7 +57,7 @@
                 <div class="container text-center">
                     <div class="row  align-items-start">
                         @foreach ($announcements as $announcement)
-                            <div class="col col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women ">
 
                                 <!-- Block2 -->
                                 <div class="block2 mb-2 align-items-start">
@@ -94,11 +94,11 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-12">
-                                {{$announcements->links()}}
+                                    {{ $announcements->links() }}
                                 </div>
                             </div>
                         </div>
-                      
+
                     </div>
                 </div>
             </div>

@@ -89,7 +89,7 @@
 
 
         <!-- The content half -->
-        <div class="col-md-6 bg-white">
+        <div class="col-md-6 bg-white " style="overflow-y: auto; max-height: 100vh;">
             <div class="login d-flex align-items-center py-5">
 
                 <!-- Demo content-->
@@ -101,8 +101,8 @@
                             <form wire:submit.prevent="store">
                                 @csrf
                                 <div class="form-group mb-3">
-                                    <input value="{{ $title }}" wire:model="title" id="title" type="text" placeholder="Titolo" 
-                                        
+                                    <input value="{{ $title }}" wire:model="title" id="title" type="text" placeholder="Titolo"
+
                                         class="form-control rounded-2 border-0 px-4 @error('title') is-invalid @enderror shadow">
                                     @error('title')
                                         {{ $message }}
