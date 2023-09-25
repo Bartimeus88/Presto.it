@@ -9,6 +9,7 @@ use App\Jobs\RemoveFaces;
 use App\Jobs\ResizeImage;
 use App\Models\Announcement;
 use Livewire\WithFileUploads;
+use App\Jobs\GoogleVisionLogo;
 use App\Jobs\GoogleVisionLabelImage;
 use App\Jobs\GoogleVisionSafeSearch;
 use Illuminate\Support\Facades\Auth;
@@ -94,9 +95,12 @@ class AnnouncementCreate extends Component
             
             RemoveFaces::withChain(
                 [
-                    (new ResizeImage($newImage->path , 400 , 300 )),
+                    
+                    (new GoogleVisionLogo($newImage->id)),
+                    (new ResizeImage($newImage->path , 400 , 300 )),                   
                     (new GoogleVisionSafeSearch($newImage->id)),
-                    (new GoogleVisionLabelImage($newImage->id))
+                    (new GoogleVisionLabelImage($newImage->id)),
+                    
                 ]
             )->dispatch($newImage->id);
             
