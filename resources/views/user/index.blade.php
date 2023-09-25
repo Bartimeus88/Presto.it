@@ -63,7 +63,7 @@
                     <p class="text-color-success">il sistema di autentificazione a due fattori è stato abilitato</p>
                 @endif
 
-                {{-- <form method="POST" action="/user/two-factor-authentication">
+                <form method="POST" action="/user/two-factor-authentication">
                 @csrf
                 @if (auth()->user()->two_factor_secret)
                     @method('DELETE')
@@ -94,7 +94,7 @@
                     <button class="btn btn-dark col-3 my-5">Abilita</button>   
 
                 @endif
-            </form> --}}
+            </form>
             @endif
 
 
@@ -102,7 +102,8 @@
     </div>    
 
 
-    <div class="main-content">
+    {{-- profile user --}}
+    {{-- <div class="main-content">
             <!-- Top navbar -->
             {{-- <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
                 <div class="container-fluid">
@@ -166,7 +167,7 @@
                 </div>
             </nav> --}}
             <!-- Header -->
-            <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+            {{--<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
                 style="min-height: 600px; background-image: black; background-size: cover; background-position: center top;">
                 <!-- Mask -->
                 <span class="mask bg-gradient-default opacity-8"></span>
@@ -362,7 +363,7 @@
                     </div>
                 </div>
             </div>
-    </div>
+    </div> --}}
 
 
 
