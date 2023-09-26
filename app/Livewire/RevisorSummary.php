@@ -5,9 +5,15 @@ namespace App\Livewire;
 use App\Models\User;
 use Livewire\Component;
 use App\Models\Announcement;
+use Livewire\WithPagination;
 
 class RevisorSummary extends Component
 {
+
+    use WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
+
     public $announcements;
     public $users;
     public $selectedAccetta = []; 

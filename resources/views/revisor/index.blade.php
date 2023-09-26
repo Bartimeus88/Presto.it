@@ -95,7 +95,7 @@
             <form action="{{ route('editRevisor') }}" method="POST">
                 @csrf
                 @method('PUT')
-                <input class="btn btn-primary" type="submit" value="Annulla Modifica">
+                <input class="btn btn-dark" type="submit" value="Annulla Modifica">
             </form>
         </div>
 
@@ -103,7 +103,7 @@
         <!-- MODALE DI RIEPILOGO -->
         <div class="col-6 d-flex justify-content-center"> 
            <!-- Button trigger modal  -->
-           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Riepilogo">
+           <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#Riepilogo">
                 Riepilogo Revisore
             </button>
 
