@@ -94,15 +94,15 @@
                                             <span class="stext-105 cl3">
                                                 Prezzo {{ $announcement->price }}
                                             </span>
-                                            <div class="col-12 row justify-content-center">
+                                            <div class="col-12 row justify-content-center py-1">
                                                 <div class="col-6">
-                                                    <a class="text-center" href="{{route('announcements.edit', [$announcement->id])}}">Modifica</a>
+                                                    <a class="text-center btn btn-dark" href="{{route('announcements.edit', [$announcement->id])}}">Modifica</a>
                                                 </div>
                                                 <div class="col-6">
                                                     <form action="{{route('announcements.destroy', [$announcement->id])}}" method="post">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <input type="submit" value="elimina">
+                                                        <input class="btn btn-dark" type="submit" value="Elimina">
                                                     </form>
                                                 </div>
                                             </div>
