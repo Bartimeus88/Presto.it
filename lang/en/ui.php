@@ -13,6 +13,7 @@ return [
     'create_your_announcement' => 'Create your announcement',
     'description' => 'Description',
     'forgot_password' => 'Forgot Password',
+    'here_your_ann'=> 'Here are your announcements',
     'language' => 'Language',
     'last_announcements' => 'Latest announcements',
     'login' => 'Log In',
@@ -31,5 +32,6 @@ return [
     'title' => 'Title',
     'view' => 'View',
     'work_with_us' => 'WORK WITH US',
+    'welcome'=> 'Welcome',
     'your_announcements' => "Your announcements",
 ];

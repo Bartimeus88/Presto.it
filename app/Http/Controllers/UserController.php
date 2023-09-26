@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Support\Str;
+use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -23,9 +24,10 @@ class UserController extends Controller
 
         $user_announcements = User::find(auth()->user()->id);
 
+        $announcements=Announcement::where('user_id','=',$user_announcements->id)->paginate(8);
+       
 
-
-        return view ('user.profile',['announcements' => $user_announcements->announcements]);
+        return view ('user.profile',['announcements' => $announcements]);
     }
 
     // Rotta per il recupero password

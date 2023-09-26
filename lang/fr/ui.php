@@ -13,6 +13,7 @@ return [
     'create_your_announcement' => 'Créez votre annonce',
     'description' => 'Description',
     'forgot_password' => 'Mot de passe oublié',
+    'here_your_ann'=> 'Voici vos annonces',
     'language' => 'Langue',
     'last_announcements' => 'Dernières annonces',
     'login' => 'Connexion',
@@ -31,6 +32,7 @@ return [
     'title' => 'Titre',
     'view' => 'Voir',
     'work_with_us' => 'TRAVAILLEZ AVEC NOUS',
+    'welcome'=> 'Bienvenu',
     'your_announcements' => "Ton annonces",
 ];
 

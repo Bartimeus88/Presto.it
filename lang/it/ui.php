@@ -13,6 +13,7 @@ return [
     'create_your_announcement' => 'Crea il tuo annuncio',
     'description' => 'Descrizione',
     'forgot_password'=> 'Password dimenticata',
+    'here_your_ann'=> 'Ecco i tuoi annunci',
     'language' => 'Lingua',
     'last_announcements' => 'Ultimi annunci',
     'login' => 'Accedi',
@@ -31,5 +32,6 @@ return [
     'title' => 'Titolo',
     'view' => 'Visualizza',
     'work_with_us' => 'LAVORA CON NOI',
+    'welcome' => 'Benvenuto',
     'your_announcements' => "I tuoi annunci",
 ];
