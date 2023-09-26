@@ -56,5 +56,7 @@ class Announcement extends Model
         return $counter;
     }
 
+    public function users() {return $this->belongsToMany(User::class);}
+
     
 }
