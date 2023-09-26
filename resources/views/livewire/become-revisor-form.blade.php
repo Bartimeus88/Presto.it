@@ -12,7 +12,7 @@
         </div>
         
         <div class="mb-3">
-            <button class="btn btn-primary" type="submit">Invia Richiesta</button>
+            <button class="btn btn-dark" type="submit">Invia Richiesta</button>
         </div>
         <p class="text-color-success">{{$feedback}}</p>
     </form>
