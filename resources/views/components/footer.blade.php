@@ -1,6 +1,6 @@
 <!-- Footer -->
 
-<footer class="bg-dark text-white pt-5">
+{{-- <footer class="bg-dark text-white pt-5">
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-12">
@@ -17,156 +17,66 @@
             </div>
         </div>
     </div>
-</footer>
+</footer> --}}
 
 
-{{-- <footer class="bg3 p-t-75 p-b-32 ">
+<footer class="footer bg-footer">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-lg-3 p-b-50">
-                <h4 class="stext-301 cl0 p-b-30">
-                    Categories
-                </h4>
+            <div class="col-lg-4 col-12  ">
+                <h1 class="mt-4 text-white">Quando ti arrendi, è allora che il gioco finisce</h1>
+                <h4 class="text-white py-2">Cit. Il team di MIGHTY BYTE</h4>
+            </div><!--end col-->
 
-                <ul>
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Women
-                        </a>
-                    </li>
-
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Men
-                        </a>
-                    </li>
-
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Shoes
-                        </a>
-                    </li>
-
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Watches
-                        </a>
-                    </li>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0 pt-3">
+                <h4 class="text-light footer-head">Tecnologie usate</h4>
+                <ul class="list-unstyled footer-list mt-4">
+                    <li class="li-footer"><a href="javascript:void(0)" class="text-foot a-footer"><i class="mdi mdi-chevron-right mr-1"></i> Html</a></li>
+                    <li class="li-footer"><a href="javascript:void(0)" class="text-foot a-footer"><i class="mdi mdi-chevron-right mr-1"></i> Css</a></li>
+                    <li class="li-footer"><a href="javascript:void(0)" class="text-foot a-footer"><i class="mdi mdi-chevron-right mr-1"></i> Javascript</a></li>
+                    <li class="li-footer"><a href="javascript:void(0)" class="text-foot a-footer"><i class="mdi mdi-chevron-right mr-1"></i> Php</a></li>
+                    <li class="li-footer"><a href="javascript:void(0)" class="text-foot a-footer"><i class="mdi mdi-chevron-right mr-1"></i> Laravel</a></li>
+                    <li class="li-footer"><a href="javascript:void(0)" class="text-foot a-footer"><i class="mdi mdi-chevron-right mr-1"></i> Laravel livewire</a></li>
                 </ul>
-            </div>
+            </div><!--end col-->
 
-            <div class="col-sm-6 col-lg-3 p-b-50">
-                <h4 class="stext-301 cl0 p-b-30">
-                    Help
-                </h4>
-
-                <ul>
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Track Order
-                        </a>
-                    </li>
-
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Returns
-                        </a>
-                    </li>
-
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Shipping
-                        </a>
-                    </li>
-
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            FAQs
-                        </a>
-                    </li>
+            <div class="col-lg-2 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <h4 class="text-light footer-head">Team</h4>
+                <ul class="list-unstyled footer-list mt-4">
+                    <li class="li-footer"><a href="javascript:void(0)" class="text-foot a-footer"><i class="mdi mdi-chevron-right mr-1"></i> Luca Lovisa</a></li>
+                    <li class="li-footer"><a href="javascript:void(0)" class="text-foot a-footer"><i class="mdi mdi-chevron-right mr-1"></i> Ferdinando Rovani</a></li>
+                    <li class="li-footer"><a href="javascript:void(0)" class="text-foot a-footer"><i class="mdi mdi-chevron-right mr-1"></i> Gellart Trefilaza</a></li>
                 </ul>
-            </div>
+            </div><!--end col-->
 
-            <div class="col-sm-6 col-lg-3 p-b-50">
-                <h4 class="stext-301 cl0 p-b-30">
-                    GET IN TOUCH
-                </h4>
-
-                <p class="stext-107 cl7 size-201">
-                    Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on
-                    (+1) 96 716 6879
-                </p>
-
-                <div class="p-t-27">
-                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-
-                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                        <i class="fa fa-instagram"></i>
-                    </a>
-
-                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                        <i class="fa fa-pinterest-p"></i>
-                    </a>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <h4 class="text-light footer-head">Other</h4>
+                <ul class="list-unstyled footer-list mt-4">
+                    <li class="li-footer"><a href="#" class="text-foot a-footer"><i class="mdi mdi-chevron-right mr-1"></i> Terms Policy</a></li>
+                    <li class="li-footer"><a href="#" class="text-foot a-footer"><i class="mdi mdi-chevron-right mr-1"></i> Privacy</a></li>
+                </ul>
+            </div><!--end col-->
+        </div><!--end row-->
+    </div><!--end container-->
+</footer>
+<footer class="footer bg-footer footer-bar">
+    <div class="container text-center">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="text-center">
+                    <p class=" text-white text-center">Il team di <span>MIGHTY BYTE</span> vi ringrazia!<i class="mdi mdi-heart "></i></p>
                 </div>
-            </div>
+            </div><!--end col-->
 
-            <div class="col-sm-6 col-lg-3 p-b-50">
-                <h4 class="stext-301 cl0 p-b-30">
-                    Newsletter
-                </h4>
-
-                <form>
-                    <div class="wrap-input1 w-full p-b-4">
-                        <input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email"
-                            placeholder="email@example.com">
-                        <div class="focus-input1 trans-04"></div>
-                    </div>
-
-                    <div class="p-t-18">
-                        <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-                            Subscribe
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <div class="p-t-40">
-            <div class="flex-c-m flex-w p-b-18">
-                <a href="#" class="m-all-1">
-                    <img src="images/icons/icon-pay-01.png" alt="ICON-PAY">
-                </a>
-
-                <a href="#" class="m-all-1">
-                    <img src="images/icons/icon-pay-02.png" alt="ICON-PAY">
-                </a>
-
-                <a href="#" class="m-all-1">
-                    <img src="images/icons/icon-pay-03.png" alt="ICON-PAY">
-                </a>
-
-                <a href="#" class="m-all-1">
-                    <img src="images/icons/icon-pay-04.png" alt="ICON-PAY">
-                </a>
-
-                <a href="#" class="m-all-1">
-                    <img src="images/icons/icon-pay-05.png" alt="ICON-PAY">
-                </a>
-            </div>
-
-            <p class="stext-107 cl6 txt-center">
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;
-                <script>
-                    document.write(new Date().getFullYear());
-                </script> All rights reserved |Made with <i class="fa fa-heart-o" aria-hidden="true"></i>
-                by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a
-                    href="https://themewagon.com" target="_blank">ThemeWagon</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-
-            </p>
-        </div>
-    </div>
-</footer> --}}
+            <div class="col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <ul class="list-unstyled text-sm-right social-icon social mb-0">
+                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-facebook" title="Facebook"></i></a></li>
+                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-instagram" title="Instagram"></i></a></li>
+                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-twitter" title="Twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-google-plus" title="Google +"></i></a></li>
+                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-linkedin" title="Linkedin"></i></a></li>
+                </ul><!--end icon-->
+            </div><!--end col-->
+        </div><!--end row-->
+    </div><!--end container-->
+</footer>
