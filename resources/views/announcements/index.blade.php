@@ -85,7 +85,9 @@
                                                 Prezzo {{ $announcement->price }}
                                             </span>
                                             <span>
-                                                @livewire('favorite', ['announcement' => $announcement])
+                                                @if(auth()->check())
+                                                    @livewire('favorite', ['announcement' => $announcement])
+                                                @endif
                                             </span>
 
                                         </div>

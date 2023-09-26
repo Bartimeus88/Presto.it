@@ -180,7 +180,9 @@
                             <div class="buttons d-flex flex-row">
 
                                 <a class="btn btn-dark btn-xl text-uppercase ms-3"
-                                    href="{{ route('categoryShow', compact('category')) }}">{{ __('visualizza') }}</a>
+                                    href="{{ route('categoryShow', compact('category')) }}">{{ __('visualizza') }}
+                                </a>
+                                
 
                             </div>
                         </div>
@@ -317,6 +319,11 @@
                                             </span>
                                             <span class="stext-105 cl3">
                                                 {{ __('ui.price') }} {{ $announcement->price }}
+                                            </span>
+                                            <span>
+                                                @if(auth()->check())
+                                                    @livewire('favorite', ['announcement' => $announcement])
+                                                @endif
                                             </span>
 
                                         </div>
