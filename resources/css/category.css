@@ -1,5 +1,5 @@
 .category-background-color {
-    background-color:rgba(225, 225, 225, 1);
+    background-color:#f6f6f6;
 }
 
 .product-card {
@@ -65,7 +65,7 @@
 
 .buttons button:hover {
     background-color: #000000;
-    
+
 }
 
 .product-card .buttons {
