@@ -27,7 +27,7 @@
         <x-navbar2 />
     @endif
     
-    <main class="min-vh-100 @if (!Route::is('login', 'register')) mt-5 pt-2 @endif">
+    <main class="overflow-hidden min-vh-100 @if (!Route::is('login', 'register')) mt-5 pt-2 @endif">
         {{ $slot }}
     </main>
 

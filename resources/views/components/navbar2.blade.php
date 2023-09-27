@@ -1,4 +1,4 @@
-<nav class="navbar acoli navbar-expand-lg shadow py-2 fixed-top bg-warning mb-5">
+<nav class="navbar acoli navbar-expand-lg shadow py-2 fixed-top bg-warning mb-5 overflow-hidden">
 
 
     <div class="container">

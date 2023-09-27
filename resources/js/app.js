@@ -1,4 +1,4 @@
 
 import 'bootstrap';
 import './category.js'
-import './main.js';
+// import './main.js';
