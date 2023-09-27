@@ -83,9 +83,9 @@
     </header> --}}
     <section class="hero_homepage">
         <div class="hero_homepage_content text-center d-flex flex-column justify-content-center align-items-center">
-            <h1 class="text-dark display-1 mb-4" style="margin: 0; padding: 0;"> BENVENUTI SU <br>PRESTO.IT</h1>
+            <h1 class="text-dark display-1 mb-4" style="margin: 0; padding: 0;"> {{ __('ui.welcome_to') }} <br>PRESTO.IT</h1>
             @if (auth()->check())
-                <h1 class="text-dark mb-3" style="margin: 0; padding: 0;">Clicca quì per creare <br>il tuo annuncio</h1>
+                <h2 class="text-dark mb-3 fs-1" style="margin: 0; padding: 0;">{!! nl2br(__('ui.click_here_to_create_your_advertisement')) !!}</h2>
                 <a class="btn btn-dark btn-xl text-uppercase" href="{{ route('announcements.create') }}">{{ __('ui.create_your_announcement') }}</a>
             @endif
         </div>
@@ -151,7 +151,7 @@
     <div class="container-fluid mt-1 category-background-color">
         <div class="text-center p-5">
             <h2 class="section-heading text-uppercase">{{ __('ui.categories') }}</h2>
-            <h3 class="section-subheading text-muted mt-5mb-5">Seleziona una tra le nostre catgorie</h3>
+            <h3 class="section-subheading text-muted mt-5mb-5">{{ __('ui.select_one_of_our_categories') }}</h3>
         </div>
         <div class="row g-2">
             @foreach ($categories as $category)

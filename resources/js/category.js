@@ -2,7 +2,7 @@ const categories = document.querySelectorAll(`.fr-category`)
 
 // funzione effetto translate al passaggio dell'utente
 
-console.log(categories)
+
 
 let slider = () => {
     for (let i = 0; i < categories.length; i++) {
