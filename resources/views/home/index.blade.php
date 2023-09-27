@@ -155,9 +155,9 @@
         </div>
         <div class="row g-2">
             @foreach ($categories as $category)
-                <div class="col-md-3 pb-5">
+                <div class="col-md-3 pb-5 overflow-hidden">
                     <div class="product">
-                        <div class="product-card">
+                        <div class="product-card opacity-0 fr-category">
                             <!-- cambia nome categoria in base alla lingua impostata -->
                             <!-- quando parte la sessione se la lingua preferita del browser è italiano -->
                             @if (session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'it')
