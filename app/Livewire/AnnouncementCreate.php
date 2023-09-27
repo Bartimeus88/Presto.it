@@ -13,6 +13,7 @@ use App\Jobs\GoogleVisionLogo;
 use App\Jobs\GoogleVisionLabelImage;
 use App\Jobs\GoogleVisionSafeSearch;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\Rule;
 
 class AnnouncementCreate extends Component
 {
@@ -20,6 +21,8 @@ class AnnouncementCreate extends Component
      use WithFileUploads;
 
     // 
+
+   
 
     public $title , $description , $price , $color,$text, $category ,$temporary_images;
 
@@ -129,8 +132,9 @@ class AnnouncementCreate extends Component
     }
 
     //rende le validazioni di errore in tempo reale
-
-    public function updated($propertyName){
+    
+    public function updated($propertyName)
+    {
         $this->validateOnly($propertyName);
     }
 
