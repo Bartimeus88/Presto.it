@@ -176,7 +176,7 @@
                                 <span class="sale">{{ $category->en }}</span>
                             @endif
 
-                            <img src="{{ asset('images/motor.jpg') }}" alt="" class="img-fluid">
+                            <img src="{{ asset('images/category/'.$category->id.'.jpg') }}" alt="" class="img-fluid">
                             <div class="buttons d-flex flex-row">
 
                                 <a class="btn btn-dark btn-xl text-uppercase ms-3"
