@@ -92,6 +92,10 @@
                                 <a class="nav-link text-dark"
                                     href="{{ route('user.profile') }}">{{ __('ui.your_announcements') }}</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark"
+                                    href="{{ route('user.wish') }}">{{ __('ui.wish_list') }}</a>
+                            </li>
 
                             <li class="nav-item mx-4 d-none">
                                 <form action="/logout" method="post">

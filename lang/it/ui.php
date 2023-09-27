@@ -31,7 +31,9 @@ return [
     'take_a_look' => "Dai un'occhiata",
     'title' => 'Titolo',
     'view' => 'Visualizza',
-    'work_with_us' => 'LAVORA CON NOI',
     'welcome' => 'Benvenuto',
+    'wish_list'=> 'Preferiti',
+    'work_with_us' => 'LAVORA CON NOI',    
     'your_announcements' => "I tuoi annunci",
+    'your_favorites' => "I Tuoi preferiti"
 ];

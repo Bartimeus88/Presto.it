@@ -33,7 +33,9 @@ return [
     'view' => 'Voir',
     'work_with_us' => 'TRAVAILLEZ AVEC NOUS',
     'welcome'=> 'Bienvenu',
-    'your_announcements' => "Ton annonces",
+    'wish_list' => 'Liste de souhaits',
+    'your_announcements' => "Ton annonces",    
+    'your_favorites' => 'Vos favoris',
 ];
 
 

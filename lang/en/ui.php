@@ -34,4 +34,6 @@ return [
     'work_with_us' => 'WORK WITH US',
     'welcome'=> 'Welcome',
     'your_announcements' => "Your announcements",
+    'wish_list' => 'Wish List',
+    'your_favorites' => 'Your Favorites'
 ];

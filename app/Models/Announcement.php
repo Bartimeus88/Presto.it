@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\Image;
 use App\Models\Category;
 use App\Models\Announcement;
@@ -55,6 +56,12 @@ class Announcement extends Model
 
         return $counter;
     }
+
+    public function favorites()
+    {
+     return $this->belongsToMany(User::class, 'user_favorite_announcements')->withTimestamps();
+    }
+
 
     
 

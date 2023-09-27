@@ -30,6 +30,19 @@ class UserController extends Controller
         return view ('user.profile',['announcements' => $announcements]);
     }
 
+    // Annunci preferiti
+    public function wish()
+    {
+        $user = auth()->user();
+    
+        $announcements = Announcement::whereHas('favorites', function ($query) use ($user) {
+        $query->where('user_id', $user->id);
+        })->paginate(8);
+    
+     return view('user.wish', ['announcements' => $announcements]);
+    }
+
+
     // Rotta per il recupero password
     public function forgotPassword()
     {

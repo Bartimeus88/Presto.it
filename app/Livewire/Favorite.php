@@ -2,8 +2,9 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Models\User; 
+use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 
 class Favorite extends Component
 {
@@ -33,9 +34,15 @@ class Favorite extends Component
 
     private function announcementIsFavorite()
     {
-        $user = auth()->user(); // Recupero l'utente autenticato
+        $userId = auth()->user()->id; 
+        $announcementId = $this->announcement->id;
+        $checkFavorite = DB::table('user_favorite_announcements')
+        ->where('user_id', $userId)
+        ->where('announcement_id', $announcementId)
+        ->exists();
 
-        return $user->favorites > 0;
+
+        return $checkFavorite;
     }
 
     public function render()
