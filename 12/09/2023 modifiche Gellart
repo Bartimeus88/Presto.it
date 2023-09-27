@@ -90,8 +90,20 @@ cose da fare front-end {
     - sezione lavora con noi ( work in progress )
     - footer
     - pagina profilo ( work in progress )
-    
+
 }
 in .env
 QUEUE_CONNECTION=database
 php artisan queue:work da lasciare aperto
+
+
+27/09/2023---------------------
+
+cose da fare front-end {
+
+    - pagina profilo
+    - pagina annunci utente
+    - messaggi di errore
+    - categorie con immagini diverse
+    - font
+}

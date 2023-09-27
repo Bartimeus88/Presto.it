@@ -1,13 +1,14 @@
 <x-layout>
 
-    <header class="masthead_show_announcements">
+    <div class="hero">
         <div class="container">
-
-            <h2 class="display-1 text-center text-dark">
-                {{ __('ui.our_announcements') }}
-            </h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="display-1 text-dark">Questa è la pagina annunci,  sfoglia e trova il più adatto a te!!</h3>
+                </div>
+            </div>
         </div>
-    </header>
+    </div>
 
     <!-- Container annunci -->
     {{-- <div class="container my-5">
@@ -83,11 +84,6 @@
                                             </span>
                                             <span class="stext-105 cl3">
                                                 Prezzo {{ $announcement->price }}
-                                            </span>
-                                            <span>
-                                                @if(auth()->check())
-                                                    @livewire('favorite', ['announcement' => $announcement])
-                                                @endif
                                             </span>
 
                                         </div>

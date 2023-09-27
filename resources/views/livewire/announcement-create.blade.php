@@ -96,7 +96,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-10 col-xl-7 mx-auto">
-                            <h3 class="display-4">Crea</h3>
+                            <h3 class="display-4 text-dark">Crea</h3>
                             <p class="text-muted mb-4">Ricordati di compilare tutti i campi</p>
                             <form wire:submit.prevent="store">
                                 @csrf
