@@ -7,7 +7,7 @@
                 {{ __('ui.category_ann') }} <!-- cambia nome categoria in base alla lingua impostata -->
                 <!-- quando parte la sessione se la lingua preferita del browser è italiano -->
                 @if (session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'it')
-                    {{ $category->name }}.''. {{ __('ui.category') }}
+                    {{ $category->name }}
                     <!-- quando parte la sessione se la lingua preferita del browser è francese -->
                 @elseif(session('locale') == null && substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'fr')
                     {{ $category->fr }}
