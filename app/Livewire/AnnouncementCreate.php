@@ -32,8 +32,8 @@ class AnnouncementCreate extends Component
 
     //regole per le validazioni
     protected $rules = [
-        'title' => 'required|min:6',
-        'description'=> 'required|min:6',
+        'title' => 'required|min:4',
+        'description'=> 'required|min:10',
         'price'=>'required|numeric',
         'category'=>'required',
         'images.*'=>'image|max:1024',
@@ -44,7 +44,8 @@ class AnnouncementCreate extends Component
 
     protected $messages = [
         'required'=>'Il campo è richiesto',
-        'min'=>'Il campo è troppo corto , minimo 6 caratteri',
+        'title.min'=>'Il titolo è troppo corto , minimo 4 caratteri',
+        'description.min'=>'La descrizione è troppo corta , minimo 10 caratteri',
         'numeric'=>'Il campo dev\'essere un numero',
         'temporary_images.required'=>'L\'immagine è richiesta',
         'temporary_images.*.image'=>'Dev\'essere un\'immagine',

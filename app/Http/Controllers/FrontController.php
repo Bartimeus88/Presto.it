@@ -72,7 +72,7 @@ class FrontController extends Controller
         {
             return redirect()->back()->with('errorMessage', 'Si è verificato un errore durante l\'invio della mail.');
         };        
-        return redirect(route('home.index'))->with('successMessage', 'Grazie per averci contattato, abbiamo ricevuto la tua email. Ti risponderemo il rpima possibile');
+        return redirect(route('home.index'))->with('successMessage', 'Grazie per averci contattato, abbiamo ricevuto la tua email. Ti risponderemo il prima possibile');
     }
 
     // Rotta per settare la lingua

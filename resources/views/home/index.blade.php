@@ -24,49 +24,7 @@
     </div> --}}
 
 
-    <!-- Messaggio che compare dopo aver compilato il form contattaci -->
-    <!-- Ina caso di successo: -->
-    @if (session('successMessage'))
-        <div class="container">
-            <div class="my-5 flex flex-row justify-center my2 alert alert-success">
-                {{ session('successMessage') }}
-            </div>
-        </div>
-        <!-- nel caso in cui l'ivio non vada a buon fine -->
-    @elseif(session('errorMessage'))
-        <div class="container">
-            <div class="my-5 flex flex-row justify-center my2 alert alert-danger">
-                {{ session('errorMessage') }}
-            </div>
-        </div>
-        <!-- nel caso in cui ci siano campi errati nel form -->
-    @elseif ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
-
-
-
-    @if (session()->has('access.denied'))
-        <div class="container">
-            <div class="my-5 flex flex-row justify-center my2 alert alert-danger">
-                {{ session('access.denied') }}
-            </div>
-        </div>
-    @endif
-    @if (session()->has('message'))
-        <div class="container">
-            <div class="my-5 flex flex-row justify-center my2 alert alert-success">
-                {{ session('message') }}
-            </div>
-        </div>
-    @endif
+   
 
 
     {{-- sezione hero contenente bottone che porta alla creazione annuncio --}}
@@ -83,6 +41,46 @@
     </header> --}}
     <section class="hero_homepage overflow-hidden">
         <div class="hero_homepage_content text-center d-flex flex-column justify-content-center align-items-center ">
+            <!-- Messaggio che compare dopo aver compilato il form contattaci -->
+            <!-- Ina caso di successo: -->
+            @if (session('successMessage'))
+                <div class="container">
+                    <div class="my-5 flex flex-row justify-center my2 alert alert-success">
+                        {{ session('successMessage') }}
+                    </div>
+                </div>
+            <!-- nel caso in cui l'ivio non vada a buon fine -->
+            @elseif(session('errorMessage'))
+                <div class="container">
+                    <div class="my-5 flex flex-row justify-center my2 alert alert-danger">
+                        {{ session('errorMessage') }}
+                    </div>
+                </div>
+        <!-- nel caso in cui ci siano campi errati nel form -->
+                @elseif ($errors->any())
+                    <div class="my-5 flex flex-row justify-center my2 alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                @if (session()->has('access.denied'))
+                    <div class="container">
+                         <div class="my-5 flex flex-row justify-center my2 alert alert-danger">
+                            {{ session('access.denied') }}
+                        </div>
+                    </div>
+                @endif
+                @if (session()->has('message'))
+                    <div class="container">
+                        <div class="my-5 flex flex-row justify-center my2 alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                    </div>
+                @endif
             <h2 class="text-dark display-1 mb-4 fs-1" style="margin: 0; padding: 0;"> {{ __('ui.welcome_to') }}</h2>
             <h1 class="text-dark display-1 mb-4 titleAnimation">PRESTO.IT</h1>
             @if (auth()->check())

@@ -96,6 +96,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-10 col-xl-7 mx-auto">
+                        @if (session()->has('message'))
+                    <div class="flex flex-row justify-center my2 alert alert-success">
+                    {{session('message')}}
+                    </div>
+                @endif
                             <h3 class="display-4 text-dark">Crea</h3>
                             <p class="text-muted mb-4">Ricordati di compilare tutti i campi</p>
                             <form wire:submit.prevent="store">
