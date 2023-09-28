@@ -125,7 +125,9 @@
                 <!-- Menu multi lingua -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarLightDropdownMenuLink"
-                        role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('ui.language') }}</a>
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-globe fs-4"></i>
+                        <!-- {{ __('ui.language') }} -->
+                    </a>
                     <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
                         <!-- Italiano -->
                         <li class="m-0 nav-link active me-2 g-light d-flex ">

@@ -61,6 +61,11 @@
                                                 <span class="stext-105 cl3">
                                                     Prezzo {{ $announcement->price }}
                                                 </span>
+                                                <span>
+                                                @if(auth()->check())
+                                                    @livewire('favorite', ['announcement' => $announcement])
+                                                @endif
+                                            </span>
 
                                             </div>
                                         </div>
