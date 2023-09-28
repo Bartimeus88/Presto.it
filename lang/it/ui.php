@@ -7,8 +7,10 @@ return [
     'categories' => 'Categorie',
     'category' => 'Categoria',
     'category_ann'=>'Tutti gli Annunci della Categoria ',
+    'click_here'=>'Per Accedere o Registrarti <br> Clicca qui',
     'click_here_to_create_your_advertisement'=>"Clicca qui per creare il tuo <br> annuncio",
     'contact_us' => 'Contattaci',
+    'continue_with_github'=>'Continua con GitHub',
     'continue_with_google'=> "Continua con Google",
     'create_announcement' => 'Pubblicane uno',
     'create_your_announcement' => 'Crea il tuo annuncio',
@@ -38,5 +40,5 @@ return [
     'wish_list'=> 'Preferiti',
     'work_with_us' => 'LAVORA CON NOI',    
     'your_announcements' => "I tuoi annunci",
-    'your_favorites' => "I Tuoi preferiti"
+    'your_favorites' => "I Tuoi preferiti",
 ];

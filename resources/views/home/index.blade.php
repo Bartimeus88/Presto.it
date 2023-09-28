@@ -45,20 +45,20 @@
             <!-- Ina caso di successo: -->
             @if (session('successMessage'))
                 <div class="container">
-                    <div class="my-5 flex flex-row justify-center my2 alert alert-success">
+                    <div class="my-5 flex flex-row justify-center text-center my2 alert alert-success">
                         {{ session('successMessage') }}
                     </div>
                 </div>
             <!-- nel caso in cui l'ivio non vada a buon fine -->
             @elseif(session('errorMessage'))
                 <div class="container">
-                    <div class="my-5 flex flex-row justify-center my2 alert alert-danger">
+                    <div class="my-5 flex flex-row justify-center text-center my2 alert alert-danger">
                         {{ session('errorMessage') }}
                     </div>
                 </div>
         <!-- nel caso in cui ci siano campi errati nel form -->
                 @elseif ($errors->any())
-                    <div class="my-5 flex flex-row justify-center my2 alert alert-danger">
+                    <div class="my-5 flex flex-row justify-center text-center my2 alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
@@ -69,14 +69,14 @@
 
                 @if (session()->has('access.denied'))
                     <div class="container">
-                         <div class="my-5 flex flex-row justify-center my2 alert alert-danger">
+                         <div class="my-5 flex flex-row justify-center text-center my2 alert alert-danger">
                             {{ session('access.denied') }}
                         </div>
                     </div>
                 @endif
                 @if (session()->has('message'))
                     <div class="container">
-                        <div class="my-5 flex flex-row justify-center my2 alert alert-success">
+                        <div class="my-5 flex flex-row justify-center text-center my2 alert alert-success">
                             {{ session('message') }}
                         </div>
                     </div>
@@ -86,6 +86,12 @@
             @if (auth()->check())
                 <h2 class="text-dark mb-3 fs-1" style="margin: 0; padding: 0;">{!! nl2br(__('ui.click_here_to_create_your_advertisement')) !!}</h2>
                 <a class="btn btn-dark btn-xl text-uppercase" href="{{ route('announcements.create') }}">{{ __('ui.create_your_announcement') }}</a>
+            @else
+                <h2 class="text-dark mb-3 fs-1" style="margin: 0; padding: 0;">{!! nl2br(__('ui.click_here')) !!}</h2>
+            <div class="col-12 mt-4 row">
+                <div class="col-6"><a class="btn btn-dark btn-xl px-5 text-uppercase" href="/login">{{ __('ui.login') }}</a></div>
+                <div class="col-6"><a class="btn btn-dark btn-xl px-4 text-uppercase" href="/register">{{ __('ui.register') }}</a></div>
+            </div>
             @endif
         </div>
     </section>

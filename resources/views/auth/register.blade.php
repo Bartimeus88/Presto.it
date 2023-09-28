@@ -78,7 +78,7 @@
                                 <div class="col-12 col-md-6 d-flex align-items-stretch justify-content-center">
                                     <a class="btn btn-primary btn-lg btn-block btn-login " style="background-color:#2b3137"
                                         href="{{ route('github.redirect') }}" role="button">
-                                        <i class="fa-brands fa-github me-2"></i>Continua con Github
+                                        <i class="fa-brands fa-github me-2"></i>{{__('ui.continue_with_github')}}
                                     </a>
                                 </div>
                             </di>
