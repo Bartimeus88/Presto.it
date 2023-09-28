@@ -60,7 +60,7 @@
                     <h5 class="card-title">{{ $announcement_to_check->title }}</h5>
                     <p class="card-text text-truncate">{{ $announcement_to_check->description }}</p>
                     <p class="card-text">{{ $announcement_to_check->price }}</p>
-                    <a href="#" class="btn btn-dark">Visualizza</a>
+                    <a href="{{ route('announcements.show', $announcement_to_check->id) }}" class="btn btn-dark">Visualizza</a>
                     <p class="card-footer">Pubblicato il: {{ $announcement_to_check->created_at->format('d/m/Y') }}
                         - Autore : {{$announcement_to_check->user->name ?? '' }}</p>
                 </div>
