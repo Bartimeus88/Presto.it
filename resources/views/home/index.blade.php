@@ -44,14 +44,14 @@
             <!-- Messaggio che compare dopo aver compilato il form contattaci -->
             <!-- Ina caso di successo: -->
             @if (session('successMessage'))
-                <div class="container">
+                <div class="container text-center">
                     <div class="my-5 flex flex-row justify-center text-center my2 alert alert-success">
                         {{ session('successMessage') }}
                     </div>
                 </div>
             <!-- nel caso in cui l'ivio non vada a buon fine -->
             @elseif(session('errorMessage'))
-                <div class="container">
+                <div class="container text-center">
                     <div class="my-5 flex flex-row justify-center text-center my2 alert alert-danger">
                         {{ session('errorMessage') }}
                     </div>
